@@ -1,0 +1,17 @@
+<RCC>
+  <qresource prefix="buttons">
+    <file>all_on.png</file>
+    <file>letter-b-icon.png</file>
+    <file>Desenho completo Arco.jpg</file>
+    <file>connect.png</file>
+    <file>reset.png</file>
+    <file>hold.png</file>
+    <file>edit.png</file>
+    <file>Configure_alt_3.png</file>
+    <file>save.png</file>
+    <file>emergency_icon_01.png</file>
+    <file>led.png</file>
+    <file>Power_Off.png</file>
+    <file>Power_On.png</file>
+  </qresource>
+</RCC>
