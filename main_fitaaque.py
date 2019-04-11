@@ -15,7 +15,6 @@ from interface_ui import *
 import numpy as np
 import pyqtgraph as pg
 
-
 pg.setConfigOptions(useOpenGL=True)
 
 
@@ -53,6 +52,7 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
         self.ui.actionGrupo_1.triggered.connect(lambda: self.set_index(24))
         self.ui.actionGrupo_2.triggered.connect(lambda: self.set_index(25))
         self.ui.actionGrupo_3.triggered.connect(lambda: self.set_index(26))
+        self.ui.actionGrupo_4.triggered.connect(lambda: self.set_index(27))
 
         self.ui.pB_Connect.clicked.connect(self.connect)
         self.ui.pB_Disconnect.clicked.connect(self.disconnect)
@@ -329,8 +329,13 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
 
         self.ui.pB_on1.clicked.connect(lambda: self.on_group(0))
         self.ui.pB_on2.clicked.connect(lambda: self.on_group(1))
+        self.ui.pB_on3.clicked.connect(lambda: self.on_group(2))
+        self.ui.pB_hold1.clicked.connect(lambda: self.hold_group(0))
+        self.ui.pB_hold2.clicked.connect(lambda: self.hold_group(1))
+        self.ui.pB_hold3.clicked.connect(lambda: self.hold_group(2))
         self.ui.pB_off1.clicked.connect(lambda: self.off_group(0))
         self.ui.pB_off2.clicked.connect(lambda: self.off_group(1))
+        self.ui.pB_off3.clicked.connect(lambda: self.off_group(2))
         self.ui.pB_ligar_tudo.clicked.connect(self.turn_all_on)
         self.ui.pB_emerg_geral.clicked.connect(self.shut_down)
 
@@ -347,11 +352,9 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
         self.ui.pB_Vazio.clicked.connect(lambda: self.config_local('V'))
         self.ui.pB_G1.clicked.connect(lambda: self.config_group('1'))
         self.ui.pB_G2.clicked.connect(lambda: self.config_group('2'))
+        self.ui.pB_G3.clicked.connect(lambda: self.config_group('3'))
         self.ui.pB_set_config.clicked.connect(self.set_configuration)
         self.ui.pB_escape_config.clicked.connect(self.escape_configuration)
-
-        self.ui.pB_hold1.clicked.connect(lambda: self.hold_group(0))
-        self.ui.pB_hold2.clicked.connect(lambda: self.hold_group(1))
 
         self.ui.pB_n_est_aq.clicked.connect(self.enable_edit_stages)
         self.ui.pB_temp.clicked.connect(lambda: self.edit('temp'))
@@ -375,9 +378,8 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
         self.ui.comboBox_live_10.currentIndexChanged.connect(lambda: self.refresh_axis_live_gvts(9))
         self.ui.comboBox_live2_1.currentIndexChanged.connect(lambda: self.refresh_axis_live_grps(0))
         self.ui.comboBox_live2_2.currentIndexChanged.connect(lambda: self.refresh_axis_live_grps(1))
-        #Vitor
         self.ui.comboBox_live2_3.currentIndexChanged.connect(lambda: self.refresh_axis_live_grps(2))
-        #Vitor
+        self.ui.comboBox_live2_4.currentIndexChanged.connect(lambda: self.refresh_axis_live_grps(3))
 
         QtGui.QApplication.setStyle(QtGui.QStyleFactory.create('Plastique'))
         QtGui.QApplication.setPalette(QtGui.QApplication.style().standardPalette())
@@ -396,14 +398,12 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
             self.leg_gvt[g].setParentItem(getattr(self.ui, 'graphic_gaveta_' + str(g + 1)).graphicsItem())
             getattr(self.ui, 'graphic_gaveta_' + str(g + 1)).getAxis('left').setWidth(100)
 
-        #Vitor
-        for group in range(3):
-        #Vitor
-            getattr(self.ui, 'graphic_group_' + str(group + 1)).setLabel('left', text='Temperatura', units='°C', color='k')
-            getattr(self.ui, 'graphic_group_' + str(group + 1)).showGrid(True, True)
+        for i in range(4):
+            getattr(self.ui, 'graphic_group_' + str(i + 1)).setLabel('left', text='Temperatura', units='°C', color='k')
+            getattr(self.ui, 'graphic_group_' + str(i + 1)).showGrid(True, True)
             self.leg_grp.append(pg.LegendItem((40, 40), offset=(10, 10)))
-            self.leg_grp[group].setParentItem(getattr(self.ui, 'graphic_group_' + str(group + 1)).graphicsItem())
-            getattr(self.ui, 'graphic_group_' + str(group + 1)).getAxis('left').setWidth(100)
+            self.leg_grp[i].setParentItem(getattr(self.ui, 'graphic_group_' + str(i + 1)).graphicsItem())
+            getattr(self.ui, 'graphic_group_' + str(i + 1)).getAxis('left').setWidth(100)
 
     def config_curves(self):
         Lib.graph.curves_grp = defaultdict(list)
@@ -416,15 +416,13 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
                     Lib.graph.curves_gvt[g][i] = np.append(Lib.graph.curves_gvt[g][i], getattr(self.ui, 'graphic_gaveta_' + str(g + 1)).plotItem.plot(np.array([]), np.array([])))
                     Lib.graph.curves_gvt[g][i][j].setPen(Lib.graph.pen[j], width=2)
 
-        #Vitor
-        for group in range(3):
-        #Vitor
+        for a in range(4):
             for i in range(10):
-                Lib.graph.curves_grp[group].append(np.array([]))
+                Lib.graph.curves_grp[a].append(np.array([]))
                 for j in range(8):
-                    Lib.graph.curves_grp[group][i] = np.append(Lib.graph.curves_grp[group][i],
-                                                               getattr(self.ui, 'graphic_group_' + str(group + 1)).plotItem.plot(np.array([]), np.array([])))
-                    Lib.graph.curves_grp[group][i][j].setPen(Lib.graph.pen[i], width=2)
+                    Lib.graph.curves_grp[a][i] = np.append(Lib.graph.curves_grp[a][i],
+                                                               getattr(self.ui, 'graphic_group_' + str(a + 1)).plotItem.plot(np.array([]), np.array([])))
+                    Lib.graph.curves_grp[a][i][j].setPen(Lib.graph.pen[i], width=2)
 
     def set_index(self, index):
         self.ui.stackedWidget.setCurrentIndex(index)
@@ -444,9 +442,10 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
                     getattr(self.ui, 'label_config' + str(g + 1)).setEnabled(True)
                     getattr(self.ui, 'checkBox_gvt' + str(g + 1) + '_1').setEnabled(True)
                     getattr(self.ui, 'checkBox_gvt' + str(g + 1) + '_2').setEnabled(True)
-                    #Vitor
                     getattr(self.ui, 'checkBox_gvt' + str(g + 1) + '_3').setEnabled(True)
-                    #Vitor
+                    # Vitor
+                    getattr(self.ui, 'checkBox_gvt' + str(g + 1) + '_4').setEnabled(True)
+                    # Vitor
                     getattr(self.ui, 'groupBox_op' + str(g + 1)).setEnabled(True)
                     for chn in range(8):
                         getattr(self.ui, 'pB_config_G' + str(g + 1) + 'S' + str(chn + 1)).setEnabled(True)
@@ -471,9 +470,8 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
                     getattr(self.ui, 'label_config' + str(g + 1)).setEnabled(False)
                     getattr(self.ui, 'checkBox_gvt' + str(g + 1) + '_1').setEnabled(False)
                     getattr(self.ui, 'checkBox_gvt' + str(g + 1) + '_2').setEnabled(False)
-                    #Vitor
                     getattr(self.ui, 'checkBox_gvt' + str(g + 1) + '_3').setEnabled(False)
-                    #Vitor
+                    getattr(self.ui, 'checkBox_gvt' + str(g + 1) + '_4').setEnabled(False)
                     getattr(self.ui, 'groupBox_op' + str(g + 1)).setEnabled(False)
                     for chn in range(8):
                         getattr(self.ui, 'pB_config_G' + str(g + 1) + 'S' + str(chn + 1)).setEnabled(False)
@@ -548,12 +546,13 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
         self.ui.pB_Vazio.setEnabled(False)
         self.ui.pB_G1.setEnabled(False)
         self.ui.pB_G2.setEnabled(False)
+        self.ui.pB_G3.setEnabled(False)
         self.ui.pB_set_config.setEnabled(False)
 
         for g in Lib.control.GAVETAS:
             for chn in range(8):
-                getattr(self.ui, 'pB_config_G' + str(g + 1) + 'S' + str(chn + 1)).setEnabled(False)
                 getattr(self.ui, 'pB_config_G' + str(g + 1) + 'S' + str(chn + 1)).setChecked(False)
+                getattr(self.ui, 'pB_config_G' + str(g + 1) + 'S' + str(chn + 1)).setEnabled(False)
                 if Lib.vars.name[g][chn] != 'G' + str(g + 1) + 'S' + str(chn + 1) + 'ab':
                     getattr(self.ui, 'label_G' + str(g + 1) + 'S' + str(chn + 1) + '_op').setText(Lib.vars.name[g][chn] + ':')
                     if (g + 1) == 10:
@@ -565,31 +564,31 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
                         getattr(self.ui, 'O_nome' + str(chn + 1) + '_' + str(g + 1)).setStyleSheet('background-color: rgb(255, 74, 77)')
                         getattr(self.ui, 'label_G' + str(g + 1) + 'S' + str(chn + 1) + '_op').setStyleSheet('background-color: rgb(255, 74, 77)')
                         getattr(self.ui, 'label_gr' + str(chn + 1) + '_' + str(g + 1)).setStyleSheet('background-color: rgb(255, 74, 77)')
-                        #for i in range(n_jaqs):
+                        # for i in range(n_jaqs):
                         #    getattr(self.ui, 'comboBox_jaq' + str(i + 1)).addItem(Lib.vars.name[g][chn])
                     elif local == 'Q':
                         getattr(self.ui, 'O_nome' + str(chn + 1) + '_' + str(g + 1)).setStyleSheet('background-color: rgb(255, 183, 94)')
                         getattr(self.ui, 'label_G' + str(g + 1) + 'S' + str(chn + 1) + '_op').setStyleSheet('background-color: rgb(255, 183, 94)')
                         getattr(self.ui, 'label_gr' + str(chn + 1) + '_' + str(g + 1)).setStyleSheet('background-color: rgb(255, 183, 94)')
-                        #for i in range(n_quads):
+                        # for i in range(n_quads):
                         #    getattr(self.ui, 'comboBox_quad' + str(i + 1)).addItem(Lib.vars.name[g][chn])
                     elif local == 'D':
                         getattr(self.ui, 'O_nome' + str(chn + 1) + '_' + str(g + 1)).setStyleSheet('background-color: rgb(130, 202, 232)')
                         getattr(self.ui, 'label_G' + str(g + 1) + 'S' + str(chn + 1) + '_op').setStyleSheet('background-color: rgb(130, 202, 232)')
                         getattr(self.ui, 'label_gr' + str(chn + 1) + '_' + str(g + 1)).setStyleSheet('background-color: rgb(130, 202, 232)')
-                        #for i in range(n_dips):
+                        # for i in range(n_dips):
                         #    getattr(self.ui, 'comboBox_dip' + str(i + 1)).addItem(Lib.vars.name[g][chn])
                     elif local == 'S':
                         getattr(self.ui, 'O_nome' + str(chn + 1) + '_' + str(g + 1)).setStyleSheet('background-color: rgb(143, 206, 133)')
                         getattr(self.ui, 'label_G' + str(g + 1) + 'S' + str(chn + 1) + '_op').setStyleSheet('background-color: rgb(143, 206, 133)')
                         getattr(self.ui, 'label_gr' + str(chn + 1) + '_' + str(g + 1)).setStyleSheet('background-color: rgb(143, 206, 133)')
-                        #for i in range(n_sexts):
+                        # for i in range(n_sexts):
                         #    getattr(self.ui, 'comboBox_sext' + str(i + 1)).addItem(Lib.vars.name[g][chn])
                     elif local == 'V':
                         getattr(self.ui, 'O_nome' + str(chn + 1) + '_' + str(g + 1)).setStyleSheet('color: rgb(255, 255, 255); background-color: rgb(84, 84, 84)')
                         getattr(self.ui, 'label_G' + str(g + 1) + 'S' + str(chn + 1) + '_op').setStyleSheet('color: rgb(255, 255, 255); background-color: rgb(84, 84, 84)')
                         getattr(self.ui, 'label_gr' + str(chn + 1) + '_' + str(g + 1)).setStyleSheet('color: rgb(255, 255, 255); background-color: rgb(84, 84, 84)')
-                        #for i in range(n_vazios):
+                        # for i in range(n_vazios):
                         #    getattr(self.ui, 'comboBox_vazio' + str(i + 1)).addItem(Lib.vars.name[g][chn])
                 try:
                     if (g + 1) == 10:
@@ -615,6 +614,7 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
         self.ui.pB_Vazio.setEnabled(True)
         self.ui.pB_G1.setEnabled(True)
         self.ui.pB_G2.setEnabled(True)
+        self.ui.pB_G3.setEnabled(True)
         self.ui.pB_set_config.setEnabled(True)
         self.ui.pB_edit.setEnabled(True)
 
@@ -623,8 +623,9 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
             Lib.vars.channels[g] = []
 
             for chn in range(8):
-                getattr(self.ui, 'pB_config_G' + str(g + 1) + 'S' + str(chn + 1)).setChecked(False)
+                getattr(self.ui, 'pB_config_G' + str(g + 1) + 'S' + str(chn + 1)).setStyleSheet('color: rgb(0, 0, 0)')
                 getattr(self.ui, 'pB_config_G' + str(g + 1) + 'S' + str(chn + 1)).setEnabled(True)
+                getattr(self.ui, 'pB_config_G' + str(g + 1) + 'S' + str(chn + 1)).setChecked(False)
                 getattr(self.ui, 'pB_config_G' + str(g + 1) + 'S' + str(chn + 1)).setText('S' + str(chn + 1))
                 getattr(self.ui, 'checkBox_saida' + str(chn + 1) + '_' + str(g + 1)).setChecked(False)
                 getattr(self.ui, 'checkBox_saida' + str(chn + 1) + '_' + str(g + 1)).setEnabled(False)
@@ -637,20 +638,19 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
                 getattr(self.ui, 'O_nome' + str(chn + 1) + '_' + str(g + 1)).setStyleSheet('color: rgb(0, 0, 0)')
                 getattr(self.ui, 'label_G' + str(g + 1) + 'S' + str(chn + 1) + '_op').setStyleSheet('color: rgb(0, 0, 0)')
                 getattr(self.ui, 'label_gr' + str(chn + 1) + '_' + str(g + 1)).setStyleSheet('color: rgb(0, 0, 0)')
-                getattr(self.ui, 'pB_config_G' + str(g + 1) + 'S' + str(chn + 1)).setStyleSheet('color: rgb(0, 0, 0)')
 
-        for group in range(2):
+        for group in range(3):
             Lib.control.group[group] = defaultdict(list)
 
         for g in range(10):
             getattr(self.ui, 'checkBox_gvt' + str(g + 1) + '_1').setChecked(False)
-            getattr(self.ui, 'checkBox_gvt' + str(g + 1) + '_2').setEnabled(False)
-            #Vitor
-            getattr(self.ui, 'checkBox_gvt' + str(g + 1) + '_2').setChecked(False)
             getattr(self.ui, 'checkBox_gvt' + str(g + 1) + '_1').setEnabled(False)
+            getattr(self.ui, 'checkBox_gvt' + str(g + 1) + '_2').setChecked(False)
+            getattr(self.ui, 'checkBox_gvt' + str(g + 1) + '_2').setEnabled(False)
             getattr(self.ui, 'checkBox_gvt' + str(g + 1) + '_3').setChecked(False)
             getattr(self.ui, 'checkBox_gvt' + str(g + 1) + '_3').setEnabled(False)
-            #Vitor
+            getattr(self.ui, 'checkBox_gvt' + str(g + 1) + '_4').setChecked(False)
+            getattr(self.ui, 'checkBox_gvt' + str(g + 1) + '_4').setEnabled(False)
 
     def read_r0(self):
         gvt = self.ui.spinBox_gvt_2.value() - 1
@@ -784,9 +784,7 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
 
         group = int(self.ui.label_group.text()[-1]) - 1
         getattr(self.ui, 'actionGrupo_' + str(group + 1)).setVisible(True)
-        #Vitor
-        getattr(self.ui, 'actionGrupo_3').setVisible(True)
-        #Vitor
+        getattr(self.ui, 'actionGrupo_4').setVisible(True)
         getattr(self.ui, 'groupBox_' + str(group + 1)).setEnabled(True)
         QtGui.QApplication.setOverrideCursor(Qt.WaitCursor)
         for g in Lib.control.group[group]:
@@ -832,6 +830,14 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
         if group == 0 and Lib.control.group[1] != {}:
             QtGui.QMessageBox.information(self, 'Mensagem', 'Grupo 1 configurado!', QtGui.QMessageBox.Ok)
             self.ui.label_group.setText('Grupo 2')
+            self.ui.pB_edit.setEnabled(True)
+        elif group == 0 and Lib.control.group[1] == {} and Lib.control.group[2] != {}:
+            QtGui.QMessageBox.information(self, 'Mensagem', 'Grupo 1 configurado!', QtGui.QMessageBox.Ok)
+            self.ui.label_group.setText('Grupo 3')
+            self.ui.pB_edit.setEnabled(True)
+        elif group == 1 and Lib.control.group[2] != {}:
+            QtGui.QMessageBox.information(self, 'Mensagem', 'Grupo 2 configurado!', QtGui.QMessageBox.Ok)
+            self.ui.label_group.setText('Grupo 3')
             self.ui.pB_edit.setEnabled(True)
         else:
             for g in Lib.control.GAVETAS:
@@ -892,7 +898,7 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
                 Lib.config.times[g][chn] = []
                 Lib.vars.interpolation_points[g][chn] = []
 
-        for i in range(2):
+        for i in range(3):
             Lib.config.taxa[i] = []
             Lib.config.patamar[i] = []
 
@@ -924,9 +930,9 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
                 Lib.control.curves_on[g] = self.SOCKET_GVT[g].turn_on()
                 Lib.control.GAVETAS_ON.append(g)
                 self.reading_thread = threading.Thread(target=Lib.reading_th, name=g, args=(g,))
-                #Vitor
+                # Vitor
                 self.reading_thread.setDaemon(True)
-                #Vitor
+                # Vitor
                 self.reading_thread.start()
 
         self.timer[group].start(1000)
@@ -1007,9 +1013,9 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
                     Lib.control.curves_on[g] = self.SOCKET_GVT[g].turn_on()
                     Lib.control.GAVETAS_ON.append(g)
                     self.reading_thread = threading.Thread(target=Lib.reading_th, name=g, args=(g,))
-                    #Vitor
+                    # Vitor
                     self.reading_thread.setDaemon(True)
-                    #Vitor
+                    # Vitor
                     self.reading_thread.start()
 
                 if not(Lib.control.measurements_ON):
@@ -1109,7 +1115,7 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
         for group in Lib.control.group:
             self.timer[group].stop()
             getattr(self.ui, 'actionGrupo_' + str(group + 1)).setVisible(False)
-            getattr(self.ui, 'actionGrupo_3').setVisible(False)
+            getattr(self.ui, 'actionGrupo_4').setVisible(False)
             getattr(self.ui, 'pB_on' + str(group + 1)).setEnabled(True)
             getattr(self.ui, 'pB_off' + str(group + 1)).setEnabled(False)
             getattr(self.ui, 'lineed_time' + str(group + 1)).setText('')
@@ -1163,8 +1169,7 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
         Lib.vars.hours[group] = 0
         Lib.config.taxa[group] = []
         Lib.config.patamar[group] = []
-        Lib.control.plot_group_grps[group] = False
-        Lib.control.plot_group_gvts[group] = False
+        Lib.control.plot_group_grps[group][group] = False
 
         try:
             self.leg_grp[group].removeItem(Lib.graph.exp_grp[group][group].name())
@@ -1175,6 +1180,7 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
         getattr(self.ui, 'graphic_group_' + str(group + 1)).clear()
 
         for g in Lib.control.group[group]:
+            Lib.control.plot_group_gvts[g][group] = False
             Lib.control.holded_channels[g] = []
             getattr(self.ui, 'O_lineed_time' + str(group + 1) + '_' + str(g + 1)).setText('')
 
@@ -1226,20 +1232,19 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
             Lib.vars.interpolation_points[g][chn].append(str(i))
             Lib.vars.interpolation_points[g][chn].append(str(j))
         Lib.vars.total_time[g][chn] = Lib.config.times[g][chn][-1]
-
-        #Vitor
-        self.get_expected_plot_gvts(group, g, chn)
-#         if Lib.control.plot_group_gvts[group]:
-#             pass
-#         else:
-#             self.get_expected_plot_gvts(group, g, chn)
-        #Vitor
-
-        if Lib.control.plot_group_grps[group]:
+        
+        if Lib.control.plot_group_gvts[g][group]:
+            pass
+        else:
+            self.get_expected_plot_gvts(group, g, chn)
+        
+        if Lib.control.plot_group_grps[group][group]:
             pass
         else:
             self.get_expected_plot_grps(group, g, chn)
-            self.get_expected_plot_grps(2, g, chn)
+            # Vitor
+            self.get_expected_plot_grps(3, g, chn)
+            # Vitor
         self.SOCKET_GVT[g].interpolation_points(chn, Lib.vars.interpolation_points[g][chn])
 
     def Worker(self):
@@ -1330,36 +1335,54 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
         else:
             Lib.graph.curves_gvt[g][g][chn].setData([], [])
 
-    # Gráfico Grupo
+    # Gráfico Grupo 1
         if getattr(self.ui, 'checkBox_gvt' + str(g + 1) + '_1').isChecked() and g in Lib.control.group[0] and chn in Lib.control.group[0][g]:
             Lib.graph.curves_grp[0][g][chn].setData(Lib.measurements['Tempo'][g][chn], Lib.measurements[self.ui.comboBox_live2_1.currentText()][g][chn])
         else:
             Lib.graph.curves_grp[0][g][chn].setData([], [])
-
+    
+    # Gráfico Grupo 2
         if getattr(self.ui, 'checkBox_gvt' + str(g + 1) + '_2').isChecked() and g in Lib.control.group[1] and chn in Lib.control.group[1][g]:
             Lib.graph.curves_grp[1][g][chn].setData(Lib.measurements['Tempo'][g][chn], Lib.measurements[self.ui.comboBox_live2_2.currentText()][g][chn])
         else:
             Lib.graph.curves_grp[1][g][chn].setData([], [])
+    
+    # Gráfico Grupo 3
+        if getattr(self.ui, 'checkBox_gvt' + str(g + 1) + '_3').isChecked() and g in Lib.control.group[2] and chn in Lib.control.group[2][g]:
+            Lib.graph.curves_grp[2][g][chn].setData(Lib.measurements['Tempo'][g][chn], Lib.measurements[self.ui.comboBox_live2_3.currentText()][g][chn])
+        else:
+            Lib.graph.curves_grp[2][g][chn].setData([], [])
 
     # Gráfico Todos Grupos
-        #Vitor
-        if getattr(self.ui, 'checkBox_gvt' + str(g + 1) + '_3').isChecked() and chn in Lib.control.channels_on[g]:
-            Lib.graph.curves_grp[2][g][chn].setData(Lib.measurements['Tempo'][g][chn], Lib.measurements[self.ui.comboBox_live2_3.currentText()][g][chn])
+        # Vitor
+        if getattr(self.ui, 'checkBox_gvt' + str(g + 1) + '_4').isChecked() and chn in Lib.control.channels_on[g]:
+            Lib.graph.curves_grp[3][g][chn].setData(Lib.measurements['Tempo'][g][chn], Lib.measurements[self.ui.comboBox_live2_4.currentText()][g][chn])
         else:
-            Lib.graph.curves_grp[2][g][chn].setData([], [])
-        if getattr(self.ui, 'checkBox_gvt' + str(g + 1) + '_3').isChecked() and chn in Lib.control.channels_on[g]:
-            Lib.graph.curves_grp[2][g][chn].setData(Lib.measurements['Tempo'][g][chn], Lib.measurements[self.ui.comboBox_live2_3.currentText()][g][chn])
-        else:
-            Lib.graph.curves_grp[2][g][chn].setData([], [])
-        #Vitor
+            Lib.graph.curves_grp[3][g][chn].setData([], [])
+        # Vitor
 
     def get_expected_plot_gvts(self, group, g, chn):
         try:
+            if chn in Lib.control.group[0][g]:
+                i = 0
+            elif chn in Lib.control.group[1][g]:
+                i = 1
+            elif chn in Lib.control.group[2][g]:
+                i = 2
+            else:
+                return
+            if len(self.leg_gvt[g].items) == 1:
+                if i == int(self.leg_gvt[g].items[0][1].text[1]) - 1:
+                    return
+            elif len(self.leg_gvt[g].items) == 2:
+                if i == int(self.leg_gvt[g].items[1][1].text[1]) - 1:
+                    return
+            
             Lib.graph.exp_gvt[g][group] = getattr(self.ui, 'graphic_gaveta_' + str(g + 1)).plotItem.plot(name='G' + str(group + 1))
             Lib.graph.exp_gvt[g][group].setData(Lib.config.times[g][chn], Lib.config.temp[g][chn])
             Lib.graph.exp_gvt[g][group].setPen(Lib.graph.pen_esp[group], width=2)
             self.leg_gvt[g].addItem(Lib.graph.exp_gvt[g][group], 'G' + str(group + 1))
-            Lib.control.plot_group_gvts[group] = True
+            Lib.control.plot_group_gvts[g][group] = True
         except Exception:
             traceback.print_exc(file=sys.stdout)
             Lib.graph.exp_gvt[g][group].setData([], [])
@@ -1372,38 +1395,43 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
         for group in Lib.control.group:
             for chn in Lib.control.group[group][g]:
                 if var == 'Temperatura':
-                    if Lib.control.plot_group_gvts[group]:
+                    if Lib.control.plot_group_gvts[g][group]:
                         pass
                     else:
                         self.get_expected_plot_gvts(group, g, chn)
                 else:
-                    if Lib.control.plot_group_gvts[group]:
+                    if Lib.control.plot_group_gvts[g][group]:
                         Lib.graph.exp_gvt[g][group].setData([], [])
                         self.leg_gvt[g].removeItem(Lib.graph.exp_gvt[g][group].name())
-                        Lib.control.plot_group_gvts[group] = False
+                        Lib.control.plot_group_gvts[g][group] = False
 
     def get_expected_plot_grps(self, group, g, chn):
         try:
-            #Vitor
-            if group < 2:
+            # Vitor
+            if group < 3:
                 Lib.graph.exp_grp[group][group] = getattr(self.ui, 'graphic_group_' + str(group + 1)).plotItem.plot(name='G' + str(group + 1))
                 Lib.graph.exp_grp[group][group].setData(Lib.config.times[g][chn], Lib.config.temp[g][chn])
                 Lib.graph.exp_grp[group][group].setPen(Lib.graph.pen_esp[group], width=2)
                 self.leg_grp[group].addItem(Lib.graph.exp_grp[group][group], 'G' + str(group + 1))
-                Lib.control.plot_group_grps[group] = True
+                Lib.control.plot_group_grps[group][group] = True
             else:
-                if len(self.leg_grp[group].items) > 1:
+                if len(self.leg_grp[group].items) > 2:
                     return
                 if chn in Lib.control.group[0][g]:
                     i = 0
                 elif chn in Lib.control.group[1][g]:
                     i = 1
+                elif chn in Lib.control.group[2][g]:
+                    i = 2
                 else:
                     return
                 if len(self.leg_grp[group].items) == 1:
                     if i == int(self.leg_grp[group].items[0][1].text[1]) - 1:
                         return
-                    Lib.control.plot_group_grps[group] = True
+                elif len(self.leg_grp[group].items) == 2:
+                    if i == int(self.leg_grp[group].items[1][1].text[1]) - 1:
+                        return
+                    Lib.control.plot_group_grps[group][group] = True
                 Lib.graph.exp_grp[group][i] = getattr(self.ui, 'graphic_group_' + str(group + 1)).plotItem.plot(name='G' + str(i + 1))
                 Lib.graph.exp_grp[group][i].setData(Lib.config.times[g][chn], Lib.config.temp[g][chn])
                 Lib.graph.exp_grp[group][i].setPen(Lib.graph.pen_esp[i], width=2)
@@ -1411,37 +1439,37 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
         except Exception:
             traceback.print_exc(file=sys.stdout)
             Lib.graph.exp_grp[group][group].setData([], [])
-            if group < 2:
+            if group < 3:
                 self.leg_grp[group].removeItem(Lib.graph.exp_grp[group][group].name())
                 Lib.graph.exp_grp[group][group] = None
             else:
                 for i in range(len(self.leg_grp[group].items)):
                     Lib.graph.exp_grp[group][i].setData([], [])
                     self.leg_grp[group].removeItem(self.leg_grp[group].items[i][1].text)
-                Lib.control.plot_group_grps[group] = False
-            #Vitor
+                Lib.control.plot_group_grps[group][group] = False
+            # Vitor
 
     def refresh_axis_live_grps(self, group):
         var = getattr(self.ui, 'comboBox_live2_' + str(group + 1)).currentText()
         getattr(self.ui, 'graphic_group_' + str(group + 1)).setLabel('left', text=var, units=Lib.graph.unit[var])
-        #Vitor
-        if group < 2:
+        # Vitor
+        if group < 3:
             _group_list = Lib.control.group[group]
         else:
             _group_list = Lib.control.channels_on
         for g in _group_list:
             for chn in _group_list[g]:
                 if var == 'Temperatura':
-                    if Lib.control.plot_group_grps[group]:
+                    if Lib.control.plot_group_grps[group][group]:
                         pass
                     else:
                         self.get_expected_plot_grps(group, g, chn)
                 else:
-                    if Lib.control.plot_group_grps[group]:
-                        if group < 2:
+                    if Lib.control.plot_group_grps[group][group]:
+                        if group < 3:
                             Lib.graph.exp_grp[group][group].setData([], [])
                             self.leg_grp[group].removeItem(Lib.graph.exp_grp[group][group].name())
-                            Lib.control.plot_group_grps[group] = False
+                            Lib.control.plot_group_grps[group][group] = False
                         else:
                             _remove_list = []
                             for i in range(len(self.leg_grp[group].items)):
@@ -1449,8 +1477,8 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
                                 _remove_list.append(self.leg_grp[group].items[i][1].text)
                             for item in _remove_list:
                                 self.leg_grp[group].removeItem(item)
-                            Lib.control.plot_group_grps[group] = False
-        #Vitor
+                            Lib.control.plot_group_grps[group][group] = False
+        # Vitor
 
     def open_file(self, g):
         try:
@@ -1476,9 +1504,10 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
     def init_timers(self):
         self.refresh_timer = QTimer()
         self.refresh_timer.timeout.connect(self.Worker)
-        self.timer = [QTimer(), QTimer()]
+        self.timer = [QTimer(), QTimer(), QTimer()]
         self.timer[0].timeout.connect(lambda: self.clock(0))
         self.timer[1].timeout.connect(lambda: self.clock(1))
+        self.timer[2].timeout.connect(lambda: self.clock(2))
 
     def clock(self, group):
         Lib.vars.secs[group] += 1
@@ -1495,18 +1524,11 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
 
 Lib = Library.Lib()
 
-
-def main():
-    app = QtGui.QApplication(sys.argv)
-    myapp = MainWindow()
-    myapp.show()
-    app.exec_()
-
-#Vitor
 class Main(threading.Thread):
+
     def __init__(self):
         threading.Thread.__init__(self)
-        self.setDaemon(True)
+        #self.setDaemon(True)
         self.start()
 
     def run(self):
@@ -1514,11 +1536,10 @@ class Main(threading.Thread):
         self.myapp = MainWindow()
         self.myapp.show()
         sys.exit(self.app.exec_())
-#Vitor
 
 
 if __name__ == '__main__':
-    #Vitor
-    #main()
+    # Vitor
+    # main()
     app = Main()
-    #Vitor
+    # Vitor

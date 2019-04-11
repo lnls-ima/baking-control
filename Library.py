@@ -1,20 +1,23 @@
 from collections import defaultdict
 import time
 
+from PyQt4.QtCore import QTimer, QTime
+
 import Communication
 import numpy as np
+import pyqtgraph as pg
 
 
 class Lib(object):
 
     def __init__(self):
-        self.app = None
+        self.App = None
         self.control = self.Control_Variables()
         self.measurements = self.Measurements().dict_measurements
         self.config = self.Configuration()
         self.vars = self.Variables()
         self.graph = self.Graph_plots()
-
+        
         # 10 gavetas podem ser conectadas
         self.fitaaque1 = Communication.Gaveta(0)
         self.fitaaque2 = Communication.Gaveta(1)
@@ -37,7 +40,7 @@ class Lib(object):
                 self.vars.currents[g] = getattr(self, 'fitaaque' + str(g + 1)).read('I')
                 self.vars.voltages[g] = getattr(self, 'fitaaque' + str(g + 1)).read('U')
                 self.vars.powers[g] = getattr(self, 'fitaaque' + str(g + 1)).read('W')
-
+                
                 for chn in self.control.channels_on[g]:
                     index = self.vars.channels[g].index(chn)
                     self.vars.time_now[g][chn] = round(time.time() - self.vars.start_time[g][chn])
@@ -46,17 +49,17 @@ class Lib(object):
                     self.measurements['Potência'][g][chn] = np.append(self.measurements['Potência'][g][chn], float(self.vars.powers[g][index]))
                     self.measurements['Corrente'][g][chn] = np.append(self.measurements['Corrente'][g][chn], float(self.vars.currents[g][index]))
                     self.measurements['Tempo'][g][chn] = np.append(self.measurements['Tempo'][g][chn], self.vars.time_now[g][chn])
-
+                    
                 tmp = time.localtime()
                 datetime = time.strftime('%d/%m/%Y %H:%M:%S', tmp)
-
+                
                 _temps = [' '] * 8
                 _temps_res = [' '] * 8
                 _temps_pt = [' '] * 8
                 _crnts = [' '] * 8
                 _volts = [' '] * 8
                 _pwrs = [' '] * 8
-
+                
                 for chn in range(8):
                     if chn in self.control.channels_on[g]:
                         index = self.vars.channels[g].index(chn)
@@ -66,20 +69,20 @@ class Lib(object):
                         _crnts[chn] = self.vars.currents[g][index]
                         _volts[chn] = self.vars.voltages[g][index]
                         _pwrs[chn] = self.vars.powers[g][index]
-
+                        
                 _temps = '\t'.join(map(str, _temps))
                 _temps_res = '\t'.join(map(str, _temps_res))
                 _temps_pt = '\t'.join(map(str, _temps_pt))
                 _crnts = '\t'.join(map(str, _crnts))
                 _volts = '\t'.join(map(str, _volts))
                 _pwrs = '\t'.join(map(str, _pwrs))
-
+                         
                 self.vars.file[g].write(datetime + '\t' + _temps + '\t' + _temps_res + '\t' + _temps_pt + '\t' + _crnts + '\t' + _volts + '\t' + _pwrs)
                 self.vars.file[g].write('\n')
                 self.vars.file[g].flush()
-            except Exception:
+            except:
                 pass
-
+            
     class Control_Variables(object):
 
         def __init__(self):
@@ -90,18 +93,19 @@ class Lib(object):
             self.channels_off = defaultdict(list)
             self.PT100_channels = defaultdict(list)
             self.holded_channels = defaultdict(list)
-
-            for i in range(2):
+            self.plot_group_grps = defaultdict(list)
+            self.plot_group_gvts = defaultdict(list)
+            
+            for i in range(3):
                 self.group[i] = defaultdict(list)
-
-
+            
+            for i in range(10):
+                self.plot_group_gvts[i] = [False] * 3
+            for i in range(4):
+                self.plot_group_grps[i] = [False] * 4
+            
             self.curves_on = [False] * 10
             self.run_control_on = [False] * 10
-            self.plot_group_gvts = [False] * 2
-            #Vitor
-            self.plot_group_grps = [False] * 3
-            #Vitor
-
             self.measurements_ON = False
             self.meas_time = None
 
@@ -113,7 +117,7 @@ class Lib(object):
             power = []
             current = []
             time_on = []
-
+            
             for i in range(10):
                 temperature.append([])
                 voltage.append([])
@@ -126,7 +130,7 @@ class Lib(object):
                     power[i].append(np.array([]))
                     current[i].append(np.array([]))
                     time_on[i].append(np.array([]))
-
+            
             self.dict_measurements = {'Temperatura': temperature, 'Potência': power, 'Corrente': current, 'Tensão': voltage, 'Tempo': time_on}
 
     class Configuration(object):
@@ -136,16 +140,16 @@ class Lib(object):
             self.times = []
             self.taxa = dict()
             self.patamar = dict()
-            self.n_est_aq = [1] * 2
-            self.n_aq_temp = [1] * 2
-            self.n_aq_taxa = [1] * 2
-            self.n_aq_patamar = [1] * 2
-
+            self.n_est_aq = [1] * 3
+            self.n_aq_temp = [1] * 3
+            self.n_aq_taxa = [1] * 3
+            self.n_aq_patamar = [1] * 3
+                   
             for i in range(10):
                 self.temp.append(defaultdict(list))
-                self.times.append(defaultdict(list))
-
-            for i in range(2):
+                self.times.append(defaultdict(list)) 
+            
+            for i in range(3):
                 self.taxa[i] = []
                 self.patamar[i] = []
 
@@ -159,9 +163,9 @@ class Lib(object):
             self.voltages = []
             self.powers = []
             self.times = []
-
+            
             self.channels = dict()
-
+            
             for i in range(10):
                 self.channels[i] = []
                 self.temperatures.append(np.array([]))
@@ -173,10 +177,10 @@ class Lib(object):
                 self.times.append(np.array([]))
 
             self.file = [None] * 10
-            self.hours = [0] * 2
-            self.mins = [0] * 2
-            self.secs = [0] * 2
-
+            self.hours = [0] * 3
+            self.mins = [0] * 3
+            self.secs = [0] * 3
+            
             self.interpolation_points = []
             self.start_time = []
             self.hold_start = []
@@ -186,7 +190,7 @@ class Lib(object):
             self.r0 = []
             self.t0 = []
             self.a = []
-
+                
             for i in range(10):
                 self.interpolation_points.append(defaultdict(list))
                 self.start_time.append(defaultdict(list))
@@ -199,23 +203,21 @@ class Lib(object):
                 self.a.append([])
                 for j in range(8):
                     self.name[i][j] = 'G' + str(i + 1) + 'S' + str(j + 1) + 'ab'
-
+            
     class Graph_plots(object):
-
+        
         def __init__(self):
             self.exp_gvt = defaultdict(list)
             self.exp_grp = defaultdict(list)
             self.curves_grp = defaultdict(list)
             self.curves_gvt = defaultdict(list)
-
+            
             for i in range(10):
-                self.exp_gvt[i] = [None] * 2
-
-            #Vitor
-            for i in range(3):
-            #Vitor
-                self.exp_grp[i] = [None] * 2
-
+                self.exp_gvt[i] = [None] * 3
+                
+            for i in range(4):
+                self.exp_grp[i] = [None] * 3
+                
             self.unit = {'Temperatura': '°C', 'Potência': 'Watts', 'Corrente': 'Amp', 'Tensão': 'Volts'}
             self.pen = ['r', (0, 147, 108), 'b', 'm', (170, 0, 0), (132, 112, 255), 'k', (255, 165, 0), (0, 96, 144), (170, 0, 127)]
-            self.pen_esp = ['c', 'g']
+            self.pen_esp = ['c', 'g', 'y']
