@@ -355,6 +355,7 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
         self.ui.pB_G3.clicked.connect(lambda: self.config_group('3'))
         self.ui.pB_set_config.clicked.connect(self.set_configuration)
         self.ui.pB_escape_config.clicked.connect(self.escape_configuration)
+        self.ui.pB_reset_chn.clicked.connect(self.reset_chn)
 
         self.ui.pB_n_est_aq.clicked.connect(self.enable_edit_stages)
         self.ui.pB_temp.clicked.connect(lambda: self.edit('temp'))
@@ -386,7 +387,8 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
         self.setStatusBar(QStatusBar())
 
         self.SOCKET_GVT = {0: Lib.fitaaque1, 1: Lib.fitaaque2, 2: Lib.fitaaque3, 3: Lib.fitaaque4, 4: Lib.fitaaque5, 5: Lib.fitaaque6, 6: Lib.fitaaque7, 7: Lib.fitaaque8, 8: Lib.fitaaque9, 9: Lib.fitaaque10}
-
+        self.reading_thread = defaultdict()
+        
     def config_graph(self):
         self.leg_gvt = []
         self.leg_grp = []
@@ -623,7 +625,7 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
             Lib.vars.channels[g] = []
 
             for chn in range(8):
-                getattr(self.ui, 'pB_config_G' + str(g + 1) + 'S' + str(chn + 1)).setStyleSheet('color: rgb(0, 0, 0)')
+                getattr(self.ui, 'pB_config_G' + str(g + 1) + 'S' + str(chn + 1)).setStyleSheet('')
                 getattr(self.ui, 'pB_config_G' + str(g + 1) + 'S' + str(chn + 1)).setEnabled(True)
                 getattr(self.ui, 'pB_config_G' + str(g + 1) + 'S' + str(chn + 1)).setChecked(False)
                 getattr(self.ui, 'pB_config_G' + str(g + 1) + 'S' + str(chn + 1)).setText('S' + str(chn + 1))
@@ -651,6 +653,16 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
             getattr(self.ui, 'checkBox_gvt' + str(g + 1) + '_3').setEnabled(False)
             getattr(self.ui, 'checkBox_gvt' + str(g + 1) + '_4').setChecked(False)
             getattr(self.ui, 'checkBox_gvt' + str(g + 1) + '_4').setEnabled(False)
+            
+    def reset_chn(self):
+        for g in Lib.control.GAVETAS:
+            for chn in range(8):
+                if getattr(self.ui, 'pB_config_G' + str(g + 1) + 'S' + str(chn + 1)).isChecked():
+                    getattr(self.ui, 'pB_config_G' + str(g + 1) + 'S' + str(chn + 1)).setStyleSheet('')
+                    getattr(self.ui, 'pB_config_G' + str(g + 1) + 'S' + str(chn + 1)).setEnabled(True)
+                    getattr(self.ui, 'pB_config_G' + str(g + 1) + 'S' + str(chn + 1)).setChecked(False)
+                    getattr(self.ui, 'pB_config_G' + str(g + 1) + 'S' + str(chn + 1)).setText('S' + str(chn + 1))
+                    Lib.vars.name[g][chn] = 'G' + str(g + 1) + 'S' + str(chn + 1) + 'ab'              
 
     def read_r0(self):
         gvt = self.ui.spinBox_gvt_2.value() - 1
@@ -929,11 +941,11 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
             if not(Lib.control.curves_on[g]):
                 Lib.control.curves_on[g] = self.SOCKET_GVT[g].turn_on()
                 Lib.control.GAVETAS_ON.append(g)
-                self.reading_thread = threading.Thread(target=Lib.reading_th, name=g, args=(g,))
+                self.reading_thread[g] = threading.Thread(target=Lib.reading_th, args=(g,))
                 # Vitor
-                self.reading_thread.setDaemon(True)
+                self.reading_thread[g].setDaemon(True)
                 # Vitor
-                self.reading_thread.start()
+                self.reading_thread[g].start()
 
         self.timer[group].start(1000)
         getattr(self.ui, 'pB_on' + str(group + 1)).setEnabled(False)
@@ -1012,11 +1024,11 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
                 if not(Lib.control.curves_on[g]):
                     Lib.control.curves_on[g] = self.SOCKET_GVT[g].turn_on()
                     Lib.control.GAVETAS_ON.append(g)
-                    self.reading_thread = threading.Thread(target=Lib.reading_th, name=g, args=(g,))
+                    self.reading_thread[g] = threading.Thread(target=Lib.reading_th, name=g, args=(g,))
                     # Vitor
-                    self.reading_thread.setDaemon(True)
+                    self.reading_thread[g].setDaemon(True)
                     # Vitor
-                    self.reading_thread.start()
+                    self.reading_thread[g].start()
 
                 if not(Lib.control.measurements_ON):
                     self.refresh_timer.start(500)
@@ -1128,7 +1140,7 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
                 getattr(self.ui, 'O_on' + str(chn + 1) + '_' + str(g + 1)).setEnabled(False)
                 getattr(self.ui, 'O_off' + str(chn + 1) + '_' + str(g + 1)).setEnabled(False)
             try:
-                del self.reading_thread
+                del self.reading_thread[g]
             except Exception:
                 traceback.print_exc(file=sys.stdout)
                 pass
@@ -1355,6 +1367,10 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
 
     # Gráfico Todos Grupos
         # Vitor
+        if getattr(self.ui, 'checkBox_gvt' + str(g + 1) + '_4').isChecked() and chn in Lib.control.channels_on[g]:
+            Lib.graph.curves_grp[3][g][chn].setData(Lib.measurements['Tempo'][g][chn], Lib.measurements[self.ui.comboBox_live2_4.currentText()][g][chn])
+        else:
+            Lib.graph.curves_grp[3][g][chn].setData([], [])
         if getattr(self.ui, 'checkBox_gvt' + str(g + 1) + '_4').isChecked() and chn in Lib.control.channels_on[g]:
             Lib.graph.curves_grp[3][g][chn].setData(Lib.measurements['Tempo'][g][chn], Lib.measurements[self.ui.comboBox_live2_4.currentText()][g][chn])
         else:
