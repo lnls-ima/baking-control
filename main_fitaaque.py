@@ -1505,13 +1505,13 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
             file = open(file_name, 'w')
             for chn in Lib.vars.channels[g]:
                 index = Lib.vars.channels[g].index(chn)
-                file.writelines('Saída ' + str(chn + 1) + '\n')
+                file.writelines('Saida ' + str(chn + 1) + '\n')
                 file.writelines('Nome: ' + Lib.vars.name[g][chn] + '\n')
-                file.writelines('Temperatura Inicial (°C): ' + str(Lib.vars.t0[g][index]) + '\n')
-                file.writelines('Resistência Inicial (Ohms): ' + str(Lib.vars.r0[g][index]) + '\n\n')
+                file.writelines('Temperatura Inicial (C): ' + str(Lib.vars.t0[g][index]) + '\n')
+                file.writelines('Resistencia Inicial (Ohms): ' + str(Lib.vars.r0[g][index]) + '\n\n')
             file.write('\n\n\n')
 
-            file.writelines('DateTime\tTemp1(°C)\tTemp2(°C)\tTemp3(°C)\tTemp4(°C)\tTemp5(°C)\tTemp6(°C)\tTemp7(°C)\tTemp8(°C)\tTemp Fita1(°C)\tTemp Fita2(°C)\tTemp Fita3(°C)\tTemp Fita4(°C)\tTemp Fita5(°C)\tTemp Fita6(°C)\tTemp Fita7(°C)\tTemp Fita8(°C)\tTemp Pt100 1(°C)\tTemp Pt100 2(°C)\tTemp Pt100 3(°C)\tTemp Pt100 4(°C)\tTemp Pt100 5(°C)\tTemp Pt100 6(°C)\tTemp Pt100 7(°C)\tTemp Pt100 8(°C)\tCorrente1(A)\tCorrente2(A)\tCorrente3(A)\tCorrente4(A)\tCorrente5(A)\tCorrente6(A)\tCorrente7(A)\tCorrente8(A)\tVoltagem1(V)\tVoltagem2(V)\tVoltagem3(V)\tVoltagem4(V)\tVoltagem5(V)\tVoltagem6(V)\tVoltagem7(V)\tVoltagem8(V)\tPotência1(W)\tPotência2(W)\tPotência3(W)\tPotência4(W)\tPotência5(W)\tPotência6(W)\tPotência7(W)\tPotência8(W)\n')
+            file.writelines('DateTime\tTemp1(C)\tTemp2(C)\tTemp3(C)\tTemp4(C)\tTemp5(C)\tTemp6(C)\tTemp7(C)\tTemp8(C)\tTemp Fita1(C)\tTemp Fita2(C)\tTemp Fita3(C)\tTemp Fita4(C)\tTemp Fita5(C)\tTemp Fita6(C)\tTemp Fita7(C)\tTemp Fita8(C)\tTemp Pt100 1(C)\tTemp Pt100 2(C)\tTemp Pt100 3(C)\tTemp Pt100 4(C)\tTemp Pt100 5(C)\tTemp Pt100 6(C)\tTemp Pt100 7(C)\tTemp Pt100 8(C)\tCorrente1(A)\tCorrente2(A)\tCorrente3(A)\tCorrente4(A)\tCorrente5(A)\tCorrente6(A)\tCorrente7(A)\tCorrente8(A)\tVoltagem1(V)\tVoltagem2(V)\tVoltagem3(V)\tVoltagem4(V)\tVoltagem5(V)\tVoltagem6(V)\tVoltagem7(V)\tVoltagem8(V)\tPotencia1(W)\tPotencia2(W)\tPotencia3(W)\tPotencia4(W)\tPotencia5(W)\tPotencia6(W)\tPotencia7(W)\tPotencia8(W)\n')
             return file
         except Exception:
             traceback.print_exc(file=sys.stdout)
