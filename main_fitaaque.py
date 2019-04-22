@@ -646,13 +646,9 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
 
         for g in range(10):
             getattr(self.ui, 'checkBox_gvt' + str(g + 1) + '_1').setChecked(False)
-            getattr(self.ui, 'checkBox_gvt' + str(g + 1) + '_1').setEnabled(False)
             getattr(self.ui, 'checkBox_gvt' + str(g + 1) + '_2').setChecked(False)
-            getattr(self.ui, 'checkBox_gvt' + str(g + 1) + '_2').setEnabled(False)
             getattr(self.ui, 'checkBox_gvt' + str(g + 1) + '_3').setChecked(False)
-            getattr(self.ui, 'checkBox_gvt' + str(g + 1) + '_3').setEnabled(False)
             getattr(self.ui, 'checkBox_gvt' + str(g + 1) + '_4').setChecked(False)
-            getattr(self.ui, 'checkBox_gvt' + str(g + 1) + '_4').setEnabled(False)
             
     def reset_chn(self):
         for g in Lib.control.GAVETAS:

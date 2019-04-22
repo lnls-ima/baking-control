@@ -46108,6 +46108,34 @@ background-color: rgb(84, 84, 84);</string>
                </widget>
               </item>
               <item>
+               <layout class="QHBoxLayout" name="horizontalLayout_48">
+                <property name="leftMargin">
+                 <number>20</number>
+                </property>
+                <property name="topMargin">
+                 <number>0</number>
+                </property>
+                <property name="rightMargin">
+                 <number>0</number>
+                </property>
+                <property name="bottomMargin">
+                 <number>0</number>
+                </property>
+                <item>
+                 <widget class="QCheckBox" name="checkBox_todas_1">
+                  <property name="font">
+                   <font>
+                    <pointsize>12</pointsize>
+                   </font>
+                  </property>
+                  <property name="text">
+                   <string>Selecionar tudo</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item>
                <layout class="QHBoxLayout" name="horizontalLayout_705">
                 <property name="spacing">
                  <number>6</number>
@@ -48478,6 +48506,25 @@ background-color: rgb(84, 84, 84);</string>
                  </property>
                 </item>
                </widget>
+              </item>
+              <item>
+               <layout class="QHBoxLayout" name="horizontalLayout_49">
+                <property name="leftMargin">
+                 <number>20</number>
+                </property>
+                <item>
+                 <widget class="QCheckBox" name="checkBox_todas_2">
+                  <property name="font">
+                   <font>
+                    <pointsize>12</pointsize>
+                   </font>
+                  </property>
+                  <property name="text">
+                   <string>Selecionar tudo</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
               </item>
               <item>
                <layout class="QHBoxLayout" name="horizontalLayout_713">
@@ -50852,6 +50899,25 @@ background-color: rgb(84, 84, 84);</string>
                </widget>
               </item>
               <item>
+               <layout class="QHBoxLayout" name="horizontalLayout_50">
+                <property name="leftMargin">
+                 <number>20</number>
+                </property>
+                <item>
+                 <widget class="QCheckBox" name="checkBox_todas_3">
+                  <property name="font">
+                   <font>
+                    <pointsize>12</pointsize>
+                   </font>
+                  </property>
+                  <property name="text">
+                   <string>Selecionar tudo</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item>
                <layout class="QHBoxLayout" name="horizontalLayout_721">
                 <property name="spacing">
                  <number>6</number>
@@ -53222,6 +53288,25 @@ background-color: rgb(84, 84, 84);</string>
                  </property>
                 </item>
                </widget>
+              </item>
+              <item>
+               <layout class="QHBoxLayout" name="horizontalLayout_51">
+                <property name="leftMargin">
+                 <number>20</number>
+                </property>
+                <item>
+                 <widget class="QCheckBox" name="checkBox_todas_4">
+                  <property name="font">
+                   <font>
+                    <pointsize>12</pointsize>
+                   </font>
+                  </property>
+                  <property name="text">
+                   <string>Selecionar tudo</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
               </item>
               <item>
                <layout class="QHBoxLayout" name="horizontalLayout_729">
@@ -55596,6 +55681,25 @@ background-color: rgb(84, 84, 84);</string>
                </widget>
               </item>
               <item>
+               <layout class="QHBoxLayout" name="horizontalLayout_52">
+                <property name="leftMargin">
+                 <number>20</number>
+                </property>
+                <item>
+                 <widget class="QCheckBox" name="checkBox_todas_5">
+                  <property name="font">
+                   <font>
+                    <pointsize>12</pointsize>
+                   </font>
+                  </property>
+                  <property name="text">
+                   <string>Selecionar tudo</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item>
                <layout class="QHBoxLayout" name="horizontalLayout_737">
                 <property name="spacing">
                  <number>6</number>
@@ -57966,6 +58070,25 @@ background-color: rgb(84, 84, 84);</string>
                  </property>
                 </item>
                </widget>
+              </item>
+              <item>
+               <layout class="QHBoxLayout" name="horizontalLayout_53">
+                <property name="leftMargin">
+                 <number>20</number>
+                </property>
+                <item>
+                 <widget class="QCheckBox" name="checkBox_todas_6">
+                  <property name="font">
+                   <font>
+                    <pointsize>12</pointsize>
+                   </font>
+                  </property>
+                  <property name="text">
+                   <string>Selecionar tudo</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
               </item>
               <item>
                <layout class="QHBoxLayout" name="horizontalLayout_745">
@@ -60340,6 +60463,25 @@ background-color: rgb(84, 84, 84);</string>
                </widget>
               </item>
               <item>
+               <layout class="QHBoxLayout" name="horizontalLayout_54">
+                <property name="leftMargin">
+                 <number>20</number>
+                </property>
+                <item>
+                 <widget class="QCheckBox" name="checkBox_todas_7">
+                  <property name="font">
+                   <font>
+                    <pointsize>12</pointsize>
+                   </font>
+                  </property>
+                  <property name="text">
+                   <string>Selecionar tudo</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item>
                <layout class="QHBoxLayout" name="horizontalLayout_753">
                 <property name="spacing">
                  <number>6</number>
@@ -62710,6 +62852,25 @@ background-color: rgb(84, 84, 84);</string>
                  </property>
                 </item>
                </widget>
+              </item>
+              <item>
+               <layout class="QHBoxLayout" name="horizontalLayout_55">
+                <property name="leftMargin">
+                 <number>20</number>
+                </property>
+                <item>
+                 <widget class="QCheckBox" name="checkBox_todas_8">
+                  <property name="font">
+                   <font>
+                    <pointsize>12</pointsize>
+                   </font>
+                  </property>
+                  <property name="text">
+                   <string>Selecionar tudo</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
               </item>
               <item>
                <layout class="QHBoxLayout" name="horizontalLayout_761">
@@ -65084,6 +65245,25 @@ background-color: rgb(84, 84, 84);</string>
                </widget>
               </item>
               <item>
+               <layout class="QHBoxLayout" name="horizontalLayout_57">
+                <property name="leftMargin">
+                 <number>20</number>
+                </property>
+                <item>
+                 <widget class="QCheckBox" name="checkBox_todas_9">
+                  <property name="font">
+                   <font>
+                    <pointsize>12</pointsize>
+                   </font>
+                  </property>
+                  <property name="text">
+                   <string>Selecionar tudo</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item>
                <layout class="QHBoxLayout" name="horizontalLayout_769">
                 <property name="spacing">
                  <number>6</number>
@@ -67454,6 +67634,25 @@ background-color: rgb(84, 84, 84);</string>
                  </property>
                 </item>
                </widget>
+              </item>
+              <item>
+               <layout class="QHBoxLayout" name="horizontalLayout_58">
+                <property name="leftMargin">
+                 <number>20</number>
+                </property>
+                <item>
+                 <widget class="QCheckBox" name="checkBox_todas_10">
+                  <property name="font">
+                   <font>
+                    <pointsize>12</pointsize>
+                   </font>
+                  </property>
+                  <property name="text">
+                   <string>Selecionar tudo</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
               </item>
               <item>
                <layout class="QHBoxLayout" name="horizontalLayout_777">
@@ -69838,6 +70037,25 @@ background-color: rgb(84, 84, 84);</string>
                </widget>
               </item>
               <item>
+               <layout class="QHBoxLayout" name="horizontalLayout_46">
+                <property name="leftMargin">
+                 <number>20</number>
+                </property>
+                <item>
+                 <widget class="QCheckBox" name="checkBox_todas_g1">
+                  <property name="font">
+                   <font>
+                    <pointsize>12</pointsize>
+                   </font>
+                  </property>
+                  <property name="text">
+                   <string>Selecionar tudo</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item>
                <layout class="QHBoxLayout" name="horizontalLayout_2">
                 <property name="leftMargin">
                  <number>20</number>
@@ -71367,6 +71585,25 @@ background-color: rgb(84, 84, 84);</string>
                </widget>
               </item>
               <item>
+               <layout class="QHBoxLayout" name="horizontalLayout_47">
+                <property name="leftMargin">
+                 <number>20</number>
+                </property>
+                <item>
+                 <widget class="QCheckBox" name="checkBox_todas_g2">
+                  <property name="font">
+                   <font>
+                    <pointsize>12</pointsize>
+                   </font>
+                  </property>
+                  <property name="text">
+                   <string>Selecionar tudo</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item>
                <layout class="QHBoxLayout" name="horizontalLayout_14">
                 <property name="leftMargin">
                  <number>20</number>
@@ -72866,6 +73103,25 @@ background-color: rgb(84, 84, 84);</string>
                </widget>
               </item>
               <item>
+               <layout class="QHBoxLayout" name="horizontalLayout_56">
+                <property name="leftMargin">
+                 <number>20</number>
+                </property>
+                <item>
+                 <widget class="QCheckBox" name="checkBox_todas_g3">
+                  <property name="font">
+                   <font>
+                    <pointsize>12</pointsize>
+                   </font>
+                  </property>
+                  <property name="text">
+                   <string>Selecionar tudo</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item>
                <layout class="QHBoxLayout" name="horizontalLayout_36">
                 <property name="leftMargin">
                  <number>20</number>
@@ -74363,6 +74619,28 @@ background-color: rgb(84, 84, 84);</string>
                  </property>
                 </item>
                </widget>
+              </item>
+              <item>
+               <layout class="QHBoxLayout" name="horizontalLayout_59">
+                <property name="leftMargin">
+                 <number>20</number>
+                </property>
+                <property name="rightMargin">
+                 <number>0</number>
+                </property>
+                <item>
+                 <widget class="QCheckBox" name="checkBox_todas_gall">
+                  <property name="font">
+                   <font>
+                    <pointsize>12</pointsize>
+                   </font>
+                  </property>
+                  <property name="text">
+                   <string>Selecionar tudo</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
               </item>
               <item>
                <layout class="QHBoxLayout" name="horizontalLayout_23">
@@ -76380,98 +76658,1922 @@ background-color: rgb(84, 84, 84);</string>
  </resources>
  <connections>
   <connection>
-   <sender>lineed_n_est_aq</sender>
-   <signal>returnPressed()</signal>
-   <receiver>pB_n_est_aq</receiver>
+   <sender>checkBox_todas_1</sender>
+   <signal>clicked()</signal>
+   <receiver>checkBox_saida1_1</receiver>
    <slot>click()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>1124</x>
-     <y>417</y>
+     <x>77</x>
+     <y>179</y>
     </hint>
     <hint type="destinationlabel">
-     <x>1242</x>
-     <y>412</y>
+     <x>62</x>
+     <y>235</y>
     </hint>
    </hints>
   </connection>
   <connection>
-   <sender>lineed_temp</sender>
-   <signal>returnPressed()</signal>
-   <receiver>pB_temp</receiver>
+   <sender>checkBox_todas_1</sender>
+   <signal>clicked()</signal>
+   <receiver>checkBox_saida2_1</receiver>
    <slot>click()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>1168</x>
-     <y>466</y>
+     <x>90</x>
+     <y>182</y>
     </hint>
     <hint type="destinationlabel">
-     <x>1238</x>
-     <y>458</y>
+     <x>70</x>
+     <y>305</y>
     </hint>
    </hints>
   </connection>
   <connection>
-   <sender>lineed_patamar</sender>
-   <signal>returnPressed()</signal>
-   <receiver>pB_patamar</receiver>
+   <sender>checkBox_todas_1</sender>
+   <signal>clicked()</signal>
+   <receiver>checkBox_saida3_1</receiver>
    <slot>click()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>1176</x>
-     <y>566</y>
+     <x>109</x>
+     <y>183</y>
     </hint>
     <hint type="destinationlabel">
-     <x>1240</x>
+     <x>63</x>
+     <y>366</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_todas_1</sender>
+   <signal>clicked()</signal>
+   <receiver>checkBox_saida4_1</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>132</x>
+     <y>185</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>65</x>
+     <y>428</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_todas_1</sender>
+   <signal>clicked()</signal>
+   <receiver>checkBox_saida5_1</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>145</x>
+     <y>181</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>65</x>
+     <y>498</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_todas_1</sender>
+   <signal>clicked()</signal>
+   <receiver>checkBox_saida6_1</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>162</x>
+     <y>176</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>65</x>
+     <y>561</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_todas_1</sender>
+   <signal>clicked()</signal>
+   <receiver>checkBox_saida7_1</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>152</x>
+     <y>179</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>71</x>
+     <y>624</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_todas_1</sender>
+   <signal>clicked()</signal>
+   <receiver>checkBox_saida8_1</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>134</x>
+     <y>175</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>70</x>
+     <y>686</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_todas_2</sender>
+   <signal>clicked()</signal>
+   <receiver>checkBox_saida1_2</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>69</x>
+     <y>172</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>69</x>
+     <y>238</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_todas_2</sender>
+   <signal>clicked()</signal>
+   <receiver>checkBox_saida2_2</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>91</x>
+     <y>177</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>66</x>
+     <y>303</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_todas_2</sender>
+   <signal>clicked()</signal>
+   <receiver>checkBox_saida3_2</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>99</x>
+     <y>181</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>68</x>
+     <y>369</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_todas_2</sender>
+   <signal>clicked()</signal>
+   <receiver>checkBox_saida4_2</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>112</x>
+     <y>176</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>72</x>
+     <y>433</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_todas_2</sender>
+   <signal>clicked()</signal>
+   <receiver>checkBox_saida5_2</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>109</x>
+     <y>182</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>68</x>
+     <y>497</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_todas_2</sender>
+   <signal>clicked()</signal>
+   <receiver>checkBox_saida6_2</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>117</x>
+     <y>175</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>70</x>
      <y>560</y>
     </hint>
    </hints>
   </connection>
   <connection>
-   <sender>lineed_t0</sender>
-   <signal>returnPressed()</signal>
-   <receiver>pB_set_t0</receiver>
+   <sender>checkBox_todas_2</sender>
+   <signal>clicked()</signal>
+   <receiver>checkBox_saida7_2</receiver>
    <slot>click()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>1076</x>
-     <y>268</y>
+     <x>114</x>
+     <y>175</y>
     </hint>
     <hint type="destinationlabel">
-     <x>1166</x>
-     <y>270</y>
+     <x>69</x>
+     <y>620</y>
     </hint>
    </hints>
   </connection>
   <connection>
-   <sender>lineed_taxa</sender>
-   <signal>returnPressed()</signal>
-   <receiver>pB_taxa</receiver>
+   <sender>checkBox_todas_2</sender>
+   <signal>clicked()</signal>
+   <receiver>checkBox_saida8_2</receiver>
    <slot>click()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>1161</x>
-     <y>515</y>
+     <x>130</x>
+     <y>180</y>
     </hint>
     <hint type="destinationlabel">
-     <x>1243</x>
-     <y>510</y>
+     <x>66</x>
+     <y>688</y>
     </hint>
    </hints>
   </connection>
   <connection>
-   <sender>lineed_t_entre_medidas</sender>
-   <signal>returnPressed()</signal>
-   <receiver>pB_t_entre_medidas</receiver>
+   <sender>checkBox_todas_3</sender>
+   <signal>clicked()</signal>
+   <receiver>checkBox_saida1_3</receiver>
    <slot>click()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>1163</x>
-     <y>121</y>
+     <x>87</x>
+     <y>182</y>
     </hint>
     <hint type="destinationlabel">
-     <x>1080</x>
-     <y>157</y>
+     <x>71</x>
+     <y>243</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_todas_3</sender>
+   <signal>clicked()</signal>
+   <receiver>checkBox_saida2_3</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>73</x>
+     <y>174</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>70</x>
+     <y>308</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_todas_3</sender>
+   <signal>clicked()</signal>
+   <receiver>checkBox_saida3_3</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>71</x>
+     <y>189</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>71</x>
+     <y>368</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_todas_3</sender>
+   <signal>clicked()</signal>
+   <receiver>checkBox_saida4_3</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>105</x>
+     <y>180</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>68</x>
+     <y>435</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_todas_3</sender>
+   <signal>clicked()</signal>
+   <receiver>checkBox_saida5_3</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>108</x>
+     <y>178</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>66</x>
+     <y>498</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_todas_3</sender>
+   <signal>clicked()</signal>
+   <receiver>checkBox_saida6_3</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>115</x>
+     <y>175</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>72</x>
+     <y>559</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_todas_3</sender>
+   <signal>clicked()</signal>
+   <receiver>checkBox_saida7_3</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>117</x>
+     <y>184</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>62</x>
+     <y>626</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_todas_3</sender>
+   <signal>clicked()</signal>
+   <receiver>checkBox_saida8_3</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>141</x>
+     <y>171</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>62</x>
+     <y>683</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_todas_4</sender>
+   <signal>clicked()</signal>
+   <receiver>checkBox_saida1_4</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>80</x>
+     <y>174</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>67</x>
+     <y>245</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_todas_4</sender>
+   <signal>clicked()</signal>
+   <receiver>checkBox_saida2_4</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>92</x>
+     <y>171</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>70</x>
+     <y>304</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_todas_4</sender>
+   <signal>clicked()</signal>
+   <receiver>checkBox_saida3_4</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>100</x>
+     <y>177</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>64</x>
+     <y>364</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_todas_4</sender>
+   <signal>clicked()</signal>
+   <receiver>checkBox_saida4_4</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>115</x>
+     <y>182</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>60</x>
+     <y>433</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_todas_4</sender>
+   <signal>clicked()</signal>
+   <receiver>checkBox_saida5_4</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>132</x>
+     <y>172</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>71</x>
+     <y>493</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_todas_4</sender>
+   <signal>clicked()</signal>
+   <receiver>checkBox_saida6_4</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>114</x>
+     <y>177</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>68</x>
+     <y>560</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_todas_4</sender>
+   <signal>clicked()</signal>
+   <receiver>checkBox_saida7_4</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>141</x>
+     <y>177</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>67</x>
+     <y>621</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_todas_4</sender>
+   <signal>clicked()</signal>
+   <receiver>checkBox_saida8_4</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>155</x>
+     <y>185</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>68</x>
+     <y>686</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_todas_5</sender>
+   <signal>clicked()</signal>
+   <receiver>checkBox_saida1_5</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>82</x>
+     <y>177</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>69</x>
+     <y>239</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_todas_5</sender>
+   <signal>clicked()</signal>
+   <receiver>checkBox_saida2_5</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>94</x>
+     <y>175</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>66</x>
+     <y>305</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_todas_5</sender>
+   <signal>clicked()</signal>
+   <receiver>checkBox_saida3_5</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>106</x>
+     <y>180</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>68</x>
+     <y>371</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_todas_5</sender>
+   <signal>clicked()</signal>
+   <receiver>checkBox_saida4_5</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>120</x>
+     <y>178</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>65</x>
+     <y>435</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_todas_5</sender>
+   <signal>clicked()</signal>
+   <receiver>checkBox_saida5_5</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>128</x>
+     <y>176</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>66</x>
+     <y>497</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_todas_5</sender>
+   <signal>clicked()</signal>
+   <receiver>checkBox_saida6_5</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>139</x>
+     <y>179</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>70</x>
+     <y>560</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_todas_5</sender>
+   <signal>clicked()</signal>
+   <receiver>checkBox_saida7_5</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>160</x>
+     <y>181</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>68</x>
+     <y>622</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_todas_5</sender>
+   <signal>clicked()</signal>
+   <receiver>checkBox_saida8_5</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>194</x>
+     <y>185</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>64</x>
+     <y>683</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_todas_6</sender>
+   <signal>clicked()</signal>
+   <receiver>checkBox_saida1_6</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>70</x>
+     <y>178</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>69</x>
+     <y>242</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_todas_6</sender>
+   <signal>clicked()</signal>
+   <receiver>checkBox_saida2_6</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>84</x>
+     <y>186</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>66</x>
+     <y>307</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_todas_6</sender>
+   <signal>clicked()</signal>
+   <receiver>checkBox_saida3_6</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>100</x>
+     <y>175</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>65</x>
+     <y>370</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_todas_6</sender>
+   <signal>clicked()</signal>
+   <receiver>checkBox_saida4_6</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>119</x>
+     <y>179</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>61</x>
+     <y>427</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_todas_6</sender>
+   <signal>clicked()</signal>
+   <receiver>checkBox_saida5_6</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>131</x>
+     <y>175</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>66</x>
+     <y>495</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_todas_6</sender>
+   <signal>clicked()</signal>
+   <receiver>checkBox_saida6_6</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>136</x>
+     <y>178</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>61</x>
+     <y>561</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_todas_6</sender>
+   <signal>clicked()</signal>
+   <receiver>checkBox_saida7_6</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>157</x>
+     <y>178</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>70</x>
+     <y>618</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_todas_6</sender>
+   <signal>clicked()</signal>
+   <receiver>checkBox_saida8_6</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>192</x>
+     <y>182</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>65</x>
+     <y>687</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_todas_7</sender>
+   <signal>clicked()</signal>
+   <receiver>checkBox_saida1_7</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>90</x>
+     <y>172</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>66</x>
+     <y>239</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_todas_7</sender>
+   <signal>clicked()</signal>
+   <receiver>checkBox_saida2_7</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>112</x>
+     <y>174</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>67</x>
+     <y>304</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_todas_7</sender>
+   <signal>clicked()</signal>
+   <receiver>checkBox_saida3_7</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>122</x>
+     <y>180</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>67</x>
+     <y>369</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_todas_7</sender>
+   <signal>clicked()</signal>
+   <receiver>checkBox_saida4_7</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>136</x>
+     <y>177</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>68</x>
+     <y>431</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_todas_7</sender>
+   <signal>clicked()</signal>
+   <receiver>checkBox_saida5_7</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>148</x>
+     <y>178</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>67</x>
+     <y>498</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_todas_7</sender>
+   <signal>clicked()</signal>
+   <receiver>checkBox_saida6_7</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>159</x>
+     <y>176</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>65</x>
+     <y>560</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_todas_7</sender>
+   <signal>clicked()</signal>
+   <receiver>checkBox_saida7_7</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>178</x>
+     <y>174</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>72</x>
+     <y>620</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_todas_7</sender>
+   <signal>clicked()</signal>
+   <receiver>checkBox_saida8_7</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>185</x>
+     <y>186</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>65</x>
+     <y>686</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_todas_8</sender>
+   <signal>clicked()</signal>
+   <receiver>checkBox_saida1_8</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>98</x>
+     <y>174</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>65</x>
+     <y>245</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_todas_8</sender>
+   <signal>clicked()</signal>
+   <receiver>checkBox_saida2_8</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>116</x>
+     <y>175</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>72</x>
+     <y>304</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_todas_8</sender>
+   <signal>clicked()</signal>
+   <receiver>checkBox_saida3_8</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>133</x>
+     <y>180</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>65</x>
+     <y>367</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_todas_8</sender>
+   <signal>clicked()</signal>
+   <receiver>checkBox_saida4_8</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>141</x>
+     <y>177</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>69</x>
+     <y>435</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_todas_8</sender>
+   <signal>clicked()</signal>
+   <receiver>checkBox_saida5_8</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>152</x>
+     <y>178</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>67</x>
+     <y>496</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_todas_8</sender>
+   <signal>clicked()</signal>
+   <receiver>checkBox_saida6_8</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>165</x>
+     <y>181</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>71</x>
+     <y>565</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_todas_8</sender>
+   <signal>clicked()</signal>
+   <receiver>checkBox_saida7_8</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>176</x>
+     <y>179</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>62</x>
+     <y>623</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_todas_8</sender>
+   <signal>clicked()</signal>
+   <receiver>checkBox_saida8_8</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>191</x>
+     <y>176</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>64</x>
+     <y>687</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_todas_9</sender>
+   <signal>clicked()</signal>
+   <receiver>checkBox_saida1_9</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>99</x>
+     <y>182</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>70</x>
+     <y>239</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_todas_9</sender>
+   <signal>clicked()</signal>
+   <receiver>checkBox_saida2_9</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>112</x>
+     <y>172</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>71</x>
+     <y>304</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_todas_9</sender>
+   <signal>clicked()</signal>
+   <receiver>checkBox_saida3_9</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>125</x>
+     <y>175</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>70</x>
+     <y>369</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_todas_9</sender>
+   <signal>clicked()</signal>
+   <receiver>checkBox_saida4_9</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>142</x>
+     <y>174</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>64</x>
+     <y>430</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_todas_9</sender>
+   <signal>clicked()</signal>
+   <receiver>checkBox_saida5_9</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>156</x>
+     <y>173</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>63</x>
+     <y>496</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_todas_9</sender>
+   <signal>clicked()</signal>
+   <receiver>checkBox_saida6_9</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>171</x>
+     <y>176</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>60</x>
+     <y>560</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_todas_9</sender>
+   <signal>clicked()</signal>
+   <receiver>checkBox_saida7_9</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>74</x>
+     <y>179</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>63</x>
+     <y>623</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_todas_9</sender>
+   <signal>clicked()</signal>
+   <receiver>checkBox_saida8_9</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>86</x>
+     <y>181</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>71</x>
+     <y>685</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_todas_10</sender>
+   <signal>clicked()</signal>
+   <receiver>checkBox_saida1_10</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>71</x>
+     <y>176</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>64</x>
+     <y>240</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_todas_10</sender>
+   <signal>clicked()</signal>
+   <receiver>checkBox_saida2_10</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>75</x>
+     <y>178</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>67</x>
+     <y>302</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_todas_10</sender>
+   <signal>clicked()</signal>
+   <receiver>checkBox_saida3_10</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>83</x>
+     <y>171</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>71</x>
+     <y>368</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_todas_10</sender>
+   <signal>clicked()</signal>
+   <receiver>checkBox_saida4_10</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>91</x>
+     <y>182</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>70</x>
+     <y>430</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_todas_10</sender>
+   <signal>clicked()</signal>
+   <receiver>checkBox_saida5_10</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>104</x>
+     <y>179</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>62</x>
+     <y>499</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_todas_10</sender>
+   <signal>clicked()</signal>
+   <receiver>checkBox_saida6_10</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>120</x>
+     <y>173</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>72</x>
+     <y>556</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_todas_10</sender>
+   <signal>clicked()</signal>
+   <receiver>checkBox_saida7_10</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>138</x>
+     <y>179</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>65</x>
+     <y>620</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_todas_10</sender>
+   <signal>clicked()</signal>
+   <receiver>checkBox_saida8_10</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>152</x>
+     <y>174</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>61</x>
+     <y>686</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_todas_g1</sender>
+   <signal>clicked()</signal>
+   <receiver>checkBox_gvt1_1</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>71</x>
+     <y>178</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>66</x>
+     <y>220</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_todas_g1</sender>
+   <signal>clicked()</signal>
+   <receiver>checkBox_gvt2_1</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>77</x>
+     <y>176</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>68</x>
+     <y>276</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_todas_g1</sender>
+   <signal>clicked()</signal>
+   <receiver>checkBox_gvt3_1</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>83</x>
+     <y>176</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>65</x>
+     <y>325</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_todas_g1</sender>
+   <signal>clicked()</signal>
+   <receiver>checkBox_gvt4_1</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>96</x>
+     <y>170</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>67</x>
+     <y>379</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_todas_g1</sender>
+   <signal>clicked()</signal>
+   <receiver>checkBox_gvt5_1</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>113</x>
+     <y>171</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>69</x>
+     <y>432</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_todas_g1</sender>
+   <signal>clicked()</signal>
+   <receiver>checkBox_gvt6_1</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>126</x>
+     <y>176</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>70</x>
+     <y>484</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_todas_g1</sender>
+   <signal>clicked()</signal>
+   <receiver>checkBox_gvt7_1</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>133</x>
+     <y>176</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>70</x>
+     <y>537</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_todas_g1</sender>
+   <signal>clicked()</signal>
+   <receiver>checkBox_gvt8_1</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>142</x>
+     <y>168</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>70</x>
+     <y>588</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_todas_g1</sender>
+   <signal>clicked()</signal>
+   <receiver>checkBox_gvt9_1</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>160</x>
+     <y>166</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>67</x>
+     <y>639</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_todas_g1</sender>
+   <signal>clicked()</signal>
+   <receiver>checkBox_gvt10_1</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>177</x>
+     <y>164</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>69</x>
+     <y>689</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_todas_g2</sender>
+   <signal>clicked()</signal>
+   <receiver>checkBox_gvt1_2</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>81</x>
+     <y>170</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>61</x>
+     <y>225</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_todas_g2</sender>
+   <signal>clicked()</signal>
+   <receiver>checkBox_gvt2_2</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>91</x>
+     <y>168</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>62</x>
+     <y>279</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_todas_g2</sender>
+   <signal>clicked()</signal>
+   <receiver>checkBox_gvt3_2</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>107</x>
+     <y>174</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>68</x>
+     <y>331</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_todas_g2</sender>
+   <signal>clicked()</signal>
+   <receiver>checkBox_gvt4_2</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>127</x>
+     <y>169</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>66</x>
+     <y>381</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_todas_g2</sender>
+   <signal>clicked()</signal>
+   <receiver>checkBox_gvt5_2</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>146</x>
+     <y>167</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>68</x>
+     <y>431</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_todas_g2</sender>
+   <signal>clicked()</signal>
+   <receiver>checkBox_gvt6_2</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>155</x>
+     <y>174</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>66</x>
+     <y>483</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_todas_g2</sender>
+   <signal>clicked()</signal>
+   <receiver>checkBox_gvt7_2</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>165</x>
+     <y>175</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>67</x>
+     <y>531</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_todas_g2</sender>
+   <signal>clicked()</signal>
+   <receiver>checkBox_gvt8_2</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>178</x>
+     <y>173</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>68</x>
+     <y>590</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_todas_g2</sender>
+   <signal>clicked()</signal>
+   <receiver>checkBox_gvt9_2</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>188</x>
+     <y>175</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>63</x>
+     <y>645</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_todas_g2</sender>
+   <signal>clicked()</signal>
+   <receiver>checkBox_gvt10_2</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>193</x>
+     <y>177</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>64</x>
+     <y>691</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_todas_g3</sender>
+   <signal>clicked()</signal>
+   <receiver>checkBox_gvt1_3</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>63</x>
+     <y>166</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>66</x>
+     <y>221</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_todas_g3</sender>
+   <signal>clicked()</signal>
+   <receiver>checkBox_gvt2_3</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>76</x>
+     <y>171</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>66</x>
+     <y>278</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_todas_g3</sender>
+   <signal>clicked()</signal>
+   <receiver>checkBox_gvt3_3</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>86</x>
+     <y>169</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>63</x>
+     <y>323</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_todas_g3</sender>
+   <signal>clicked()</signal>
+   <receiver>checkBox_gvt4_3</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>97</x>
+     <y>177</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>62</x>
+     <y>384</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_todas_g3</sender>
+   <signal>clicked()</signal>
+   <receiver>checkBox_gvt5_3</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>104</x>
+     <y>179</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>63</x>
+     <y>434</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_todas_g3</sender>
+   <signal>clicked()</signal>
+   <receiver>checkBox_gvt6_3</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>113</x>
+     <y>172</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>72</x>
+     <y>481</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_todas_g3</sender>
+   <signal>clicked()</signal>
+   <receiver>checkBox_gvt7_3</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>119</x>
+     <y>176</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>67</x>
+     <y>532</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_todas_g3</sender>
+   <signal>clicked()</signal>
+   <receiver>checkBox_gvt8_3</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>127</x>
+     <y>170</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>70</x>
+     <y>587</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_todas_g3</sender>
+   <signal>clicked()</signal>
+   <receiver>checkBox_gvt9_3</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>135</x>
+     <y>178</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>67</x>
+     <y>642</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_todas_g3</sender>
+   <signal>clicked()</signal>
+   <receiver>checkBox_gvt10_3</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>151</x>
+     <y>183</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>60</x>
+     <y>696</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_todas_gall</sender>
+   <signal>clicked()</signal>
+   <receiver>checkBox_gvt1_4</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>67</x>
+     <y>172</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>68</x>
+     <y>218</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_todas_gall</sender>
+   <signal>clicked()</signal>
+   <receiver>checkBox_gvt2_4</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>76</x>
+     <y>173</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>64</x>
+     <y>280</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_todas_gall</sender>
+   <signal>clicked()</signal>
+   <receiver>checkBox_gvt3_4</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>80</x>
+     <y>172</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>62</x>
+     <y>325</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_todas_gall</sender>
+   <signal>clicked()</signal>
+   <receiver>checkBox_gvt4_4</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>86</x>
+     <y>180</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>72</x>
+     <y>383</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_todas_gall</sender>
+   <signal>clicked()</signal>
+   <receiver>checkBox_gvt5_4</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>101</x>
+     <y>167</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>66</x>
+     <y>428</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_todas_gall</sender>
+   <signal>clicked()</signal>
+   <receiver>checkBox_gvt6_4</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>111</x>
+     <y>167</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>67</x>
+     <y>488</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_todas_gall</sender>
+   <signal>clicked()</signal>
+   <receiver>checkBox_gvt7_4</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>123</x>
+     <y>174</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>66</x>
+     <y>537</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_todas_gall</sender>
+   <signal>clicked()</signal>
+   <receiver>checkBox_gvt8_4</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>139</x>
+     <y>166</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>64</x>
+     <y>588</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_todas_gall</sender>
+   <signal>clicked()</signal>
+   <receiver>checkBox_gvt9_4</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>151</x>
+     <y>171</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>68</x>
+     <y>642</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_todas_gall</sender>
+   <signal>clicked()</signal>
+   <receiver>checkBox_gvt10_4</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>167</x>
+     <y>174</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>71</x>
+     <y>690</y>
     </hint>
    </hints>
   </connection>
