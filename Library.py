@@ -18,7 +18,7 @@ class Lib(object):
         self.vars = self.Variables()
         self.graph = self.Graph_plots()
         
-        # 10 gavetas podem ser conectadas
+        # 11 gavetas podem ser conectadas
         self.fitaaque1 = Communication.Gaveta(0)
         self.fitaaque2 = Communication.Gaveta(1)
         self.fitaaque3 = Communication.Gaveta(2)
@@ -29,6 +29,7 @@ class Lib(object):
         self.fitaaque8 = Communication.Gaveta(7)
         self.fitaaque9 = Communication.Gaveta(8)
         self.fitaaque10 = Communication.Gaveta(9)
+        self.fitaaque11 = Communication.Gaveta(10)
 
     def reading_th(self, g):
         while(self.control.run_control_on[g]):
@@ -99,13 +100,13 @@ class Lib(object):
             for i in range(3):
                 self.group[i] = defaultdict(list)
             
-            for i in range(10):
+            for i in range(11):
                 self.plot_group_gvts[i] = [False] * 3
             for i in range(4):
                 self.plot_group_grps[i] = [False] * 4
             
-            self.curves_on = [False] * 10
-            self.run_control_on = [False] * 10
+            self.curves_on = [False] * 11
+            self.run_control_on = [False] * 11
             self.measurements_ON = False
             self.meas_time = None
 
@@ -118,7 +119,7 @@ class Lib(object):
             current = []
             time_on = []
             
-            for i in range(10):
+            for i in range(11):
                 temperature.append([])
                 voltage.append([])
                 power.append([])
@@ -140,18 +141,20 @@ class Lib(object):
             self.times = []
             self.taxa = dict()
             self.patamar = dict()
+            self.temp_est = dict()
             self.n_est_aq = [1] * 3
             self.n_aq_temp = [1] * 3
             self.n_aq_taxa = [1] * 3
             self.n_aq_patamar = [1] * 3
                    
-            for i in range(10):
+            for i in range(11):
                 self.temp.append(defaultdict(list))
                 self.times.append(defaultdict(list)) 
             
             for i in range(3):
                 self.taxa[i] = []
                 self.patamar[i] = []
+                self.temp_est[i] = []
 
     class Variables(object):
 
@@ -166,7 +169,7 @@ class Lib(object):
             
             self.channels = dict()
             
-            for i in range(10):
+            for i in range(11):
                 self.channels[i] = []
                 self.temperatures.append(np.array([]))
                 self.temp_res.append(np.array([]))
@@ -176,7 +179,7 @@ class Lib(object):
                 self.powers.append(np.array([]))
                 self.times.append(np.array([]))
 
-            self.file = [None] * 10
+            self.file = [None] * 11
             self.hours = [0] * 3
             self.mins = [0] * 3
             self.secs = [0] * 3
@@ -191,7 +194,7 @@ class Lib(object):
             self.t0 = []
             self.a = []
                 
-            for i in range(10):
+            for i in range(11):
                 self.interpolation_points.append(defaultdict(list))
                 self.start_time.append(defaultdict(list))
                 self.hold_start.append(defaultdict(list))
@@ -212,12 +215,12 @@ class Lib(object):
             self.curves_grp = defaultdict(list)
             self.curves_gvt = defaultdict(list)
             
-            for i in range(10):
+            for i in range(11):
                 self.exp_gvt[i] = [None] * 3
                 
             for i in range(4):
                 self.exp_grp[i] = [None] * 3
                 
             self.unit = {'Temperatura': '°C', 'Potência': 'Watts', 'Corrente': 'Amp', 'Tensão': 'Volts'}
-            self.pen = ['r', (0, 147, 108), 'b', 'm', (170, 0, 0), (132, 112, 255), 'k', (255, 165, 0), (0, 96, 144), (170, 0, 127)]
+            self.pen = ['r', (0, 147, 108), 'b', 'm', (170, 0, 0), (132, 112, 255), 'k', (255, 165, 0), (0, 96, 144), (170, 0, 127), (100, 100, 0)]
             self.pen_esp = ['c', 'g', 'y']
