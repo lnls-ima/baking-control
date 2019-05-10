@@ -1,5 +1,6 @@
 <RCC>
   <qresource prefix="buttons">
+    <file>saved_data.png</file>
     <file>all_on.png</file>
     <file>letter-b-icon.png</file>
     <file>Desenho completo Arco.jpg</file>

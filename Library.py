@@ -109,6 +109,7 @@ class Lib(object):
             self.run_control_on = [False] * 11
             self.measurements_ON = False
             self.meas_time = None
+            self.config_ok = False
 
     class Measurements(object):
 
@@ -155,7 +156,24 @@ class Lib(object):
                 self.taxa[i] = []
                 self.patamar[i] = []
                 self.temp_est[i] = []
-
+                
+            self.temp_em_aq = []
+            self.taxa_em_aq = dict()
+            self.patamar_em_aq = dict()
+            self.temp_est_em_aq = dict()
+            self.n_est_aq_em_aq = [1] * 3
+            self.n_aq_temp_em_aq = [1] * 3
+            self.n_aq_taxa_em_aq = [1] * 3
+            self.n_aq_patamar_em_aq = [1] * 3
+            
+            for i in range(11):
+                self.temp_em_aq.append(defaultdict(list))
+                
+            for i in range(3):
+                self.taxa_em_aq[i] = []
+                self.patamar_em_aq[i] = []
+                self.temp_est_em_aq[i] = []
+            
     class Variables(object):
 
         def __init__(self):

@@ -7,7 +7,7 @@ import traceback
 import time
 
 from PyQt4 import QtCore, QtGui
-from PyQt4.Qt import QStatusBar, QMessageBox, QHeaderView
+from PyQt4.Qt import QMessageBox, QHeaderView
 from PyQt4.QtCore import QTimer, Qt
 
 import Library
@@ -16,7 +16,6 @@ import numpy as np
 import pyqtgraph as pg
 
 pg.setConfigOptions(useOpenGL=True)
-
 
 class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
 
@@ -27,40 +26,49 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
         
         self.ui.table_dados.horizontalHeader().setResizeMode(QHeaderView.Stretch)
         self.ui.table_dados.verticalHeader().setResizeMode(QHeaderView.Stretch)
+        
+        self.ui.table_novas_curvas.horizontalHeader().setResizeMode(QHeaderView.Stretch)
+        self.ui.table_novas_curvas.verticalHeader().setResizeMode(QHeaderView.Stretch)
 
         self.ui.actionConexoes.triggered.connect(lambda: self.set_index(0))
-        self.ui.actionConfiguracoes.triggered.connect(lambda: self.set_index(1))
-        self.ui.actionDados_salvos.triggered.connect(lambda: self.set_index(2))
-        self.ui.actionGeral.triggered.connect(lambda: self.set_index(3))
-        self.ui.actionGaveta_1o.triggered.connect(lambda: self.set_index(5))
-        self.ui.actionGaveta_2o.triggered.connect(lambda: self.set_index(6))
-        self.ui.actionGaveta_3o.triggered.connect(lambda: self.set_index(7))
-        self.ui.actionGaveta_4o.triggered.connect(lambda: self.set_index(8))
-        self.ui.actionGaveta_5o.triggered.connect(lambda: self.set_index(9))
-        self.ui.actionGaveta_6o.triggered.connect(lambda: self.set_index(10))
-        self.ui.actionGaveta_7o.triggered.connect(lambda: self.set_index(11))
-        self.ui.actionGaveta_8o.triggered.connect(lambda: self.set_index(12))
-        self.ui.actionGaveta_9o.triggered.connect(lambda: self.set_index(13))
-        self.ui.actionGaveta_10o.triggered.connect(lambda: self.set_index(14))
-        self.ui.actionGaveta_11o.triggered.connect(lambda: self.set_index(15))
-        self.ui.actionGaveta_1g.triggered.connect(lambda: self.set_index(16))
-        self.ui.actionGaveta_2g.triggered.connect(lambda: self.set_index(17))
-        self.ui.actionGaveta_3g.triggered.connect(lambda: self.set_index(18))
-        self.ui.actionGaveta_4g.triggered.connect(lambda: self.set_index(19))
-        self.ui.actionGaveta_5g.triggered.connect(lambda: self.set_index(20))
-        self.ui.actionGaveta_6g.triggered.connect(lambda: self.set_index(21))
-        self.ui.actionGaveta_7g.triggered.connect(lambda: self.set_index(22))
-        self.ui.actionGaveta_8g.triggered.connect(lambda: self.set_index(23))
-        self.ui.actionGaveta_9g.triggered.connect(lambda: self.set_index(24))
-        self.ui.actionGaveta_10g.triggered.connect(lambda: self.set_index(25))
-        self.ui.actionGaveta_11g.triggered.connect(lambda: self.set_index(26))
-        self.ui.actionGrupo_1.triggered.connect(lambda: self.set_index(27))
-        self.ui.actionGrupo_2.triggered.connect(lambda: self.set_index(28))
-        self.ui.actionGrupo_3.triggered.connect(lambda: self.set_index(29))
-        self.ui.actionGrupo_4.triggered.connect(lambda: self.set_index(30))
+        self.ui.actionIniciais.triggered.connect(lambda: self.set_index(1))
+        self.ui.actionEm_aquecimento.triggered.connect(lambda: self.set_index(2))
+        self.ui.actionDados_salvos.triggered.connect(lambda: self.set_index(3))
+        self.ui.actionGeral.triggered.connect(lambda: self.set_index(4))
+        self.ui.actionTrecho_impar.triggered.connect(lambda: self.set_index(5))
+        #self.ui.actionTrecho_par.triggered.connect(lambda: self.set_index(6))
+        self.ui.actionGaveta_1o.triggered.connect(lambda: self.set_index(6))
+        self.ui.actionGaveta_2o.triggered.connect(lambda: self.set_index(7))
+        self.ui.actionGaveta_3o.triggered.connect(lambda: self.set_index(8))
+        self.ui.actionGaveta_4o.triggered.connect(lambda: self.set_index(9))
+        self.ui.actionGaveta_5o.triggered.connect(lambda: self.set_index(10))
+        self.ui.actionGaveta_6o.triggered.connect(lambda: self.set_index(11))
+        self.ui.actionGaveta_7o.triggered.connect(lambda: self.set_index(12))
+        self.ui.actionGaveta_8o.triggered.connect(lambda: self.set_index(13))
+        self.ui.actionGaveta_9o.triggered.connect(lambda: self.set_index(14))
+        self.ui.actionGaveta_10o.triggered.connect(lambda: self.set_index(15))
+        self.ui.actionGaveta_11o.triggered.connect(lambda: self.set_index(16))
+        self.ui.actionGaveta_1g.triggered.connect(lambda: self.set_index(17))
+        self.ui.actionGaveta_2g.triggered.connect(lambda: self.set_index(18))
+        self.ui.actionGaveta_3g.triggered.connect(lambda: self.set_index(19))
+        self.ui.actionGaveta_4g.triggered.connect(lambda: self.set_index(20))
+        self.ui.actionGaveta_5g.triggered.connect(lambda: self.set_index(21))
+        self.ui.actionGaveta_6g.triggered.connect(lambda: self.set_index(22))
+        self.ui.actionGaveta_7g.triggered.connect(lambda: self.set_index(23))
+        self.ui.actionGaveta_8g.triggered.connect(lambda: self.set_index(24))
+        self.ui.actionGaveta_9g.triggered.connect(lambda: self.set_index(25))
+        self.ui.actionGaveta_10g.triggered.connect(lambda: self.set_index(26))
+        self.ui.actionGaveta_11g.triggered.connect(lambda: self.set_index(27))
+        self.ui.actionGrupo_1.triggered.connect(lambda: self.set_index(28))
+        self.ui.actionGrupo_2.triggered.connect(lambda: self.set_index(29))
+        self.ui.actionGrupo_3.triggered.connect(lambda: self.set_index(30))
+        self.ui.actionGrupo_4.triggered.connect(lambda: self.set_index(31))
 
         self.ui.pB_Connect.clicked.connect(self.connect)
         self.ui.pB_Disconnect.clicked.connect(self.disconnect)
+        
+        #self.ui.pB_setTrecho.clicked.connect(self.set_trecho)
+        #self.ui.pB_resetTrecho.clicked.connect(self.reset_trecho)
 
         self.ui.O_on1_1.clicked.connect(lambda: self.on_individual(0, 0))
         self.ui.O_on2_1.clicked.connect(lambda: self.on_individual(1, 0))
@@ -473,13 +481,21 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
         self.ui.pB_read_r0.clicked.connect(self.read_r0)
         self.ui.pB_read_t0.clicked.connect(self.read_t0)
 
-        self.ui.pB_edit.clicked.connect(self.start_editing)
-        self.ui.pB_save.clicked.connect(self.save)
-
+        self.ui.pB_edit.clicked.connect(lambda: self.start_editing(None))
+        self.ui.pB_save.clicked.connect(lambda: self.save(None))
+        
+        self.ui.pB_edit_em_aq_1.clicked.connect(lambda: self.start_editing(0))
+        self.ui.pB_edit_em_aq_2.clicked.connect(lambda: self.start_editing(1))
+        self.ui.pB_edit_em_aq_3.clicked.connect(lambda: self.start_editing(2))
+        self.ui.pB_save_em_aq_1.clicked.connect(lambda: self.save(0))
+        self.ui.pB_save_em_aq_2.clicked.connect(lambda: self.save(1))
+        self.ui.pB_save_em_aq_3.clicked.connect(lambda: self.save(2))
+        
         self.ui.pB_Quad.clicked.connect(lambda: self.config_local('Q'))
         self.ui.pB_Sext.clicked.connect(lambda: self.config_local('S'))
         self.ui.pB_Dip.clicked.connect(lambda: self.config_local('D'))
         self.ui.pB_Jaq.clicked.connect(lambda: self.config_local('J'))
+        self.ui.pB_Est_bomb.clicked.connect(lambda: self.config_local('E'))
         self.ui.pB_Vazio.clicked.connect(lambda: self.config_local('V'))
         self.ui.pB_G1.clicked.connect(lambda: self.config_group('1'))
         self.ui.pB_G2.clicked.connect(lambda: self.config_group('2'))
@@ -488,14 +504,32 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
         self.ui.pB_escape_config.clicked.connect(self.escape_configuration)
         self.ui.pB_reset_chn.clicked.connect(self.reset_chn)
 
-        self.ui.pB_n_est_aq.clicked.connect(self.enable_edit_stages)
-        self.ui.pB_temp.clicked.connect(lambda: self.edit('temp'))
-        self.ui.pB_taxa.clicked.connect(lambda: self.edit('taxa'))
-        self.ui.pB_patamar.clicked.connect(lambda: self.edit('patamar'))
-        self.ui.pB_escape.clicked.connect(self.escape_stages)
+        self.ui.pB_n_est_aq.clicked.connect(lambda: self.enable_edit_stages(None))
+        self.ui.pB_temp.clicked.connect(lambda: self.edit('temp', None))
+        self.ui.pB_taxa.clicked.connect(lambda: self.edit('taxa', None))
+        self.ui.pB_patamar.clicked.connect(lambda: self.edit('patamar', None))
+        self.ui.pB_escape.clicked.connect(lambda: self.escape_stages(None))
         self.ui.pB_t_entre_medidas.clicked.connect(self.set_meas_time)
         self.ui.pB_set_t0.clicked.connect(self.set_t0)
-
+        
+        self.ui.pB_n_est_aq_em_aq_1.clicked.connect(lambda: self.enable_edit_stages(0))
+        self.ui.pB_n_est_aq_em_aq_2.clicked.connect(lambda: self.enable_edit_stages(1))
+        self.ui.pB_n_est_aq_em_aq_3.clicked.connect(lambda: self.enable_edit_stages(2))
+        self.ui.pB_temp_em_aq_1.clicked.connect(lambda: self.edit('temp', 0))
+        self.ui.pB_temp_em_aq_2.clicked.connect(lambda: self.edit('temp', 1))
+        self.ui.pB_temp_em_aq_3.clicked.connect(lambda: self.edit('temp', 2))
+        self.ui.pB_taxa_em_aq_1.clicked.connect(lambda: self.edit('taxa', 0))
+        self.ui.pB_taxa_em_aq_2.clicked.connect(lambda: self.edit('taxa', 1))
+        self.ui.pB_taxa_em_aq_3.clicked.connect(lambda: self.edit('taxa', 2))
+        self.ui.pB_patamar_em_aq_1.clicked.connect(lambda: self.edit('patamar', 0))
+        self.ui.pB_patamar_em_aq_2.clicked.connect(lambda: self.edit('patamar', 1))
+        self.ui.pB_patamar_em_aq_3.clicked.connect(lambda: self.edit('patamar', 2))
+        self.ui.pB_escape_em_aq_1.clicked.connect(lambda: self.escape_stages(0))
+        self.ui.pB_escape_em_aq_2.clicked.connect(lambda: self.escape_stages(1))
+        self.ui.pB_escape_em_aq_3.clicked.connect(lambda: self.escape_stages(2))
+        self.ui.pB_novas_curvas.clicked.connect(self.send_new_points)
+        self.ui.pB_reset_curvas.clicked.connect(self.reset_curvas)
+        
         self.init_timers()
         self.config_graph()
         self.ui.comboBox_live_1.currentIndexChanged.connect(lambda: self.refresh_axis_live_gvts(0))
@@ -559,7 +593,7 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
                     Lib.graph.curves_grp[a][i][j].setPen(Lib.graph.pen[i], width=2)
 
     def set_index(self, index):
-        if index == 2:
+        if index == 3:
             self.show_data_table()
         self.ui.stackedWidget.setCurrentIndex(index)
         
@@ -581,6 +615,8 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
                     self.ui.table_dados.item(g, chn).setBackgroundColor(QtGui.QColor(130, 202, 232))
                 elif local == 'J':
                     self.ui.table_dados.item(g, chn).setBackgroundColor(QtGui.QColor(255, 74, 77))
+                elif local == 'E':
+                    self.ui.table_dados.item(g, chn).setBackgroundColor(QtGui.QColor(172, 110, 221))
                 elif local == 'V':
                     self.ui.table_dados.item(g, chn).setBackgroundColor(QtGui.QColor(84, 84, 84))
                     self.ui.table_dados.item(g, chn).setForeground(QtGui.QColor(255, 255, 255))
@@ -658,6 +694,59 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
         except Exception:
             traceback.print_exc(file=sys.stdout)
             return
+    
+    def set_trecho(self):
+        if self.ui.rB_trecho_impar.isChecked():
+            self.ui.actionTrecho_impar.setVisible(True)
+            for g in Lib.control.GAVETAS:
+                for chn in range(8):
+                    if ((g == 0 and (chn == 0)) or (g == 1 and (chn == 0 or chn == 3 or chn == 7)) or (g == 2 and (chn == 6)) or (g == 3 and (chn == 1 or chn == 2 or chn == 3 or chn == 7)) or (g == 4 and (chn == 5 or chn == 6)) or (g == 5 and (chn == 5 or chn == 6 or chn == 7)) or (g == 6 and (chn == 0 or chn == 3 or chn == 6)) or  (g == 7 and (chn == 2)) or (g == 8 and (chn == 0 or chn == 1 or chn == 2 or chn == 3 or chn == 7)) or (g == 9 and (chn == 4)) or (g == 10 and (chn == 0 or chn == 7))):
+                        getattr(self.ui, 'pB_config_G' + str(g + 1) + 'S' + str(chn + 1)).setStyleSheet('background-color: rgb(255, 74, 77)')
+                        local = 'J'
+                    elif ((g == 0 and (chn == 1 or chn == 3 or chn == 4)) or (g == 1 and (chn == 2 or chn == 5)) or (g == 2 and (chn == 4 or chn == 7)) or (g == 4 and (chn == 1 or chn == 2)) or (g == 5 and (chn == 1 or chn == 3)) or (g == 6 and (chn == 5)) or (g == 7 and (chn == 0 or chn == 4 or chn == 6)) or (g == 9 and (chn == 2 or chn == 5)) or (g == 10 and (chn == 2 or chn == 4 or chn == 6))):
+                        getattr(self.ui, 'pB_config_G' + str(g + 1) + 'S' + str(chn + 1)).setStyleSheet('background-color: rgb(255, 183, 94)')
+                        local = 'Q'
+                        
+                    elif ((g == 0 and (chn == 2)) or (g == 1 and (chn == 1 or chn == 4 or chn == 6)) or (g == 2 and (chn == 3 or chn == 5)) or (g == 3 and (chn == 0)) or (g == 4 and (chn == 0)) or (g == 5 and (chn == 0 or chn == 2)) or (g == 6 and (chn == 7)) or (g == 7 and (chn == 1 or chn == 5 or chn == 7)) or (g == 9 and (chn == 1 or chn == 3 or chn == 6)) or (g == 10 and (chn == 3 or chn == 5))):
+                        getattr(self.ui, 'pB_config_G' + str(g + 1) + 'S' + str(chn + 1)).setStyleSheet('background-color: rgb(143, 206, 133)')
+                        local = 'S'
+                        
+                    elif ((g == 0 and (chn == 5)) or (g == 2 and (chn == 0 or chn == 1 or chn == 2)) or (g == 4 and (chn == 3 or chn == 4 or chn == 7)) or (g == 5 and (chn == 4)) or (g == 6 and (chn == 4)) or (g == 7 and (chn == 3)) or (g == 9 and (chn == 0)) or (g == 10 and (chn == 1))):
+                        getattr(self.ui, 'pB_config_G' + str(g + 1) + 'S' + str(chn + 1)).setStyleSheet('color: rgb(255, 255, 255); background-color: rgb(84, 84, 84)')
+                        local = 'V'
+                        
+                    elif ((g == 0 and (chn == 6 or chn == 7)) or (g == 3 and (chn == 4 or chn == 5 or chn == 6)) or (g == 6 and (chn == 1 or chn == 2)) or (g == 8 and (chn == 4 or chn == 5 or chn == 6)) or (g == 9 and (chn == 7))):
+                        getattr(self.ui, 'pB_config_G' + str(g + 1) + 'S' + str(chn + 1)).setStyleSheet('background-color: rgb(130, 202, 232)')
+                        local = 'D'    
+                        
+                    s = list(Lib.vars.name[g][chn])
+                    if (g + 1) > 9:
+                        s[5] = local
+                        #s[6] = group
+                    else:
+                        s[4] = local
+                        #s[5] = group
+                        
+                    Lib.vars.name[g][chn] = ''.join(s)
+                    getattr(self.ui, 'pB_config_G' + str(g + 1) + 'S' + str(chn + 1)).setText(Lib.vars.name[g][chn])
+                    getattr(self.ui, 'pB_config_G' + str(g + 1) + 'S' + str(chn + 1)).setChecked(False)
+        #elif self.ui.rB_trecho_par.isChecked():
+            #self.ui.actionTrecho_par.setVisible(True)
+        else:
+            QtGui.QMessageBox.critical(self, 'Erro', 'Nenhum trecho selecionado!', QtGui.QMessageBox.Ok)
+            return
+        self.ui.rB_trecho_impar.setEnabled(False)
+        self.ui.rB_trecho_par.setEnabled(False)
+        self.ui.pB_setTrecho.setEnabled(False)        
+        
+    def reset_trecho(self):
+        self.ui.actionTrecho_impar.setVisible(False)
+        self.ui.actionTrecho_par.setVisible(False)
+        self.ui.rB_trecho_impar.setEnabled(True)
+        self.ui.rB_trecho_par.setEnabled(True)
+        self.ui.pB_setTrecho.setEnabled(True)
+        
+        self.escape_configuration()
 
     def set_meas_time(self):
         for g in Lib.control.GAVETAS:
@@ -700,6 +789,8 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
                         getattr(self.ui, 'pB_config_G' + str(g + 1) + 'S' + str(chn + 1)).setStyleSheet('background-color: rgb(130, 202, 232)')
                     elif local == 'J':
                         getattr(self.ui, 'pB_config_G' + str(g + 1) + 'S' + str(chn + 1)).setStyleSheet('background-color: rgb(255, 74, 77)')
+                    elif local == 'E':
+                        getattr(self.ui, 'pB_config_G' + str(g + 1) + 'S' + str(chn + 1)).setStyleSheet('background-color: rgb(172, 110, 221)')
                     elif local == 'V':
                         getattr(self.ui, 'pB_config_G' + str(g + 1) + 'S' + str(chn + 1)).setStyleSheet('color: rgb(255, 255, 255); background-color: rgb(84, 84, 84)')
 
@@ -717,11 +808,25 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
                     getattr(self.ui, 'pB_config_G' + str(g + 1) + 'S' + str(chn + 1)).setChecked(False)
 
     def set_configuration(self):
+        #Check Configuration
+        for g in Lib.control.GAVETAS:
+            for chn in range(8):
+                if (g + 1) > 9:
+                    _local = Lib.vars.name[g][chn][5]
+                    _group = Lib.vars.name[g][chn][6]
+                else:
+                    _local = Lib.vars.name[g][chn][4]
+                    _group = Lib.vars.name[g][chn][5]
+                if (_local == 'a' and _group != 'b') or (_local != 'a' and _group == 'b'):
+                    QtGui.QMessageBox.critical(self, 'Erro', 'A saída %s da Gaveta %s está com a configuração incompleta!' %((chn + 1), (g + 1)), QtGui.QMessageBox.Ok)
+                    return
+                
         self.ui.pB_Sext.setEnabled(False)
         self.ui.pB_Quad.setEnabled(False)
         self.ui.pB_Dip.setEnabled(False)
         self.ui.pB_Jaq.setEnabled(False)
         self.ui.pB_Vazio.setEnabled(False)
+        self.ui.pB_Est_bomb.setEnabled(False)
         self.ui.pB_G1.setEnabled(False)
         self.ui.pB_G2.setEnabled(False)
         self.ui.pB_G3.setEnabled(False)
@@ -742,22 +847,33 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
                         getattr(self.ui, 'O_nome' + str(chn + 1) + '_' + str(g + 1)).setStyleSheet('background-color: rgb(255, 74, 77)')
                         getattr(self.ui, 'label_G' + str(g + 1) + 'S' + str(chn + 1) + '_op').setStyleSheet('background-color: rgb(255, 74, 77)')
                         getattr(self.ui, 'label_gr' + str(chn + 1) + '_' + str(g + 1)).setStyleSheet('background-color: rgb(255, 74, 77)')
+                        getattr(self.ui, 'trecho_impar_G' + str(g + 1) + 'S' + str(chn + 1)).setStyleSheet('background-color: rgb(255, 74, 77)')
                     elif local == 'Q':
                         getattr(self.ui, 'O_nome' + str(chn + 1) + '_' + str(g + 1)).setStyleSheet('background-color: rgb(255, 183, 94)')
                         getattr(self.ui, 'label_G' + str(g + 1) + 'S' + str(chn + 1) + '_op').setStyleSheet('background-color: rgb(255, 183, 94)')
                         getattr(self.ui, 'label_gr' + str(chn + 1) + '_' + str(g + 1)).setStyleSheet('background-color: rgb(255, 183, 94)')
+                        getattr(self.ui, 'trecho_impar_G' + str(g + 1) + 'S' + str(chn + 1)).setStyleSheet('background-color: rgb(255, 183, 94)')
                     elif local == 'D':
                         getattr(self.ui, 'O_nome' + str(chn + 1) + '_' + str(g + 1)).setStyleSheet('background-color: rgb(130, 202, 232)')
                         getattr(self.ui, 'label_G' + str(g + 1) + 'S' + str(chn + 1) + '_op').setStyleSheet('background-color: rgb(130, 202, 232)')
                         getattr(self.ui, 'label_gr' + str(chn + 1) + '_' + str(g + 1)).setStyleSheet('background-color: rgb(130, 202, 232)')
+                        getattr(self.ui, 'trecho_impar_G' + str(g + 1) + 'S' + str(chn + 1)).setStyleSheet('background-color: rgb(130, 202, 232)')
                     elif local == 'S':
                         getattr(self.ui, 'O_nome' + str(chn + 1) + '_' + str(g + 1)).setStyleSheet('background-color: rgb(143, 206, 133)')
                         getattr(self.ui, 'label_G' + str(g + 1) + 'S' + str(chn + 1) + '_op').setStyleSheet('background-color: rgb(143, 206, 133)')
                         getattr(self.ui, 'label_gr' + str(chn + 1) + '_' + str(g + 1)).setStyleSheet('background-color: rgb(143, 206, 133)')
+                        getattr(self.ui, 'trecho_impar_G' + str(g + 1) + 'S' + str(chn + 1)).setStyleSheet('background-color: rgb(143, 206, 133)')
                     elif local == 'V':
                         getattr(self.ui, 'O_nome' + str(chn + 1) + '_' + str(g + 1)).setStyleSheet('color: rgb(255, 255, 255); background-color: rgb(84, 84, 84)')
                         getattr(self.ui, 'label_G' + str(g + 1) + 'S' + str(chn + 1) + '_op').setStyleSheet('color: rgb(255, 255, 255); background-color: rgb(84, 84, 84)')
                         getattr(self.ui, 'label_gr' + str(chn + 1) + '_' + str(g + 1)).setStyleSheet('color: rgb(255, 255, 255); background-color: rgb(84, 84, 84)')
+                        getattr(self.ui, 'trecho_impar_G' + str(g + 1) + 'S' + str(chn + 1)).setStyleSheet('color: rgb(255, 255, 255); background-color: rgb(84, 84, 84)')
+                    elif local == 'E':
+                        Lib.control.PT100_channels[g].append(chn)
+                        getattr(self.ui, 'O_nome' + str(chn + 1) + '_' + str(g + 1)).setStyleSheet('background-color: rgb(172, 110, 221)')
+                        getattr(self.ui, 'label_G' + str(g + 1) + 'S' + str(chn + 1) + '_op').setStyleSheet('background-color: rgb(172, 110, 221)')
+                        getattr(self.ui, 'label_gr' + str(chn + 1) + '_' + str(g + 1)).setStyleSheet('background-color: rgb(172, 110, 221)')
+                        getattr(self.ui, 'trecho_impar_G' + str(g + 1) + 'S' + str(chn + 1)).setStyleSheet('background-color: rgb(172, 110, 221)')
                 try:
                     if (g + 1) > 9:
                         group = int(getattr(self.ui, 'pB_config_G' + str(g + 1) + 'S' + str(chn + 1)).text()[6]) - 1
@@ -779,6 +895,7 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
         self.ui.pB_Quad.setEnabled(True)
         self.ui.pB_Dip.setEnabled(True)
         self.ui.pB_Jaq.setEnabled(True)
+        self.ui.pB_Est_bomb.setEnabled(True)
         self.ui.pB_Vazio.setEnabled(True)
         self.ui.pB_G1.setEnabled(True)
         self.ui.pB_G2.setEnabled(True)
@@ -786,6 +903,15 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
         self.ui.pB_set_config.setEnabled(True)
         self.ui.pB_edit.setEnabled(True)
         self.ui.table_est_aq.clear()
+        Lib.control.config_ok = False
+        
+        for group in range(3):
+            Lib.control.group[group] = defaultdict(list)
+            getattr(self.ui, 'actionGrupo_' + str(group + 1)).setVisible(False)
+        
+        for i in range(4):
+            getattr(self.ui, 'checkBox_todas_g' + str(i + 1)).setChecked(False)
+        getattr(self.ui, 'actionGrupo_4').setVisible(False)
         
         for g in Lib.control.GAVETAS:
             Lib.control.PT100_channels[g] = []
@@ -807,14 +933,12 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
                 getattr(self.ui, 'O_nome' + str(chn + 1) + '_' + str(g + 1)).setStyleSheet('')
                 getattr(self.ui, 'label_G' + str(g + 1) + 'S' + str(chn + 1) + '_op').setStyleSheet('')
                 getattr(self.ui, 'label_gr' + str(chn + 1) + '_' + str(g + 1)).setStyleSheet('')
+                #getattr(self.ui, 'trecho_impar_G' + str(g + 1) + 'S' + str(chn + 1)).setStyleSheet('')
+                #getattr(self.ui, 'trecho_impar_G' + str(g + 1) + 'S' + str(chn + 1)).setText('')
                 self.ui.table_dados.setItem(g, chn, QtGui.QTableWidgetItem(''))
 
-        for group in range(3):
-            Lib.control.group[group] = defaultdict(list)
-            getattr(self.ui, 'actionGrupo_' + str(group + 1)).setVisible(False)
-        getattr(self.ui, 'actionGrupo_4').setVisible(False)
-
         for g in range(11):
+            getattr(self.ui, 'checkBox_todas_' + str(g + 1)).setChecked(False)
             getattr(self.ui, 'checkBox_gvt' + str(g + 1) + '_1').setChecked(False)
             getattr(self.ui, 'checkBox_gvt' + str(g + 1) + '_2').setChecked(False)
             getattr(self.ui, 'checkBox_gvt' + str(g + 1) + '_3').setChecked(False)
@@ -877,211 +1001,378 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
         except Exception:
             traceback.print_exc(file=sys.stdout)
             QtGui.QMessageBox.critical(self, 'Erro', 'A temperatura inicial não foi configurada corretamente!', QtGui.QMessageBox.Ok)
+            
+    def start_editing(self, group):
+        if group == None:
+            _group = int(self.ui.label_group.text()[-1]) - 1
+            if Lib.control.group[_group] == {}:
+                QtGui.QMessageBox.critical(self, 'Erro', 'Configure e salve as saídas do grupo antes de editar!', QtGui.QMessageBox.Ok)
+                return
+            self.ui.lineed_n_est_aq.setEnabled(True)
+            self.ui.pB_n_est_aq.setEnabled(True)
+            self.ui.lineed_temp.setText('')
+            self.ui.lineed_taxa.setText('')
+            self.ui.lineed_patamar.setText('')
+            self.reset(_group)
+            self.ui.pB_edit.setEnabled(False)
+        else:
+            if Lib.control.group[group] == {}:
+                QtGui.QMessageBox.critical(self, 'Erro', 'Esse grupo não está em aquecimento!', QtGui.QMessageBox.Ok)
+                return
+            getattr(self.ui, 'lineed_n_est_aq_em_aq_' + str(group + 1)).setEnabled(True)
+            getattr(self.ui, 'pB_n_est_aq_em_aq_' + str(group + 1)).setEnabled(True)
+            getattr(self.ui, 'lineed_temp_em_aq_' + str(group + 1)).setText('')
+            getattr(self.ui, 'lineed_taxa_em_aq_' + str(group + 1)).setText('')
+            getattr(self.ui, 'lineed_patamar_em_aq_' + str(group + 1)).setText('')
+            getattr(self.ui, 'pB_edit_em_aq_' + str(group + 1)).setEnabled(False)
+            
+            n_aq = len(Lib.config.taxa_em_aq[group])
+            for n in range(n_aq):
+                self.ui.table_novas_curvas.setItem(group, n, QtGui.QTableWidgetItem(''))
 
-    def start_editing(self):
-        group = int(self.ui.label_group.text()[-1]) - 1
-        if Lib.control.group[group] == {}:
-            QtGui.QMessageBox.critical(self, 'Erro', 'Configure e salve as saídas do grupo antes de editar!', QtGui.QMessageBox.Ok)
-            return
-        self.ui.lineed_n_est_aq.setEnabled(True)
-        self.ui.pB_n_est_aq.setEnabled(True)
-        self.ui.lineed_temp.setText('')
-        self.ui.lineed_taxa.setText('')
-        self.ui.lineed_patamar.setText('')
-        self.reset(group)
-        self.ui.pB_edit.setEnabled(False)
+            Lib.config.taxa_em_aq[group] = []
+            Lib.config.patamar_em_aq[group] = []
+            Lib.config.temp_est_em_aq[group] = []
+            
+            for g in Lib.control.group[group]:
+                for chn in Lib.control.group[group][g]:
+                    Lib.config.temp_em_aq[g][chn] = []
 
-    def enable_edit_stages(self):
-        try:
-            int(self.ui.lineed_n_est_aq.text())
-            self.ui.temp_label.setEnabled(True)
-            self.ui.taxa_label.setEnabled(True)
-            self.ui.patamar_label.setEnabled(True)
-            self.ui.lineed_temp.setEnabled(True)
-            self.ui.lineed_taxa.setEnabled(True)
-            self.ui.lineed_patamar.setEnabled(True)
-            self.ui.pB_temp.setEnabled(True)
-            self.ui.pB_taxa.setEnabled(True)
-            self.ui.pB_patamar.setEnabled(True)
-            self.ui.lineed_n_est_aq.setEnabled(False)
-            self.ui.pB_n_est_aq.setEnabled(False)
-        except Exception:
-            traceback.print_exc(file=sys.stdout)
-            QtGui.QMessageBox.critical(self, 'Erro', 'Valor inválido, tente novamente', QtGui.QMessageBox.Ok)
-
-    def edit(self, var):
+    def enable_edit_stages(self, group):
+        if group == None:
+            try:
+                int(self.ui.lineed_n_est_aq.text())
+                self.ui.temp_label.setEnabled(True)
+                self.ui.taxa_label.setEnabled(True)
+                self.ui.patamar_label.setEnabled(True)
+                self.ui.lineed_temp.setEnabled(True)
+                self.ui.lineed_taxa.setEnabled(True)
+                self.ui.lineed_patamar.setEnabled(True)
+                self.ui.pB_temp.setEnabled(True)
+                self.ui.pB_taxa.setEnabled(True)
+                self.ui.pB_patamar.setEnabled(True)
+                self.ui.lineed_n_est_aq.setEnabled(False)
+                self.ui.pB_n_est_aq.setEnabled(False)
+            except Exception:
+                traceback.print_exc(file=sys.stdout)
+                QtGui.QMessageBox.critical(self, 'Erro', 'Valor inválido, tente novamente', QtGui.QMessageBox.Ok)
+        else:
+            try:
+                int(getattr(self.ui, 'lineed_n_est_aq_em_aq_' + str(group + 1)).text())
+                getattr(self.ui, 'temp_label_em_aq_' + str(group + 1)).setEnabled(True)
+                getattr(self.ui, 'taxa_label_em_aq_' + str(group + 1)).setEnabled(True)
+                getattr(self.ui, 'patamar_label_em_aq_' + str(group + 1)).setEnabled(True)
+                getattr(self.ui, 'lineed_temp_em_aq_' + str(group + 1)).setEnabled(True)
+                getattr(self.ui, 'lineed_taxa_em_aq_' + str(group + 1)).setEnabled(True)
+                getattr(self.ui, 'lineed_patamar_em_aq_' + str(group + 1)).setEnabled(True)
+                getattr(self.ui, 'pB_temp_em_aq_' + str(group + 1)).setEnabled(True)
+                getattr(self.ui, 'pB_taxa_em_aq_' + str(group + 1)).setEnabled(True)
+                getattr(self.ui, 'pB_patamar_em_aq_' + str(group + 1)).setEnabled(True)
+                getattr(self.ui, 'lineed_n_est_aq_em_aq_' + str(group + 1)).setEnabled(False)
+                getattr(self.ui, 'pB_n_est_aq_em_aq_' + str(group + 1)).setEnabled(False)
+            except Exception:
+                traceback.print_exc(file=sys.stdout)
+                QtGui.QMessageBox.critical(self, 'Erro', 'Valor inválido, tente novamente', QtGui.QMessageBox.Ok)
+                
+    def edit(self, var, group):
         if var == 'temp':
             text = 'Temp%s(°C):'
         elif var == 'taxa':
             text = 'Taxa%s(°C/min):'
         elif var == 'patamar':
             text = 'Patamar%s(min):'
-
-        group = int(self.ui.label_group.text()[-1]) - 1
-        n_aq = getattr(Lib.config, 'n_aq_' + var)
-
-        if n_aq[group] < int(self.ui.lineed_n_est_aq.text()):
-            try:
-                if var == 'temp':
-                    Lib.config.temp_est[group].append(float(self.ui.lineed_temp.text()))
-                    for g in Lib.control.group[group]:
-                        for chn in Lib.control.group[group][g]:
-                            Lib.config.temp[g][chn].append(float(self.ui.lineed_temp.text()))
-                            Lib.config.temp[g][chn].append(float(self.ui.lineed_temp.text()))
-                else:
-                    getattr(Lib.config, var)[group].append(float(getattr(self.ui, 'lineed_' + var).text()))
-            except ValueError:
-                traceback.print_exc(file=sys.stdout)
-                QtGui.QMessageBox.critical(self, 'Erro', 'Valor inválido, tente novamente', QtGui.QMessageBox.Ok)
-                return
-            getattr(self.ui, 'lineed_' + var).setText('')
-            getattr(self.ui, var + '_label').setText(text % (n_aq[group] + 1))
-            n_aq[group] += 1
-        else:
-            try:
-                if var == 'temp':
-                    Lib.config.temp_est[group].append(float(self.ui.lineed_temp.text()))
-                    for g in Lib.control.group[group]:
-                        for chn in Lib.control.group[group][g]:
-                            Lib.config.temp[g][chn].append(float(self.ui.lineed_temp.text()))
-                            Lib.config.temp[g][chn].append(float(self.ui.lineed_temp.text()))
-                else:
-                    getattr(Lib.config, var)[group].append(float(getattr(self.ui, 'lineed_' + var).text()))
-            except ValueError:
-                traceback.print_exc(file=sys.stdout)
-                QtGui.QMessageBox.critical(self, 'Erro', 'Valor inválido, tente novamente', QtGui.QMessageBox.Ok)
-                return
-            # getattr(self.ui, 'lineed_' + var).setText('')
-            getattr(self.ui, 'lineed_' + var).setEnabled(False)
-            getattr(self.ui, 'pB_' + var).setEnabled(False)
-            self.ui.pB_save.setEnabled(True)
-            n_aq[group] = 1
-
-    def save(self):
-        if self.ui.lineed_temp.isEnabled() or self.ui.lineed_taxa.isEnabled() or self.ui.lineed_patamar.isEnabled():
-            QtGui.QMessageBox.critical(self, 'Erro', 'Finalize a configuração antes de prossegir!', QtGui.QMessageBox.Ok)
-            return
-
-        group = int(self.ui.label_group.text()[-1]) - 1
-        getattr(self.ui, 'actionGrupo_' + str(group + 1)).setVisible(True)
-        getattr(self.ui, 'actionGrupo_4').setVisible(True)
-        getattr(self.ui, 'groupBox_' + str(group + 1)).setEnabled(True)
-        QtGui.QApplication.setOverrideCursor(Qt.WaitCursor)
-        for g in Lib.control.group[group]:
-            Lib.control.run_control_on[g] = False
-            Lib.control.curves_on[g] = False
-            self.SOCKET_GVT[g].reset_run_control()
-
-            for chn in Lib.control.group[group][g]:
-                Lib.vars.channels[g].append(chn)
-                Lib.vars.channels[g].sort()
-                self.SOCKET_GVT[g].get_initial_parameters(chn)
-                getattr(self.ui, 'checkBox_saida' + str(chn + 1) + '_' + str(g + 1)).setEnabled(True)
-                getattr(self.ui, 'groupBox_saida' + str(chn + 1) + '_' + str(g + 1)).setEnabled(True)
-                getattr(self.ui, 'label_gr' + str(chn + 1) + '_' + str(g + 1)).setText(Lib.vars.name[g][chn])
-                getattr(self.ui, 'label_G' + str(g + 1) + 'S' + str(chn + 1) + '_op').setEnabled(True)
-                getattr(self.ui, 'lineed_G' + str(g + 1) + 'S' + str(chn + 1)).setEnabled(True)
-                getattr(self.ui, 'O_nome' + str(chn + 1) + '_' + str(g + 1)).setText(Lib.vars.name[g][chn])
-
-            self.SOCKET_GVT[g].set_active_channels(Lib.vars.channels[g])
-            self.SOCKET_GVT[g].set_enabled_channels(Lib.vars.channels[g])
-            self.SOCKET_GVT[g].set_PT100(Lib.control.PT100_channels[g])
-            Lib.vars.t0[g] = self.SOCKET_GVT[g].read('O')
-            Lib.vars.r0[g] = self.SOCKET_GVT[g].read('r')
-            Lib.vars.a[g] = self.SOCKET_GVT[g].read('A')
-
-        QtGui.QApplication.restoreOverrideCursor()
-        self.ui.lineed_n_est_aq.setEnabled(False)
-        self.ui.pB_n_est_aq.setEnabled(False)
-
-        self.ui.temp_label.setEnabled(False)
-        self.ui.taxa_label.setEnabled(False)
-        self.ui.patamar_label.setEnabled(False)
-        self.ui.pB_temp.setEnabled(False)
-        self.ui.pB_taxa.setEnabled(False)
-        self.ui.pB_patamar.setEnabled(False)
-        self.ui.lineed_temp.setEnabled(False)
-        self.ui.lineed_taxa.setEnabled(False)
-        self.ui.lineed_patamar.setEnabled(False)
-
-        self.ui.temp_label.setText('Temp1(°C):')
-        self.ui.taxa_label.setText('Taxa1(°C/min):')
-        self.ui.patamar_label.setText('Patamar1(min):')
-        if group == 0 and Lib.control.group[1] != {}:
-            QtGui.QMessageBox.information(self, 'Mensagem', 'Grupo 1 configurado!', QtGui.QMessageBox.Ok)
-            self.ui.label_group.setText('Grupo 2')
-            self.ui.pB_edit.setEnabled(True)
-        elif group == 0 and Lib.control.group[1] == {} and Lib.control.group[2] != {}:
-            QtGui.QMessageBox.information(self, 'Mensagem', 'Grupo 1 configurado!', QtGui.QMessageBox.Ok)
-            self.ui.label_group.setText('Grupo 3')
-            self.ui.pB_edit.setEnabled(True)
-        elif group == 1 and Lib.control.group[2] != {}:
-            QtGui.QMessageBox.information(self, 'Mensagem', 'Grupo 2 configurado!', QtGui.QMessageBox.Ok)
-            self.ui.label_group.setText('Grupo 3')
-            self.ui.pB_edit.setEnabled(True)
-        else:
-            for g in Lib.control.GAVETAS:
-                if Lib.vars.channels[g] != []:
-                    if Lib.control.PT100_channels[g] != []:
-                        tmp = 0
-                        for chn in Lib.control.PT100_channels[g]:
-                            idx = Lib.vars.channels[g].index(chn)
-                            tmp += Lib.vars.t0[g][idx]
-                        t0_med = tmp / len(Lib.control.PT100_channels[g])
-
-                        for chn in Lib.vars.channels[g]:
-                            if chn not in Lib.control.PT100_channels[g]:
-                                idx = Lib.vars.channels[g].index(chn)
-                                Lib.vars.t0[g][idx] = t0_med
+        
+        if group == None:    
+            _group = int(self.ui.label_group.text()[-1]) - 1
+            n_aq = getattr(Lib.config, 'n_aq_' + var)
+            
+            if n_aq[_group] < int(self.ui.lineed_n_est_aq.text()):
+                try:
+                    if var == 'temp':
+                        Lib.config.temp_est[_group].append(float(self.ui.lineed_temp.text()))
+                        for g in Lib.control.group[_group]:
+                            for chn in Lib.control.group[_group][g]:
+                                Lib.config.temp[g][chn].append(float(self.ui.lineed_temp.text()))
+                                Lib.config.temp[g][chn].append(float(self.ui.lineed_temp.text()))
                     else:
-                        QtGui.QMessageBox.information(self, 'Atenção', 'Não existe nenhum canal Pt100 na gaveta %s! As temperaturas iniciais deverão ser configuradas manualmente!' % (g + 1), QtGui.QMessageBox.Ok)
-                        continue
+                        getattr(Lib.config, var)[_group].append(float(getattr(self.ui, 'lineed_' + var).text()))
+                except ValueError:
+                    traceback.print_exc(file=sys.stdout)
+                    QtGui.QMessageBox.critical(self, 'Erro', 'Valor inválido, tente novamente', QtGui.QMessageBox.Ok)
+                    return
+                getattr(self.ui, 'lineed_' + var).setText('')
+                getattr(self.ui, var + '_label').setText(text % (n_aq[_group] + 1))
+                n_aq[_group] += 1     
+            else:
+                try:
+                    if var == 'temp':
+                        Lib.config.temp_est[_group].append(float(self.ui.lineed_temp.text()))
+                        for g in Lib.control.group[_group]:
+                            for chn in Lib.control.group[_group][g]:
+                                Lib.config.temp[g][chn].append(float(self.ui.lineed_temp.text()))
+                                Lib.config.temp[g][chn].append(float(self.ui.lineed_temp.text()))
+                    else:
+                        getattr(Lib.config, var)[_group].append(float(getattr(self.ui, 'lineed_' + var).text()))
+                except ValueError:
+                    traceback.print_exc(file=sys.stdout)
+                    QtGui.QMessageBox.critical(self, 'Erro', 'Valor inválido, tente novamente', QtGui.QMessageBox.Ok)
+                    return
+                # getattr(self.ui, 'lineed_' + var).setText('')
+                getattr(self.ui, 'lineed_' + var).setEnabled(False)
+                getattr(self.ui, 'pB_' + var).setEnabled(False)
+                self.ui.pB_save.setEnabled(True)
+                n_aq[_group] = 1
+        else:
+            n_aq = getattr(Lib.config, 'n_aq_' + var + '_em_aq')
+        
+            if n_aq[group] < int(getattr(self.ui, 'lineed_n_est_aq_em_aq_' + str(group + 1)).text()):
+                try:
+                    if var == 'temp':
+                        Lib.config.temp_est_em_aq[group].append(float(getattr(self.ui, 'lineed_temp_em_aq_' + str(group + 1)).text()))
+                        for g in Lib.control.group[group]:
+                            for chn in Lib.control.group[group][g]:
+                                Lib.config.temp_em_aq[g][chn].append(float(getattr(self.ui, 'lineed_temp_em_aq_' + str(group + 1)).text()))
+                                Lib.config.temp_em_aq[g][chn].append(float(getattr(self.ui, 'lineed_temp_em_aq_' + str(group + 1)).text()))
+                    else:
+                        getattr(Lib.config, var + '_em_aq')[group].append(float(getattr(self.ui, 'lineed_' + var + '_em_aq_' + str(group + 1)).text()))
+                except ValueError:
+                    traceback.print_exc(file=sys.stdout)
+                    QtGui.QMessageBox.critical(self, 'Erro', 'Valor inválido, tente novamente', QtGui.QMessageBox.Ok)
+                    return
+                getattr(self.ui, 'lineed_' + var + '_em_aq_' + str(group + 1)).setText('')
+                getattr(self.ui, var + '_label_em_aq_' + str(group + 1)).setText(text % (n_aq[group] + 1))
+                n_aq[group] += 1
+            else:
+                try:
+                    if var == 'temp':
+                        Lib.config.temp_est_em_aq[group].append(float(getattr(self.ui, 'lineed_temp_em_aq_' + str(group + 1)).text()))
+                        for g in Lib.control.group[group]:
+                            for chn in Lib.control.group[group][g]:
+                                Lib.config.temp_em_aq[g][chn].append(float(getattr(self.ui, 'lineed_temp_em_aq_' + str(group + 1)).text()))
+                                Lib.config.temp_em_aq[g][chn].append(float(getattr(self.ui, 'lineed_temp_em_aq_' + str(group + 1)).text()))
+                    else:
+                        getattr(Lib.config, var + '_em_aq')[group].append(float(getattr(self.ui, 'lineed_' + var + '_em_aq_' + str(group + 1)).text()))
+                except ValueError:
+                    traceback.print_exc(file=sys.stdout)
+                    QtGui.QMessageBox.critical(self, 'Erro', 'Valor inválido, tente novamente', QtGui.QMessageBox.Ok)
+                    return
+                # getattr(self.ui, 'lineed_' + var).setText('')
+                getattr(self.ui, 'lineed_' + var + '_em_aq_' + str(group + 1)).setEnabled(False)
+                getattr(self.ui, 'pB_' + var + '_em_aq_' + str(group + 1)).setEnabled(False)
+                getattr(self.ui, 'pB_save_em_aq_' + str(group + 1)).setEnabled(True)
+                n_aq[group] = 1
 
-                    self.SOCKET_GVT[g].set_parameters(Lib.vars.r0[g], Lib.vars.t0[g], Lib.vars.a[g])
-
+    def save(self, group):
+        if group == None:
+            if self.ui.lineed_temp.isEnabled() or self.ui.lineed_taxa.isEnabled() or self.ui.lineed_patamar.isEnabled():
+                QtGui.QMessageBox.critical(self, 'Erro', 'Finalize a configuração antes de prossegir!', QtGui.QMessageBox.Ok)
+                return
+    
+            _group = int(self.ui.label_group.text()[-1]) - 1
+            getattr(self.ui, 'actionGrupo_' + str(_group + 1)).setVisible(True)
+            getattr(self.ui, 'actionGrupo_4').setVisible(True)
+            getattr(self.ui, 'groupBox_' + str(_group + 1)).setEnabled(True)
+            QtGui.QApplication.setOverrideCursor(Qt.WaitCursor)
+            for g in Lib.control.group[_group]:
+                Lib.control.run_control_on[g] = False
+                Lib.control.curves_on[g] = False
+                self.SOCKET_GVT[g].reset_run_control()
+    
+                for chn in Lib.control.group[_group][g]:
+                    Lib.vars.channels[g].append(chn)
+                    Lib.vars.channels[g].sort()
+                    self.SOCKET_GVT[g].get_initial_parameters(chn)
+                    getattr(self.ui, 'checkBox_saida' + str(chn + 1) + '_' + str(g + 1)).setEnabled(True)
+                    getattr(self.ui, 'groupBox_saida' + str(chn + 1) + '_' + str(g + 1)).setEnabled(True)
+                    getattr(self.ui, 'label_gr' + str(chn + 1) + '_' + str(g + 1)).setText(Lib.vars.name[g][chn])
+                    getattr(self.ui, 'label_G' + str(g + 1) + 'S' + str(chn + 1) + '_op').setEnabled(True)
+                    getattr(self.ui, 'lineed_G' + str(g + 1) + 'S' + str(chn + 1)).setEnabled(True)
+                    getattr(self.ui, 'O_nome' + str(chn + 1) + '_' + str(g + 1)).setText(Lib.vars.name[g][chn])
+    
+                self.SOCKET_GVT[g].set_active_channels(Lib.vars.channels[g])
+                self.SOCKET_GVT[g].set_enabled_channels(Lib.vars.channels[g])
+                self.SOCKET_GVT[g].set_PT100(Lib.control.PT100_channels[g])
+                Lib.vars.t0[g] = self.SOCKET_GVT[g].read('O')
+                Lib.vars.r0[g] = self.SOCKET_GVT[g].read('r')
+                Lib.vars.a[g] = self.SOCKET_GVT[g].read('A')
+    
             QtGui.QApplication.restoreOverrideCursor()
-            self.ui.label_group.setText('Grupo 1')
+            self.ui.lineed_n_est_aq.setEnabled(False)
+            self.ui.pB_n_est_aq.setEnabled(False)
+    
+            self.ui.temp_label.setEnabled(False)
+            self.ui.taxa_label.setEnabled(False)
+            self.ui.patamar_label.setEnabled(False)
+            self.ui.pB_temp.setEnabled(False)
+            self.ui.pB_taxa.setEnabled(False)
+            self.ui.pB_patamar.setEnabled(False)
+            self.ui.lineed_temp.setEnabled(False)
+            self.ui.lineed_taxa.setEnabled(False)
+            self.ui.lineed_patamar.setEnabled(False)
+    
+            self.ui.temp_label.setText('Temp1(°C):')
+            self.ui.taxa_label.setText('Taxa1(°C/min):')
+            self.ui.patamar_label.setText('Patamar1(min):')
+            if _group == 0 and Lib.control.group[1] != {}:
+                QtGui.QMessageBox.information(self, 'Mensagem', 'Grupo 1 configurado!', QtGui.QMessageBox.Ok)
+                self.ui.label_group.setText('Grupo 2')
+                self.ui.pB_edit.setEnabled(True)
+            elif _group == 0 and Lib.control.group[1] == {} and Lib.control.group[2] != {}:
+                QtGui.QMessageBox.information(self, 'Mensagem', 'Grupo 1 configurado!', QtGui.QMessageBox.Ok)
+                self.ui.label_group.setText('Grupo 3')
+                self.ui.pB_edit.setEnabled(True)
+            elif _group == 1 and Lib.control.group[2] != {}:
+                QtGui.QMessageBox.information(self, 'Mensagem', 'Grupo 2 configurado!', QtGui.QMessageBox.Ok)
+                self.ui.label_group.setText('Grupo 3')
+                self.ui.pB_edit.setEnabled(True)
+            else:
+                for g in Lib.control.GAVETAS:
+                    if Lib.vars.channels[g] != []:
+                        if Lib.control.PT100_channels[g] != []:
+                            tmp = 0
+                            for chn in Lib.control.PT100_channels[g]:
+                                idx = Lib.vars.channels[g].index(chn)
+                                tmp += Lib.vars.t0[g][idx]
+                            t0_med = tmp / len(Lib.control.PT100_channels[g])
+    
+                            for chn in Lib.vars.channels[g]:
+                                if chn not in Lib.control.PT100_channels[g]:
+                                    idx = Lib.vars.channels[g].index(chn)
+                                    Lib.vars.t0[g][idx] = t0_med
+                        else:
+                            QtGui.QMessageBox.information(self, 'Atenção', 'Não existe nenhum canal Pt100 na gaveta %s! As temperaturas iniciais deverão ser configuradas manualmente!' % (g + 1), QtGui.QMessageBox.Ok)
+                            continue
+    
+                        self.SOCKET_GVT[g].set_parameters(Lib.vars.r0[g], Lib.vars.t0[g], Lib.vars.a[g])
+    
+                QtGui.QApplication.restoreOverrideCursor()
+                self.ui.label_group.setText('Grupo 1')
+                self.ui.lineed_n_est_aq.setText('')
+                self.ui.lineed_temp.setText('')
+                self.ui.lineed_taxa.setText('')
+                self.ui.lineed_patamar.setText('')
+                self.ui.GroupBox_t0.setEnabled(True)
+                QtGui.QMessageBox.information(self, 'Mensagem', 'Todos os grupos estão configurados!', QtGui.QMessageBox.Ok)
+                self.config_curves()
+                Lib.control.config_ok = True
+        else:
+            if getattr(self.ui, 'lineed_temp_em_aq_' + str(group + 1)).isEnabled() or getattr(self.ui, 'lineed_taxa_em_aq_' + str(group + 1)).isEnabled() or getattr(self.ui, 'lineed_patamar_em_aq_' + str(group + 1)).isEnabled():
+                QtGui.QMessageBox.critical(self, 'Erro', 'Finalize a configuração antes de prossegir!' , QtGui.QMessageBox.Ok)
+                return
+            
+            getattr(self.ui, 'lineed_n_est_aq_em_aq_' + str(group + 1)).setEnabled(False)
+            getattr(self.ui, 'pB_n_est_aq_em_aq_' + str(group + 1)).setEnabled(False)
+            
+            getattr(self.ui, 'temp_label_em_aq_' + str(group + 1)).setEnabled(False)
+            getattr(self.ui, 'taxa_label_em_aq_' + str(group + 1)).setEnabled(False)
+            getattr(self.ui, 'patamar_label_em_aq_' + str(group + 1)).setEnabled(False)
+            getattr(self.ui, 'pB_temp_em_aq_' + str(group + 1)).setEnabled(False)
+            getattr(self.ui, 'pB_taxa_em_aq_' + str(group + 1)).setEnabled(False)
+            getattr(self.ui, 'pB_patamar_em_aq_' + str(group + 1)).setEnabled(False)
+            getattr(self.ui, 'lineed_temp_em_aq_' + str(group + 1)).setEnabled(False)
+            getattr(self.ui, 'lineed_taxa_em_aq_' + str(group + 1)).setEnabled(False)
+            getattr(self.ui, 'lineed_patamar_em_aq_' + str(group + 1)).setEnabled(False)
+            
+            getattr(self.ui, 'temp_label_em_aq_' + str(group + 1)).setText('Temp1(°C):')
+            getattr(self.ui, 'taxa_label_em_aq_' + str(group + 1)).setText('Taxa1(°C/min):')
+            getattr(self.ui, 'patamar_label_em_aq_' + str(group + 1)).setText('Patamar1(min):')
+                     
+            getattr(self.ui, 'lineed_n_est_aq_em_aq_' + str(group + 1)).setText('')
+            getattr(self.ui, 'lineed_temp_em_aq_' + str(group + 1)).setText('')
+            getattr(self.ui, 'lineed_taxa_em_aq_' + str(group + 1)).setText('')
+            getattr(self.ui, 'lineed_patamar_em_aq_' + str(group + 1)).setText('')
+            
+            getattr(self.ui, 'pB_edit_em_aq_' + str(group + 1)).setEnabled(True)
+            getattr(self.ui, 'pB_save_em_aq_' + str(group + 1)).setEnabled(False)
+            
+            if Lib.control.group[group] != {}:
+                r = self.ui.table_novas_curvas.rowCount()
+                if group in range(r):
+                    pass
+                else:
+                    self.ui.table_novas_curvas.insertRow(group)
+                    self.ui.table_novas_curvas.setVerticalHeaderItem(group, QtGui.QTableWidgetItem('Grupo ' + str(group + 1)))
+                n_aq = len(Lib.config.taxa_em_aq[group])
+                
+                for n in range(n_aq):
+                    c = self.ui.table_novas_curvas.columnCount()
+                    if n in range(c):
+                        pass
+                    else:
+                        self.ui.table_novas_curvas.insertColumn(n)
+                        self.ui.table_novas_curvas.setHorizontalHeaderItem(n, QtGui.QTableWidgetItem(str(n + 1)))
+                    self.ui.table_novas_curvas.setItem(group, n, QtGui.QTableWidgetItem('Temp(°C): ' + str(Lib.config.temp_est_em_aq[group][n]) + ' | Taxa(°C/min): ' + str(Lib.config.taxa_em_aq[group][n]) + ' | Patamar(min): ' + str(Lib.config.patamar_em_aq[group][n])))
+
+            self.ui.table_novas_curvas.horizontalHeader().setResizeMode(QHeaderView.Stretch)
+            self.ui.table_novas_curvas.verticalHeader().setResizeMode(QHeaderView.Stretch)
+
+    def escape_stages(self, group):
+        if group == None:
             self.ui.lineed_n_est_aq.setText('')
             self.ui.lineed_temp.setText('')
             self.ui.lineed_taxa.setText('')
             self.ui.lineed_patamar.setText('')
-            self.ui.GroupBox_t0.setEnabled(True)
-            QtGui.QMessageBox.information(self, 'Mensagem', 'Todos os grupos estão configurados! Você pode verificar as temperaturas iniciais na tela de Operação Geral', QtGui.QMessageBox.Ok)
-            self.config_curves()
+            self.ui.temp_label.setText('Temp1(°C):')
+            self.ui.taxa_label.setText('Taxa1(°C/min):')
+            self.ui.patamar_label.setText('Patamar1(min):')
+            self.ui.lineed_n_est_aq.setEnabled(False)
+            self.ui.pB_n_est_aq.setEnabled(False)
+            self.ui.temp_label.setEnabled(False)
+            self.ui.taxa_label.setEnabled(False)
+            self.ui.patamar_label.setEnabled(False)
+            self.ui.pB_temp.setEnabled(False)
+            self.ui.pB_taxa.setEnabled(False)
+            self.ui.pB_patamar.setEnabled(False)
+            self.ui.lineed_temp.setEnabled(False)
+            self.ui.lineed_taxa.setEnabled(False)
+            self.ui.lineed_patamar.setEnabled(False)
+            self.ui.pB_edit.setEnabled(True)
+            self.ui.label_group.setText('Grupo 1')
+            
+            for g in Lib.control.GAVETAS:
+                Lib.vars.channels[g] = []
+                for chn in range(8):
+                    Lib.config.temp[g][chn] = []
+                    Lib.config.times[g][chn] = []
+                    Lib.vars.interpolation_points[g][chn] = []
+    
+            for i in range(3):
+                Lib.config.taxa[i] = []
+                Lib.config.patamar[i] = []
+                Lib.config.temp_est[i] = []
+                
+        else:
+            getattr(self.ui, 'lineed_n_est_aq_em_aq_' + str(group + 1)).setText('')
+            getattr(self.ui, 'lineed_temp_em_aq_' + str(group + 1)).setText('')
+            getattr(self.ui, 'lineed_taxa_em_aq_' + str(group + 1)).setText('')
+            getattr(self.ui, 'lineed_patamar_em_aq_' + str(group + 1)).setText('')
+            getattr(self.ui, 'temp_label_em_aq_' + str(group + 1)).setText('Temp1(°C):')
+            getattr(self.ui, 'taxa_label_em_aq_' + str(group + 1)).setText('Taxa1(°C/min):')
+            getattr(self.ui, 'patamar_label_em_aq_' + str(group + 1)).setText('Patamar1(min):')
+            getattr(self.ui, 'lineed_n_est_aq_em_aq_' + str(group + 1)).setEnabled(False)
+            getattr(self.ui, 'pB_n_est_aq_em_aq_' + str(group + 1)).setEnabled(False)
+            getattr(self.ui, 'temp_label_em_aq_' + str(group + 1)).setEnabled(False)
+            getattr(self.ui, 'taxa_label_em_aq_' + str(group + 1)).setEnabled(False)
+            getattr(self.ui, 'patamar_label_em_aq_' + str(group + 1)).setEnabled(False)
+            getattr(self.ui, 'pB_temp_em_aq_' + str(group + 1)).setEnabled(False)
+            getattr(self.ui, 'pB_taxa_em_aq_' + str(group + 1)).setEnabled(False)
+            getattr(self.ui, 'pB_patamar_em_aq_' + str(group + 1)).setEnabled(False)
+            getattr(self.ui, 'lineed_temp_em_aq_' + str(group + 1)).setEnabled(False)
+            getattr(self.ui, 'lineed_taxa_em_aq_' + str(group + 1)).setEnabled(False)
+            getattr(self.ui, 'lineed_patamar_em_aq_' + str(group + 1)).setEnabled(False)
+            getattr(self.ui, 'pB_edit_em_aq_' + str(group + 1)).setEnabled(True)
+            
+            n_aq = len(Lib.config.taxa_em_aq[group])
+            for n in range(n_aq):
+                self.ui.table_novas_curvas.setItem(group, n, QtGui.QTableWidgetItem(''))
 
-    def escape_stages(self):
-        self.ui.lineed_n_est_aq.setText('')
-        self.ui.lineed_temp.setText('')
-        self.ui.lineed_taxa.setText('')
-        self.ui.lineed_patamar.setText('')
-        self.ui.temp_label.setText('Temp1(°C):')
-        self.ui.taxa_label.setText('Taxa1(°C/min):')
-        self.ui.patamar_label.setText('Patamar1(min):')
-        self.ui.lineed_n_est_aq.setEnabled(False)
-        self.ui.pB_n_est_aq.setEnabled(False)
-        self.ui.temp_label.setEnabled(False)
-        self.ui.taxa_label.setEnabled(False)
-        self.ui.patamar_label.setEnabled(False)
-        self.ui.pB_temp.setEnabled(False)
-        self.ui.pB_taxa.setEnabled(False)
-        self.ui.pB_patamar.setEnabled(False)
-        self.ui.lineed_temp.setEnabled(False)
-        self.ui.lineed_taxa.setEnabled(False)
-        self.ui.lineed_patamar.setEnabled(False)
-        self.ui.pB_edit.setEnabled(True)
-        self.ui.label_group.setText('Grupo 1')
-
-        for g in Lib.control.GAVETAS:
-            Lib.vars.channels[g] = []
-            for chn in range(8):
-                Lib.config.temp[g][chn] = []
-                Lib.config.times[g][chn] = []
-                Lib.vars.interpolation_points[g][chn] = []
-
-        for i in range(3):
-            Lib.config.taxa[i] = []
-            Lib.config.patamar[i] = []
-            Lib.config.temp_est[i] = []
+            Lib.config.taxa_em_aq[group] = []
+            Lib.config.patamar_em_aq[group] = []
+            Lib.config.temp_est_em_aq[group] = []
+            
+            for g in Lib.control.group[group]:
+                for chn in Lib.control.group[group][g]:
+                    Lib.config.temp_em_aq[g][chn] = []
 
     def on_group(self, group):
         if Lib.control.meas_time == None:
@@ -1212,6 +1503,7 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
                 Lib.control.channels_on[g].append(chn)
                 Lib.control.channels_on[g].sort()
             self.SOCKET_GVT[g].set_enabled_channels(enabled_chns)
+            Lib.vars.start_time[g][chn] = time.time()
             getattr(self.ui, 'O_on' + str(chn + 1) + '_' + str(g + 1)).setEnabled(False)
             getattr(self.ui, 'O_off' + str(chn + 1) + '_' + str(g + 1)).setEnabled(True)
         except Exception:
@@ -1335,7 +1627,7 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
 
         Lib.control.measurements_ON = False
         self.refresh_timer.stop()
-        self.escape_stages()
+        self.escape_stages(None)
 
     def turn_off(self, g, chn):
         if chn in Lib.control.channels_off[g]:
@@ -1375,10 +1667,14 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
         try:
             self.leg_grp[group].removeItem(Lib.graph.exp_grp[group][group].name())
             Lib.graph.exp_grp[group][group] = None
+            self.leg_grp[3].removeItem(Lib.graph.exp_grp[3][group].name())
+            Lib.graph.exp_grp[3][group] = None
         except Exception:
             pass
         getattr(self.ui, 'graphic_group_' + str(group + 1)).plotItem.curves.clear()
         getattr(self.ui, 'graphic_group_' + str(group + 1)).clear()
+        self.ui.graphic_group_4.plotItem.curves.clear()
+        self.ui.graphic_group_4.clear()
 
         for g in Lib.control.group[group]:
             Lib.control.plot_group_gvts[g][group] = False
@@ -1445,7 +1741,83 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
             self.get_expected_plot_grps(group, g, chn)
             self.get_expected_plot_grps(3, g, chn)
         self.SOCKET_GVT[g].interpolation_points(chn, Lib.vars.interpolation_points[g][chn])
-
+    
+    def send_new_points(self):
+        try:
+            for group in range(3):                    
+                if self.ui.table_novas_curvas.item(group, 0) is None or self.ui.table_novas_curvas.item(group, 0).text() == '':
+                    pass
+                else:
+                    Lib.graph.exp_grp[3][group].setData([], [])
+                    self.leg_grp[3].removeItem(Lib.graph.exp_grp[3][group].name())
+                    Lib.graph.exp_grp[group][group].setData([], [])
+                    self.leg_grp[group].removeItem(Lib.graph.exp_grp[group][group].name())
+                    Lib.control.plot_group_grps[group][group] = False
+                    points = []
+                    for i in range(11):
+                        points.append(defaultdict(list))
+                    for g in Lib.control.group[group]:
+                        if Lib.graph.exp_gvt[g][group] is None:
+                            pass
+                        else:
+                            Lib.graph.exp_gvt[g][group].setData([], [])
+                            self.leg_gvt[g].removeItem(Lib.graph.exp_gvt[g][group].name())
+                            Lib.control.plot_group_gvts[g][group] = False
+                        self.SOCKET_GVT[g].reset_run_control()
+                        _periods = list(self.SOCKET_GVT[g].read('X'))
+                        for chn in Lib.control.group[group][g]:
+                            Lib.config.temp_em_aq[g][chn].insert(0, Lib.measurements['Temperatura'][g][chn][-1])
+                            d_temp = np.array([])
+                            temp = np.array(Lib.config.temp_em_aq[g][chn][0:][::2])
+                            _times = []
+                            _index = Lib.vars.channels[g].index(chn)
+                            
+                            for i in range(len(temp)):
+                                if not(i == 0):
+                                    d_temp = np.append(d_temp, abs((temp[i] - temp[i - 1])))
+                    
+                            taxa = np.array(Lib.config.taxa_em_aq[group])
+                            t_temp_variando = np.divide(d_temp, taxa)
+                            t_temp_variando = list(t_temp_variando)
+                    
+                            for i, j in zip(t_temp_variando, Lib.config.patamar_em_aq[group]):
+                                _times.append(i * 60)
+                                _times.append(j * 60)
+                            _times.insert(0, _periods[_index])
+                    
+                            for i in range(len(_times)):
+                                if not(i == 0):
+                                    _times[i] += _times[i - 1]
+                    
+                            for i, j in zip(_times, Lib.config.temp_em_aq[g][chn]):
+                                points[g][chn].append(str(i))
+                                points[g][chn].append(str(j))
+                            Lib.vars.total_time[g][chn] = _times[-1]
+                            Lib.config.times[g][chn] = _times[:]
+                            Lib.config.temp[g][chn] = Lib.config.temp_em_aq[g][chn][:]
+                            del Lib.config.temp_em_aq[g][chn][0]
+                            
+                            if Lib.control.plot_group_gvts[g][group]:
+                                pass
+                            else:
+                                self.get_expected_plot_gvts(group, g, chn)
+                            
+                            if Lib.control.plot_group_grps[group][group]:
+                                pass
+                            else:
+                                self.get_expected_plot_grps(group, g, chn)
+                                self.get_expected_plot_grps(3, g, chn)                    
+                            self.SOCKET_GVT[g].interpolation_points(chn, points[g][chn])
+                        self.SOCKET_GVT[g].run_control()
+                    QtGui.QMessageBox.information(self, 'Mensagem', 'Nova curva para o Grupo %s configurada!' %(group + 1), QtGui.QMessageBox.Ok)
+        except Exception:
+            traceback.print_exc(file=sys.stdout)
+            QtGui.QMessageBox.critical(self, 'Erro', 'As curvas não foram enviadas corretamente', QtGui.QMessageBox.Ok)
+            return
+        
+    def reset_curvas(self):
+        self.ui.table_novas_curvas.clear()
+    
     def Worker(self):
         try:
             all_off = []
@@ -1477,7 +1849,6 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
             pass
         except Exception:
             traceback.print_exc(file=sys.stdout)
-            print(g, index)
             pass
 
     def refresh_interface(self, g, chn, index):
@@ -1490,6 +1861,14 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
             getattr(self.ui, 'lineed_G' + str(g + 1) + 'S' + str(chn + 1)).setText(str('{:.2f}'.format(Lib.vars.currents[g][index])))
         elif self.ui.comboBox_op_geral.currentText() == 'Tensão (V)':
             getattr(self.ui, 'lineed_G' + str(g + 1) + 'S' + str(chn + 1)).setText(str('{:.2f}'.format(Lib.vars.voltages[g][index])))
+
+    # Visualização trechos
+        #if self.ui.rB_trecho_impar.isChecked():
+            #getattr(self.ui, 'trecho_impar_G' + str(g + 1) + 'S' + str(chn + 1)).setText(str('{:.2f}'.format(Lib.vars.temperatures[g][index])))
+        #elif self.ui.rB_trecho_par.isChecked():
+            #getattr(self.ui, 'trecho_par_G' + str(g + 1) + 'S' + str(chn + 1)).setText(str('{:.2f}'.format(Lib.vars.temperatures[g][index])))
+        #else:
+            #pass
         
     # Operação por Gaveta
         getattr(self.ui, 'O_t0' + str(chn + 1) + '_' + str(g + 1)).setText(str('{:.2f}'.format(Lib.vars.t0[g][index])))
@@ -1545,7 +1924,7 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
                 if i == int(self.leg_gvt[g].items[0][1].text[1]) - 1:
                     return
             elif len(self.leg_gvt[g].items) == 2:
-                if i == int(self.leg_gvt[g].items[1][1].text[1]) - 1:
+                if i == int(self.leg_gvt[g].items[1][1].text[1]) - 1 or i == int(self.leg_gvt[g].items[0][1].text[1]) - 1:
                     return
             
             Lib.graph.exp_gvt[g][group] = getattr(self.ui, 'graphic_gaveta_' + str(g + 1)).plotItem.plot(name='G' + str(group + 1))
@@ -1563,21 +1942,25 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
         var = getattr(self.ui, 'comboBox_live_' + str(g + 1)).currentText()
         getattr(self.ui, 'graphic_gaveta_' + str(g + 1)).setLabel('left', text=var, units=Lib.graph.unit[var])
         for group in Lib.control.group:
-            for chn in Lib.control.group[group][g]:
-                if var == 'Temperatura':
-                    if Lib.control.plot_group_gvts[g][group]:
-                        pass
+            try:
+                for chn in Lib.control.group[group][g]:
+                    if var == 'Temperatura':
+                        if Lib.control.plot_group_gvts[g][group]:
+                            pass
+                        else:
+                            self.get_expected_plot_gvts(group, g, chn)
                     else:
-                        self.get_expected_plot_gvts(group, g, chn)
-                else:
-                    if Lib.control.plot_group_gvts[g][group]:
-                        Lib.graph.exp_gvt[g][group].setData([], [])
-                        self.leg_gvt[g].removeItem(Lib.graph.exp_gvt[g][group].name())
-                        Lib.control.plot_group_gvts[g][group] = False
+                        if Lib.control.plot_group_gvts[g][group]:
+                            Lib.graph.exp_gvt[g][group].setData([], [])
+                            self.leg_gvt[g].removeItem(Lib.graph.exp_gvt[g][group].name())
+                            Lib.control.plot_group_gvts[g][group] = False
+            except Exception:
+                traceback.print_exc(file=sys.stdout)
+                pass
 
     def get_expected_plot_grps(self, group, g, chn):
         try:
-            # Vitor
+            #Vitor
             if group < 3:
                 Lib.graph.exp_grp[group][group] = getattr(self.ui, 'graphic_group_' + str(group + 1)).plotItem.plot(name='G' + str(group + 1))
                 Lib.graph.exp_grp[group][group].setData(Lib.config.times[g][chn], Lib.config.temp[g][chn])
@@ -1599,30 +1982,30 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
                     if i == int(self.leg_grp[group].items[0][1].text[1]) - 1:
                         return
                 elif len(self.leg_grp[group].items) == 2:
-                    if i == int(self.leg_grp[group].items[1][1].text[1]) - 1:
+                    if i == int(self.leg_grp[group].items[1][1].text[1]) - 1 or i == int(self.leg_grp[group].items[0][1].text[1]) - 1:
                         return
-                    Lib.control.plot_group_grps[group][group] = True
+                Lib.control.plot_group_grps[group][i] = True
                 Lib.graph.exp_grp[group][i] = getattr(self.ui, 'graphic_group_' + str(group + 1)).plotItem.plot(name='G' + str(i + 1))
                 Lib.graph.exp_grp[group][i].setData(Lib.config.times[g][chn], Lib.config.temp[g][chn])
                 Lib.graph.exp_grp[group][i].setPen(Lib.graph.pen_esp[i], width=2)
                 self.leg_grp[group].addItem(Lib.graph.exp_grp[group][i], 'G' + str(i + 1))
         except Exception:
             traceback.print_exc(file=sys.stdout)
-            Lib.graph.exp_grp[group][group].setData([], [])
             if group < 3:
+                Lib.graph.exp_grp[group][group].setData([], [])
                 self.leg_grp[group].removeItem(Lib.graph.exp_grp[group][group].name())
                 Lib.graph.exp_grp[group][group] = None
             else:
                 for i in range(len(self.leg_grp[group].items)):
                     Lib.graph.exp_grp[group][i].setData([], [])
                     self.leg_grp[group].removeItem(self.leg_grp[group].items[i][1].text)
-                Lib.control.plot_group_grps[group][group] = False
-            # Vitor
+                    Lib.graph.exp_grp[group][i] = None
+                    Lib.control.plot_group_grps[group][i] = False
+            #Vitor
 
     def refresh_axis_live_grps(self, group):
         var = getattr(self.ui, 'comboBox_live2_' + str(group + 1)).currentText()
         getattr(self.ui, 'graphic_group_' + str(group + 1)).setLabel('left', text=var, units=Lib.graph.unit[var])
-        # Vitor
         if group < 3:
             _group_list = Lib.control.group[group]
         else:
@@ -1635,20 +2018,20 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
                     else:
                         self.get_expected_plot_grps(group, g, chn)
                 else:
-                    if Lib.control.plot_group_grps[group][group]:
-                        if group < 3:
+                    if group < 3:
+                        if Lib.control.plot_group_grps[group][group]:
                             Lib.graph.exp_grp[group][group].setData([], [])
                             self.leg_grp[group].removeItem(Lib.graph.exp_grp[group][group].name())
                             Lib.control.plot_group_grps[group][group] = False
-                        else:
-                            _remove_list = []
-                            for i in range(len(self.leg_grp[group].items)):
+                    else:
+                        _remove_list = []
+                        for i in range(len(self.leg_grp[group].items)):
+                            if Lib.control.plot_group_grps[group][i]:
                                 Lib.graph.exp_grp[group][i].setData([], [])
                                 _remove_list.append(self.leg_grp[group].items[i][1].text)
-                            for item in _remove_list:
-                                self.leg_grp[group].removeItem(item)
-                            Lib.control.plot_group_grps[group][group] = False
-        # Vitor
+                                Lib.control.plot_group_grps[group][i] = False
+                        for item in _remove_list:
+                            self.leg_grp[group].removeItem(item)
 
     def open_file(self, g):
         try:
