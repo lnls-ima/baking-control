@@ -48,21 +48,23 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
         self.ui.actionGaveta_9o.triggered.connect(lambda: self.set_index(14))
         self.ui.actionGaveta_10o.triggered.connect(lambda: self.set_index(15))
         self.ui.actionGaveta_11o.triggered.connect(lambda: self.set_index(16))
-        self.ui.actionGaveta_1g.triggered.connect(lambda: self.set_index(17))
-        self.ui.actionGaveta_2g.triggered.connect(lambda: self.set_index(18))
-        self.ui.actionGaveta_3g.triggered.connect(lambda: self.set_index(19))
-        self.ui.actionGaveta_4g.triggered.connect(lambda: self.set_index(20))
-        self.ui.actionGaveta_5g.triggered.connect(lambda: self.set_index(21))
-        self.ui.actionGaveta_6g.triggered.connect(lambda: self.set_index(22))
-        self.ui.actionGaveta_7g.triggered.connect(lambda: self.set_index(23))
-        self.ui.actionGaveta_8g.triggered.connect(lambda: self.set_index(24))
-        self.ui.actionGaveta_9g.triggered.connect(lambda: self.set_index(25))
-        self.ui.actionGaveta_10g.triggered.connect(lambda: self.set_index(26))
-        self.ui.actionGaveta_11g.triggered.connect(lambda: self.set_index(27))
-        self.ui.actionGrupo_1.triggered.connect(lambda: self.set_index(28))
-        self.ui.actionGrupo_2.triggered.connect(lambda: self.set_index(29))
-        self.ui.actionGrupo_3.triggered.connect(lambda: self.set_index(30))
-        self.ui.actionGrupo_4.triggered.connect(lambda: self.set_index(31))
+        self.ui.actionGaveta_12o.triggered.connect(lambda: self.set_index(17))
+        self.ui.actionGaveta_1g.triggered.connect(lambda: self.set_index(18))
+        self.ui.actionGaveta_2g.triggered.connect(lambda: self.set_index(19))
+        self.ui.actionGaveta_3g.triggered.connect(lambda: self.set_index(20))
+        self.ui.actionGaveta_4g.triggered.connect(lambda: self.set_index(21))
+        self.ui.actionGaveta_5g.triggered.connect(lambda: self.set_index(22))
+        self.ui.actionGaveta_6g.triggered.connect(lambda: self.set_index(23))
+        self.ui.actionGaveta_7g.triggered.connect(lambda: self.set_index(24))
+        self.ui.actionGaveta_8g.triggered.connect(lambda: self.set_index(25))
+        self.ui.actionGaveta_9g.triggered.connect(lambda: self.set_index(26))
+        self.ui.actionGaveta_10g.triggered.connect(lambda: self.set_index(27))
+        self.ui.actionGaveta_11g.triggered.connect(lambda: self.set_index(28))
+        self.ui.actionGaveta_12g.triggered.connect(lambda: self.set_index(29))
+        self.ui.actionGrupo_1.triggered.connect(lambda: self.set_index(30))
+        self.ui.actionGrupo_2.triggered.connect(lambda: self.set_index(31))
+        self.ui.actionGrupo_3.triggered.connect(lambda: self.set_index(32))
+        self.ui.actionGrupo_4.triggered.connect(lambda: self.set_index(33))
 
         self.ui.pB_Connect.clicked.connect(self.connect)
         self.ui.pB_Disconnect.clicked.connect(self.disconnect)
@@ -168,6 +170,15 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
         self.ui.O_on6_11.clicked.connect(lambda: self.on_individual(5, 10))
         self.ui.O_on7_11.clicked.connect(lambda: self.on_individual(6, 10))
         self.ui.O_on8_11.clicked.connect(lambda: self.on_individual(7, 10))
+        
+        self.ui.O_on1_12.clicked.connect(lambda: self.on_individual(0, 11))
+        self.ui.O_on2_12.clicked.connect(lambda: self.on_individual(1, 11))
+        self.ui.O_on3_12.clicked.connect(lambda: self.on_individual(2, 11))
+        self.ui.O_on4_12.clicked.connect(lambda: self.on_individual(3, 11))
+        self.ui.O_on5_12.clicked.connect(lambda: self.on_individual(4, 11))
+        self.ui.O_on6_12.clicked.connect(lambda: self.on_individual(5, 11))
+        self.ui.O_on7_12.clicked.connect(lambda: self.on_individual(6, 11))
+        self.ui.O_on8_12.clicked.connect(lambda: self.on_individual(7, 11))
 
         self.ui.O_off1_1.clicked.connect(lambda: self.off_individual(0, 0))
         self.ui.O_off2_1.clicked.connect(lambda: self.off_individual(1, 0))
@@ -267,6 +278,15 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
         self.ui.O_off6_11.clicked.connect(lambda: self.off_individual(5, 10))
         self.ui.O_off7_11.clicked.connect(lambda: self.off_individual(6, 10))
         self.ui.O_off8_11.clicked.connect(lambda: self.off_individual(7, 10))
+        
+        self.ui.O_off1_12.clicked.connect(lambda: self.off_individual(0, 11))
+        self.ui.O_off2_12.clicked.connect(lambda: self.off_individual(1, 11))
+        self.ui.O_off3_12.clicked.connect(lambda: self.off_individual(2, 11))
+        self.ui.O_off4_12.clicked.connect(lambda: self.off_individual(3, 11))
+        self.ui.O_off5_12.clicked.connect(lambda: self.off_individual(4, 11))
+        self.ui.O_off6_12.clicked.connect(lambda: self.off_individual(5, 11))
+        self.ui.O_off7_12.clicked.connect(lambda: self.off_individual(6, 11))
+        self.ui.O_off8_12.clicked.connect(lambda: self.off_individual(7, 11))
 
         self.ui.O_hold1_1.clicked.connect(lambda: self.hold_individual(0, 0))
         self.ui.O_hold2_1.clicked.connect(lambda: self.hold_individual(1, 0))
@@ -367,6 +387,15 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
         self.ui.O_hold7_11.clicked.connect(lambda: self.hold_individual(6, 10))
         self.ui.O_hold8_11.clicked.connect(lambda: self.hold_individual(7, 10))
         
+        self.ui.O_hold1_12.clicked.connect(lambda: self.hold_individual(0, 11))
+        self.ui.O_hold2_12.clicked.connect(lambda: self.hold_individual(1, 11))
+        self.ui.O_hold3_12.clicked.connect(lambda: self.hold_individual(2, 11))
+        self.ui.O_hold4_12.clicked.connect(lambda: self.hold_individual(3, 11))
+        self.ui.O_hold5_12.clicked.connect(lambda: self.hold_individual(4, 11))
+        self.ui.O_hold6_12.clicked.connect(lambda: self.hold_individual(5, 11))
+        self.ui.O_hold7_12.clicked.connect(lambda: self.hold_individual(6, 11))
+        self.ui.O_hold8_12.clicked.connect(lambda: self.hold_individual(7, 11))
+        
         self.ui.checkBox_limit1_1.clicked.connect(lambda: self.set_current_limit(0, 0))
         self.ui.checkBox_limit2_1.clicked.connect(lambda: self.set_current_limit(1, 0))
         self.ui.checkBox_limit3_1.clicked.connect(lambda: self.set_current_limit(2, 0))
@@ -466,6 +495,15 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
         self.ui.checkBox_limit7_11.clicked.connect(lambda: self.set_current_limit(6, 10))
         self.ui.checkBox_limit8_11.clicked.connect(lambda: self.set_current_limit(7, 10))
         
+        self.ui.checkBox_limit1_12.clicked.connect(lambda: self.set_current_limit(0, 11))
+        self.ui.checkBox_limit2_12.clicked.connect(lambda: self.set_current_limit(1, 11))
+        self.ui.checkBox_limit3_12.clicked.connect(lambda: self.set_current_limit(2, 11))
+        self.ui.checkBox_limit4_12.clicked.connect(lambda: self.set_current_limit(3, 11))
+        self.ui.checkBox_limit5_12.clicked.connect(lambda: self.set_current_limit(4, 11))
+        self.ui.checkBox_limit6_12.clicked.connect(lambda: self.set_current_limit(5, 11))
+        self.ui.checkBox_limit7_12.clicked.connect(lambda: self.set_current_limit(6, 11))
+        self.ui.checkBox_limit8_12.clicked.connect(lambda: self.set_current_limit(7, 11))
+        
         self.ui.pB_on1.clicked.connect(lambda: self.on_group(0))
         self.ui.pB_on2.clicked.connect(lambda: self.on_group(1))
         self.ui.pB_on3.clicked.connect(lambda: self.on_group(2))
@@ -543,6 +581,7 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
         self.ui.comboBox_live_9.currentIndexChanged.connect(lambda: self.refresh_axis_live_gvts(8))
         self.ui.comboBox_live_10.currentIndexChanged.connect(lambda: self.refresh_axis_live_gvts(9))
         self.ui.comboBox_live_11.currentIndexChanged.connect(lambda: self.refresh_axis_live_gvts(10))
+        self.ui.comboBox_live_12.currentIndexChanged.connect(lambda: self.refresh_axis_live_gvts(11))
         self.ui.comboBox_live2_1.currentIndexChanged.connect(lambda: self.refresh_axis_live_grps(0))
         self.ui.comboBox_live2_2.currentIndexChanged.connect(lambda: self.refresh_axis_live_grps(1))
         self.ui.comboBox_live2_3.currentIndexChanged.connect(lambda: self.refresh_axis_live_grps(2))
@@ -552,14 +591,15 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
         QtGui.QApplication.setPalette(QtGui.QApplication.style().standardPalette())
         #self.setStatusBar(QStatusBar())
 
-        self.SOCKET_GVT = {0: Lib.fitaaque1, 1: Lib.fitaaque2, 2: Lib.fitaaque3, 3: Lib.fitaaque4, 4: Lib.fitaaque5, 5: Lib.fitaaque6, 6: Lib.fitaaque7, 7: Lib.fitaaque8, 8: Lib.fitaaque9, 9: Lib.fitaaque10, 10: Lib.fitaaque11}
+        self.SOCKET_GVT = {0: Lib.fitaaque1, 1: Lib.fitaaque2, 2: Lib.fitaaque3, 3: Lib.fitaaque4, 4: Lib.fitaaque5, 5: Lib.fitaaque6, 6: Lib.fitaaque7, 7: Lib.fitaaque8, 8: Lib.fitaaque9, 9: Lib.fitaaque10, 
+                           10: Lib.fitaaque11, 11: Lib.fitaaque12}
         self.reading_thread = defaultdict()
         
     def config_graph(self):
         self.leg_gvt = []
         self.leg_grp = []
 
-        for g in range(11):
+        for g in range(12):
             getattr(self.ui, 'graphic_gaveta_' + str(g + 1)).setLabel('left', text='Temperatura', units='°C', color='k')
             getattr(self.ui, 'graphic_gaveta_' + str(g + 1)).showGrid(True, True)
             self.leg_gvt.append(pg.LegendItem((40, 40), offset=(10, 10)))
@@ -577,15 +617,15 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
         Lib.graph.curves_grp = defaultdict(list)
         Lib.graph.curves_gvt = defaultdict(list)
 
-        for g in range(11):
-            for i in range(11):
+        for g in range(12):
+            for i in range(12):
                 Lib.graph.curves_gvt[g].append(np.array([]))
                 for j in range(8):
                     Lib.graph.curves_gvt[g][i] = np.append(Lib.graph.curves_gvt[g][i], getattr(self.ui, 'graphic_gaveta_' + str(g + 1)).plotItem.plot(np.array([]), np.array([])))
                     Lib.graph.curves_gvt[g][i][j].setPen(Lib.graph.pen[j], width=2)
 
         for a in range(4):
-            for i in range(11):
+            for i in range(12):
                 Lib.graph.curves_grp[a].append(np.array([]))
                 for j in range(8):
                     Lib.graph.curves_grp[a][i] = np.append(Lib.graph.curves_grp[a][i],
@@ -646,7 +686,7 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
     def connect(self):
         try:
             gvs_to_connect = []
-            for i in range(11):
+            for i in range(12):
                 if getattr(self.ui, 'connect_' + str(i + 1)).isChecked():
                     gvs_to_connect.append(i)
 
@@ -672,7 +712,7 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
     def disconnect(self):
         try:
             gvs_to_disconnect = []
-            for i in range(11):
+            for i in range(12):
                 if getattr(self.ui, 'connect_' + str(i + 1)).isChecked():
                     gvs_to_disconnect.append(i)
 
@@ -847,33 +887,33 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
                         getattr(self.ui, 'O_nome' + str(chn + 1) + '_' + str(g + 1)).setStyleSheet('background-color: rgb(255, 74, 77)')
                         getattr(self.ui, 'label_G' + str(g + 1) + 'S' + str(chn + 1) + '_op').setStyleSheet('background-color: rgb(255, 74, 77)')
                         getattr(self.ui, 'label_gr' + str(chn + 1) + '_' + str(g + 1)).setStyleSheet('background-color: rgb(255, 74, 77)')
-                        getattr(self.ui, 'trecho_impar_G' + str(g + 1) + 'S' + str(chn + 1)).setStyleSheet('background-color: rgb(255, 74, 77)')
+                        #getattr(self.ui, 'trecho_impar_G' + str(g + 1) + 'S' + str(chn + 1)).setStyleSheet('background-color: rgb(255, 74, 77)')
                     elif local == 'Q':
                         getattr(self.ui, 'O_nome' + str(chn + 1) + '_' + str(g + 1)).setStyleSheet('background-color: rgb(255, 183, 94)')
                         getattr(self.ui, 'label_G' + str(g + 1) + 'S' + str(chn + 1) + '_op').setStyleSheet('background-color: rgb(255, 183, 94)')
                         getattr(self.ui, 'label_gr' + str(chn + 1) + '_' + str(g + 1)).setStyleSheet('background-color: rgb(255, 183, 94)')
-                        getattr(self.ui, 'trecho_impar_G' + str(g + 1) + 'S' + str(chn + 1)).setStyleSheet('background-color: rgb(255, 183, 94)')
+                        #getattr(self.ui, 'trecho_impar_G' + str(g + 1) + 'S' + str(chn + 1)).setStyleSheet('background-color: rgb(255, 183, 94)')
                     elif local == 'D':
                         getattr(self.ui, 'O_nome' + str(chn + 1) + '_' + str(g + 1)).setStyleSheet('background-color: rgb(130, 202, 232)')
                         getattr(self.ui, 'label_G' + str(g + 1) + 'S' + str(chn + 1) + '_op').setStyleSheet('background-color: rgb(130, 202, 232)')
                         getattr(self.ui, 'label_gr' + str(chn + 1) + '_' + str(g + 1)).setStyleSheet('background-color: rgb(130, 202, 232)')
-                        getattr(self.ui, 'trecho_impar_G' + str(g + 1) + 'S' + str(chn + 1)).setStyleSheet('background-color: rgb(130, 202, 232)')
+                        #getattr(self.ui, 'trecho_impar_G' + str(g + 1) + 'S' + str(chn + 1)).setStyleSheet('background-color: rgb(130, 202, 232)')
                     elif local == 'S':
                         getattr(self.ui, 'O_nome' + str(chn + 1) + '_' + str(g + 1)).setStyleSheet('background-color: rgb(143, 206, 133)')
                         getattr(self.ui, 'label_G' + str(g + 1) + 'S' + str(chn + 1) + '_op').setStyleSheet('background-color: rgb(143, 206, 133)')
                         getattr(self.ui, 'label_gr' + str(chn + 1) + '_' + str(g + 1)).setStyleSheet('background-color: rgb(143, 206, 133)')
-                        getattr(self.ui, 'trecho_impar_G' + str(g + 1) + 'S' + str(chn + 1)).setStyleSheet('background-color: rgb(143, 206, 133)')
+                        #getattr(self.ui, 'trecho_impar_G' + str(g + 1) + 'S' + str(chn + 1)).setStyleSheet('background-color: rgb(143, 206, 133)')
                     elif local == 'V':
                         getattr(self.ui, 'O_nome' + str(chn + 1) + '_' + str(g + 1)).setStyleSheet('color: rgb(255, 255, 255); background-color: rgb(84, 84, 84)')
                         getattr(self.ui, 'label_G' + str(g + 1) + 'S' + str(chn + 1) + '_op').setStyleSheet('color: rgb(255, 255, 255); background-color: rgb(84, 84, 84)')
                         getattr(self.ui, 'label_gr' + str(chn + 1) + '_' + str(g + 1)).setStyleSheet('color: rgb(255, 255, 255); background-color: rgb(84, 84, 84)')
-                        getattr(self.ui, 'trecho_impar_G' + str(g + 1) + 'S' + str(chn + 1)).setStyleSheet('color: rgb(255, 255, 255); background-color: rgb(84, 84, 84)')
+                        #getattr(self.ui, 'trecho_impar_G' + str(g + 1) + 'S' + str(chn + 1)).setStyleSheet('color: rgb(255, 255, 255); background-color: rgb(84, 84, 84)')
                     elif local == 'E':
                         Lib.control.PT100_channels[g].append(chn)
                         getattr(self.ui, 'O_nome' + str(chn + 1) + '_' + str(g + 1)).setStyleSheet('background-color: rgb(172, 110, 221)')
                         getattr(self.ui, 'label_G' + str(g + 1) + 'S' + str(chn + 1) + '_op').setStyleSheet('background-color: rgb(172, 110, 221)')
                         getattr(self.ui, 'label_gr' + str(chn + 1) + '_' + str(g + 1)).setStyleSheet('background-color: rgb(172, 110, 221)')
-                        getattr(self.ui, 'trecho_impar_G' + str(g + 1) + 'S' + str(chn + 1)).setStyleSheet('background-color: rgb(172, 110, 221)')
+                        #getattr(self.ui, 'trecho_impar_G' + str(g + 1) + 'S' + str(chn + 1)).setStyleSheet('background-color: rgb(172, 110, 221)')
                 try:
                     if (g + 1) > 9:
                         group = int(getattr(self.ui, 'pB_config_G' + str(g + 1) + 'S' + str(chn + 1)).text()[6]) - 1
@@ -937,7 +977,7 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
                 #getattr(self.ui, 'trecho_impar_G' + str(g + 1) + 'S' + str(chn + 1)).setText('')
                 self.ui.table_dados.setItem(g, chn, QtGui.QTableWidgetItem(''))
 
-        for g in range(11):
+        for g in range(12):
             getattr(self.ui, 'checkBox_todas_' + str(g + 1)).setChecked(False)
             getattr(self.ui, 'checkBox_gvt' + str(g + 1) + '_1').setChecked(False)
             getattr(self.ui, 'checkBox_gvt' + str(g + 1) + '_2').setChecked(False)
@@ -1443,7 +1483,7 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
         getattr(self.ui, 'pB_off' + str(group + 1)).setEnabled(False)
         getattr(self.ui, 'lineed_time' + str(group + 1)).setText('')
 
-        for g in range(11):
+        for g in range(12):
             getattr(self.ui, 'O_lineed_time' + str(group + 1) + '_' + str(g + 1)).setText('')
 
     def hold_group(self, group):
@@ -1503,7 +1543,7 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
                 Lib.control.channels_on[g].append(chn)
                 Lib.control.channels_on[g].sort()
             self.SOCKET_GVT[g].set_enabled_channels(enabled_chns)
-            Lib.vars.start_time[g][chn] = time.time()
+            #Lib.vars.start_time[g][chn] = time.time()
             getattr(self.ui, 'O_on' + str(chn + 1) + '_' + str(g + 1)).setEnabled(False)
             getattr(self.ui, 'O_off' + str(chn + 1) + '_' + str(g + 1)).setEnabled(True)
         except Exception:
@@ -1754,7 +1794,7 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
                     self.leg_grp[group].removeItem(Lib.graph.exp_grp[group][group].name())
                     Lib.control.plot_group_grps[group][group] = False
                     points = []
-                    for i in range(11):
+                    for i in range(12):
                         points.append(defaultdict(list))
                     for g in Lib.control.group[group]:
                         if Lib.graph.exp_gvt[g][group] is None:
@@ -1960,7 +2000,6 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
 
     def get_expected_plot_grps(self, group, g, chn):
         try:
-            #Vitor
             if group < 3:
                 Lib.graph.exp_grp[group][group] = getattr(self.ui, 'graphic_group_' + str(group + 1)).plotItem.plot(name='G' + str(group + 1))
                 Lib.graph.exp_grp[group][group].setData(Lib.config.times[g][chn], Lib.config.temp[g][chn])
@@ -2001,7 +2040,6 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
                     self.leg_grp[group].removeItem(self.leg_grp[group].items[i][1].text)
                     Lib.graph.exp_grp[group][i] = None
                     Lib.control.plot_group_grps[group][i] = False
-            #Vitor
 
     def refresh_axis_live_grps(self, group):
         var = getattr(self.ui, 'comboBox_live2_' + str(group + 1)).currentText()
@@ -2092,5 +2130,4 @@ class Main(threading.Thread):
 
 
 if __name__ == '__main__':
-    # main()
     app = Main()
