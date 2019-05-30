@@ -587,6 +587,11 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
         self.ui.comboBox_live2_3.currentIndexChanged.connect(lambda: self.refresh_axis_live_grps(2))
         self.ui.comboBox_live2_4.currentIndexChanged.connect(lambda: self.refresh_axis_live_grps(3))
         
+        self.ui.pB_ler.clicked.connect(self.read_initial_data)
+        self.ui.pB_carregar.clicked.connect(self.load_data_table)
+        self.ui.pB_enviar.clicked.connect(self.send_initial_data)
+        self.ui.pB_salvar_arq.clicked.connect(self.save_data_table)
+        
         QtGui.QApplication.setStyle(QtGui.QStyleFactory.create('Plastique'))
         QtGui.QApplication.setPalette(QtGui.QApplication.style().standardPalette())
         #self.setStatusBar(QStatusBar())
@@ -623,6 +628,7 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
                 for j in range(8):
                     Lib.graph.curves_gvt[g][i] = np.append(Lib.graph.curves_gvt[g][i], getattr(self.ui, 'graphic_gaveta_' + str(g + 1)).plotItem.plot(np.array([]), np.array([])))
                     Lib.graph.curves_gvt[g][i][j].setPen(Lib.graph.pen[j], width=2)
+                    #Lib.graph.curves_gvt[g][i][j].setDownsampling(ds=10, method='subsample')
 
         for a in range(4):
             for i in range(12):
@@ -631,11 +637,95 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
                     Lib.graph.curves_grp[a][i] = np.append(Lib.graph.curves_grp[a][i],
                                                                getattr(self.ui, 'graphic_group_' + str(a + 1)).plotItem.plot(np.array([]), np.array([])))
                     Lib.graph.curves_grp[a][i][j].setPen(Lib.graph.pen[i], width=2)
+                    #Lib.graph.curves_grp[a][i][j].setClipToView(True)
 
     def set_index(self, index):
         if index == 3:
-            self.show_data_table()
+            self.show_stages_table()
         self.ui.stackedWidget.setCurrentIndex(index)
+    
+    def save_data_table(self):
+        #file_name = 'Dados_iniciais.dat'
+        w = QtGui.QWidget()
+        w.resize(320, 240)
+        file_name = QtGui.QFileDialog.getSaveFileName(w, 'Save File', '/', '.dat')
+        file = open(file_name, 'w') 
+        file.writelines('\tSaida1\tSaida2\tSaida3\tSaida4\tSaida5\tSaida6\tSaida7\tSaida8\n')
+        for g in range(12):
+            file.writelines('Gaveta ' + str(g + 1) + '\t')
+            for chn in range(8):
+                if self.ui.table_dados.item(g, chn) is None or self.ui.table_dados.item(g, chn).text() == '':
+                    file.writelines('NConfig\t')
+                else:
+                    file.writelines(self.ui.table_dados.item(g, chn).text() + '\t')
+            file.writelines('\n')
+        file.close()
+    
+    def load_data_table(self):
+        w = QtGui.QWidget()
+        w.resize(320, 240)
+        file_name = QtGui.QFileDialog.getOpenFileName(w, 'Open File', '/')
+        file = open(file_name, 'r')
+        file.readline()
+        try:
+            for g in range(12):
+                Lib.vars.t0[g] = [0] * len(Lib.vars.channels[g])
+                Lib.vars.r0[g] = [0] * len(Lib.vars.channels[g])
+                row = file.readline()
+                data = row.split('\t')
+                del data[0]
+                del data[-1]
+                for chn in range(len(data)):
+                    if data[chn] == 'NConfig':
+                        pass
+                    else:
+                        index = Lib.vars.channels[g].index(chn)
+                        dados = data[chn].split('|')
+                        for i in range(5):
+                            dados[0] = dados[0].replace(dados[0][-1], '')
+                        for i in range(6):
+                            dados[1] = dados[1].replace(dados[1][-1], '')
+                        Lib.vars.t0[g][index] = float(dados[0])
+                        Lib.vars.r0[g][index] = float(dados[1])
+            self.show_data_table()
+        except:
+            QtGui.QMessageBox.critical(self, 'Erro', 'O arquivo não é compatível ou contém alguma alteração incorreta!', QtGui.QMessageBox.Ok)
+            
+    def send_initial_data(self):
+        try:
+            for g in Lib.control.GAVETAS:
+                self.SOCKET_GVT[g].set_parameters(Lib.vars.r0[g], Lib.vars.t0[g], Lib.vars.a[g])
+            QtGui.QMessageBox.information(self, 'Mensagem', 'Dados enviados com sucesso', QtGui.QMessageBox.Ok)
+        except:
+            QtGui.QMessageBox.critical(self, 'Erro', 'Erro ao enviar dados!', QtGui.QMessageBox.Ok)
+    
+    def read_initial_data(self):
+        QtGui.QApplication.setOverrideCursor(Qt.WaitCursor)
+        for g in Lib.control.GAVETAS:
+            for chn in Lib.vars.channels[g]:
+                self.SOCKET_GVT[g].get_initial_parameters(chn)
+            Lib.vars.t0[g] = self.SOCKET_GVT[g].read('O')
+            Lib.vars.r0[g] = self.SOCKET_GVT[g].read('r')
+            
+        for g in Lib.control.GAVETAS:
+            if Lib.vars.channels[g] != []:
+                if Lib.control.PT100_channels[g] != []:
+                    tmp = 0
+                    for chn in Lib.control.PT100_channels[g]:
+                        idx = Lib.vars.channels[g].index(chn)
+                        tmp += Lib.vars.t0[g][idx]
+                    t0_med = tmp / len(Lib.control.PT100_channels[g])
+
+                    for chn in Lib.vars.channels[g]:
+                        if chn not in Lib.control.PT100_channels[g]:
+                            idx = Lib.vars.channels[g].index(chn)
+                            Lib.vars.t0[g][idx] = t0_med
+                else:
+                    QtGui.QMessageBox.information(self, 'Atenção', 'Não existe nenhum canal Pt100 na gaveta %s! As temperaturas iniciais deverão ser configuradas manualmente!' % (g + 1), QtGui.QMessageBox.Ok)
+                    continue
+
+        QtGui.QApplication.restoreOverrideCursor()
+        self.show_data_table()
         
     def show_data_table(self):
         for g in Lib.control.GAVETAS:
@@ -660,7 +750,8 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
                 elif local == 'V':
                     self.ui.table_dados.item(g, chn).setBackgroundColor(QtGui.QColor(84, 84, 84))
                     self.ui.table_dados.item(g, chn).setForeground(QtGui.QColor(255, 255, 255))
-                    
+    
+    def show_stages_table(self):   
         for group in Lib.control.group:
             if Lib.control.group[group] != {}:
                 r = self.ui.table_est_aq.rowCount()
@@ -701,6 +792,7 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
                     getattr(self.ui, 'checkBox_gvt' + str(g + 1) + '_3').setEnabled(True)
                     getattr(self.ui, 'checkBox_gvt' + str(g + 1) + '_4').setEnabled(True)
                     getattr(self.ui, 'groupBox_op' + str(g + 1)).setEnabled(True)
+                    Lib.control.connection_err[g] = False
                     for chn in range(8):
                         getattr(self.ui, 'pB_config_G' + str(g + 1) + 'S' + str(chn + 1)).setEnabled(True)
                     Lib.control.GAVETAS.append(g)
@@ -886,33 +978,33 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
                         Lib.control.PT100_channels[g].append(chn)
                         getattr(self.ui, 'O_nome' + str(chn + 1) + '_' + str(g + 1)).setStyleSheet('background-color: rgb(255, 74, 77)')
                         getattr(self.ui, 'label_G' + str(g + 1) + 'S' + str(chn + 1) + '_op').setStyleSheet('background-color: rgb(255, 74, 77)')
-                        getattr(self.ui, 'label_gr' + str(chn + 1) + '_' + str(g + 1)).setStyleSheet('background-color: rgb(255, 74, 77)')
+                        getattr(self.ui, 'label_s' + str(chn + 1) + '_' + str(g + 1)).setStyleSheet('background-color: rgb(255, 74, 77)')
                         #getattr(self.ui, 'trecho_impar_G' + str(g + 1) + 'S' + str(chn + 1)).setStyleSheet('background-color: rgb(255, 74, 77)')
                     elif local == 'Q':
                         getattr(self.ui, 'O_nome' + str(chn + 1) + '_' + str(g + 1)).setStyleSheet('background-color: rgb(255, 183, 94)')
                         getattr(self.ui, 'label_G' + str(g + 1) + 'S' + str(chn + 1) + '_op').setStyleSheet('background-color: rgb(255, 183, 94)')
-                        getattr(self.ui, 'label_gr' + str(chn + 1) + '_' + str(g + 1)).setStyleSheet('background-color: rgb(255, 183, 94)')
+                        getattr(self.ui, 'label_s' + str(chn + 1) + '_' + str(g + 1)).setStyleSheet('background-color: rgb(255, 183, 94)')
                         #getattr(self.ui, 'trecho_impar_G' + str(g + 1) + 'S' + str(chn + 1)).setStyleSheet('background-color: rgb(255, 183, 94)')
                     elif local == 'D':
                         getattr(self.ui, 'O_nome' + str(chn + 1) + '_' + str(g + 1)).setStyleSheet('background-color: rgb(130, 202, 232)')
                         getattr(self.ui, 'label_G' + str(g + 1) + 'S' + str(chn + 1) + '_op').setStyleSheet('background-color: rgb(130, 202, 232)')
-                        getattr(self.ui, 'label_gr' + str(chn + 1) + '_' + str(g + 1)).setStyleSheet('background-color: rgb(130, 202, 232)')
+                        getattr(self.ui, 'label_s' + str(chn + 1) + '_' + str(g + 1)).setStyleSheet('background-color: rgb(130, 202, 232)')
                         #getattr(self.ui, 'trecho_impar_G' + str(g + 1) + 'S' + str(chn + 1)).setStyleSheet('background-color: rgb(130, 202, 232)')
                     elif local == 'S':
                         getattr(self.ui, 'O_nome' + str(chn + 1) + '_' + str(g + 1)).setStyleSheet('background-color: rgb(143, 206, 133)')
                         getattr(self.ui, 'label_G' + str(g + 1) + 'S' + str(chn + 1) + '_op').setStyleSheet('background-color: rgb(143, 206, 133)')
-                        getattr(self.ui, 'label_gr' + str(chn + 1) + '_' + str(g + 1)).setStyleSheet('background-color: rgb(143, 206, 133)')
+                        getattr(self.ui, 'label_s' + str(chn + 1) + '_' + str(g + 1)).setStyleSheet('background-color: rgb(143, 206, 133)')
                         #getattr(self.ui, 'trecho_impar_G' + str(g + 1) + 'S' + str(chn + 1)).setStyleSheet('background-color: rgb(143, 206, 133)')
                     elif local == 'V':
                         getattr(self.ui, 'O_nome' + str(chn + 1) + '_' + str(g + 1)).setStyleSheet('color: rgb(255, 255, 255); background-color: rgb(84, 84, 84)')
                         getattr(self.ui, 'label_G' + str(g + 1) + 'S' + str(chn + 1) + '_op').setStyleSheet('color: rgb(255, 255, 255); background-color: rgb(84, 84, 84)')
-                        getattr(self.ui, 'label_gr' + str(chn + 1) + '_' + str(g + 1)).setStyleSheet('color: rgb(255, 255, 255); background-color: rgb(84, 84, 84)')
+                        getattr(self.ui, 'label_s' + str(chn + 1) + '_' + str(g + 1)).setStyleSheet('color: rgb(255, 255, 255); background-color: rgb(84, 84, 84)')
                         #getattr(self.ui, 'trecho_impar_G' + str(g + 1) + 'S' + str(chn + 1)).setStyleSheet('color: rgb(255, 255, 255); background-color: rgb(84, 84, 84)')
                     elif local == 'E':
                         Lib.control.PT100_channels[g].append(chn)
                         getattr(self.ui, 'O_nome' + str(chn + 1) + '_' + str(g + 1)).setStyleSheet('background-color: rgb(172, 110, 221)')
                         getattr(self.ui, 'label_G' + str(g + 1) + 'S' + str(chn + 1) + '_op').setStyleSheet('background-color: rgb(172, 110, 221)')
-                        getattr(self.ui, 'label_gr' + str(chn + 1) + '_' + str(g + 1)).setStyleSheet('background-color: rgb(172, 110, 221)')
+                        getattr(self.ui, 'label_s' + str(chn + 1) + '_' + str(g + 1)).setStyleSheet('background-color: rgb(172, 110, 221)')
                         #getattr(self.ui, 'trecho_impar_G' + str(g + 1) + 'S' + str(chn + 1)).setStyleSheet('background-color: rgb(172, 110, 221)')
                 try:
                     if (g + 1) > 9:
@@ -965,14 +1057,14 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
                 getattr(self.ui, 'checkBox_saida' + str(chn + 1) + '_' + str(g + 1)).setChecked(False)
                 getattr(self.ui, 'checkBox_saida' + str(chn + 1) + '_' + str(g + 1)).setEnabled(False)
                 getattr(self.ui, 'groupBox_saida' + str(chn + 1) + '_' + str(g + 1)).setEnabled(False)
-                getattr(self.ui, 'label_gr' + str(chn + 1) + '_' + str(g + 1)).setText('Saída ' + str(chn + 1))
+                getattr(self.ui, 'label_s' + str(chn + 1) + '_' + str(g + 1)).setText('Saída ' + str(chn + 1))
                 getattr(self.ui, 'label_G' + str(g + 1) + 'S' + str(chn + 1) + '_op').setText('Saída ' + str(chn + 1) + ':')
                 getattr(self.ui, 'label_G' + str(g + 1) + 'S' + str(chn + 1) + '_op').setEnabled(False)
                 getattr(self.ui, 'lineed_G' + str(g + 1) + 'S' + str(chn + 1)).setEnabled(False)
                 Lib.vars.name[g][chn] = 'G' + str(g + 1) + 'S' + str(chn + 1) + 'ab'
                 getattr(self.ui, 'O_nome' + str(chn + 1) + '_' + str(g + 1)).setStyleSheet('')
                 getattr(self.ui, 'label_G' + str(g + 1) + 'S' + str(chn + 1) + '_op').setStyleSheet('')
-                getattr(self.ui, 'label_gr' + str(chn + 1) + '_' + str(g + 1)).setStyleSheet('')
+                getattr(self.ui, 'label_s' + str(chn + 1) + '_' + str(g + 1)).setStyleSheet('')
                 #getattr(self.ui, 'trecho_impar_G' + str(g + 1) + 'S' + str(chn + 1)).setStyleSheet('')
                 #getattr(self.ui, 'trecho_impar_G' + str(g + 1) + 'S' + str(chn + 1)).setText('')
                 self.ui.table_dados.setItem(g, chn, QtGui.QTableWidgetItem(''))
@@ -1028,7 +1120,7 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
         else:
             chn = int(self.ui.comboBox_chn.currentText()) - 1
             if chn not in Lib.vars.channels[g]:
-                QtGui.QMessageBox.critical(self, 'Erro', 'Canal não ativo!', QtGui.QMessageBox.Ok)
+                QtGui.QMessageBox.critical(self, 'Erro', 'Temperatura inicial do canal não configurada!', QtGui.QMessageBox.Ok)
                 return
             t0 = self.SOCKET_GVT[g].read('O')
             index = Lib.vars.channels[g].index(chn)
@@ -1221,10 +1313,10 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
                 for chn in Lib.control.group[_group][g]:
                     Lib.vars.channels[g].append(chn)
                     Lib.vars.channels[g].sort()
-                    self.SOCKET_GVT[g].get_initial_parameters(chn)
+                    #self.SOCKET_GVT[g].get_initial_parameters(chn)
                     getattr(self.ui, 'checkBox_saida' + str(chn + 1) + '_' + str(g + 1)).setEnabled(True)
                     getattr(self.ui, 'groupBox_saida' + str(chn + 1) + '_' + str(g + 1)).setEnabled(True)
-                    getattr(self.ui, 'label_gr' + str(chn + 1) + '_' + str(g + 1)).setText(Lib.vars.name[g][chn])
+                    getattr(self.ui, 'label_s' + str(chn + 1) + '_' + str(g + 1)).setText(Lib.vars.name[g][chn])
                     getattr(self.ui, 'label_G' + str(g + 1) + 'S' + str(chn + 1) + '_op').setEnabled(True)
                     getattr(self.ui, 'lineed_G' + str(g + 1) + 'S' + str(chn + 1)).setEnabled(True)
                     getattr(self.ui, 'O_nome' + str(chn + 1) + '_' + str(g + 1)).setText(Lib.vars.name[g][chn])
@@ -1232,8 +1324,8 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
                 self.SOCKET_GVT[g].set_active_channels(Lib.vars.channels[g])
                 self.SOCKET_GVT[g].set_enabled_channels(Lib.vars.channels[g])
                 self.SOCKET_GVT[g].set_PT100(Lib.control.PT100_channels[g])
-                Lib.vars.t0[g] = self.SOCKET_GVT[g].read('O')
-                Lib.vars.r0[g] = self.SOCKET_GVT[g].read('r')
+                #Lib.vars.t0[g] = self.SOCKET_GVT[g].read('O')
+                #Lib.vars.r0[g] = self.SOCKET_GVT[g].read('r')
                 Lib.vars.a[g] = self.SOCKET_GVT[g].read('A')
     
             QtGui.QApplication.restoreOverrideCursor()
@@ -1266,7 +1358,7 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
                 self.ui.label_group.setText('Grupo 3')
                 self.ui.pB_edit.setEnabled(True)
             else:
-                for g in Lib.control.GAVETAS:
+                '''for g in Lib.control.GAVETAS:
                     if Lib.vars.channels[g] != []:
                         if Lib.control.PT100_channels[g] != []:
                             tmp = 0
@@ -1281,9 +1373,9 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
                                     Lib.vars.t0[g][idx] = t0_med
                         else:
                             QtGui.QMessageBox.information(self, 'Atenção', 'Não existe nenhum canal Pt100 na gaveta %s! As temperaturas iniciais deverão ser configuradas manualmente!' % (g + 1), QtGui.QMessageBox.Ok)
-                            continue
+                            continue'''
     
-                        self.SOCKET_GVT[g].set_parameters(Lib.vars.r0[g], Lib.vars.t0[g], Lib.vars.a[g])
+                        #self.SOCKET_GVT[g].set_parameters(Lib.vars.r0[g], Lib.vars.t0[g], Lib.vars.a[g])
     
                 QtGui.QApplication.restoreOverrideCursor()
                 self.ui.label_group.setText('Grupo 1')
@@ -1418,7 +1510,12 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
         if Lib.control.meas_time == None:
             QtGui.QMessageBox.critical(self, 'Erro', 'Operação não concluída! Configure o tempo entre as medidas!', QtGui.QMessageBox.Ok)
             return
-
+        
+        for g in Lib.control.group[group]:
+            if Lib.vars.t0[g] == []:
+                QtGui.QMessageBox.critical(self, 'Erro', 'Existe uma gaveta no grupo sem configuração de temperatura inicial!', QtGui.QMessageBox.Ok)
+                return
+        
         for g in Lib.control.group[group]:
             for chn in Lib.control.group[group][g]:
                 getattr(self.ui, 'O_off' + str(chn + 1) + '_' + str(g + 1)).setEnabled(True)
@@ -1426,7 +1523,7 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
                 Lib.control.channels_on[g].sort()
                 Lib.vars.start_time[g][chn] = time.time()
                 index = Lib.vars.channels[g].index(chn)
-                Lib.measurements['Tempo'][g][chn] = np.append(Lib.measurements['Tempo'][g][chn], 0)
+                Lib.measurements['Tempo'][g][chn] = np.append(Lib.measurements['Tempo'][g][chn], Lib.vars.start_time[g][chn])
                 Lib.measurements['Tensão'][g][chn] = np.append(Lib.measurements['Tensão'][g][chn], 0)
                 Lib.measurements['Corrente'][g][chn] = np.append(Lib.measurements['Corrente'][g][chn], 0)
                 Lib.measurements['Potência'][g][chn] = np.append(Lib.measurements['Potência'][g][chn], 0)
@@ -1630,9 +1727,12 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
             QtGui.QMessageBox.critical(self, 'Erro', 'Valor de corrente não enviado corretamente', QtGui.QMessageBox.Ok)
             
     def turn_all_on(self):
-        for group in Lib.control.group:
-            if getattr(self.ui, 'groupBox_' + str(group + 1)).isEnabled() and getattr(self.ui, 'lineed_time' + str(group + 1)).text() == '':
-                self.on_group(group)
+        if Lib.control.config_ok:
+            for group in Lib.control.group:
+                if getattr(self.ui, 'groupBox_' + str(group + 1)).isEnabled() and getattr(self.ui, 'lineed_time' + str(group + 1)).text() == '':
+                    self.on_group(group)
+        else:
+            QtGui.QMessageBox.critical(self, 'Erro', 'Existe um grupo sem Estágios de Aquecimento configurado. Volte à tela de Configuração Inicial.', QtGui.QMessageBox.Ok)
 
     def shut_down(self):
         answ = QtGui.QMessageBox.question(self, 'Desligar tudo', 'Esse comando desligará todas as gavetas. Deseja continuar?', QtGui.QMessageBox.Yes, QtGui.QMessageBox.No)
@@ -1892,6 +1992,11 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
             pass
 
     def refresh_interface(self, g, chn, index):
+        if Lib.control.connection_err[g]:
+            getattr(self.ui, 'led_sig_' + str(g + 1)).setEnabled(False)
+        else:
+            getattr(self.ui, 'led_sig_' + str(g + 1)).setEnabled(True)
+                    
     # Operação Geral
         if self.ui.comboBox_op_geral.currentText() == 'Temperatura (°C)':
             getattr(self.ui, 'lineed_G' + str(g + 1) + 'S' + str(chn + 1)).setText(str('{:.2f}'.format(Lib.vars.temperatures[g][index])))
@@ -1968,7 +2073,8 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
                     return
             
             Lib.graph.exp_gvt[g][group] = getattr(self.ui, 'graphic_gaveta_' + str(g + 1)).plotItem.plot(name='G' + str(group + 1))
-            Lib.graph.exp_gvt[g][group].setData(Lib.config.times[g][chn], Lib.config.temp[g][chn])
+            _time = [Lib.vars.start_time[g][chn] + t for t in Lib.config.times[g][chn]]
+            Lib.graph.exp_gvt[g][group].setData(_time, Lib.config.temp[g][chn])
             Lib.graph.exp_gvt[g][group].setPen(Lib.graph.pen_esp[group], width=2)
             self.leg_gvt[g].addItem(Lib.graph.exp_gvt[g][group], 'G' + str(group + 1))
             Lib.control.plot_group_gvts[g][group] = True
@@ -2002,7 +2108,8 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
         try:
             if group < 3:
                 Lib.graph.exp_grp[group][group] = getattr(self.ui, 'graphic_group_' + str(group + 1)).plotItem.plot(name='G' + str(group + 1))
-                Lib.graph.exp_grp[group][group].setData(Lib.config.times[g][chn], Lib.config.temp[g][chn])
+                _time = [Lib.vars.start_time[g][chn] + t for t in Lib.config.times[g][chn]]
+                Lib.graph.exp_grp[group][group].setData(_time, Lib.config.temp[g][chn])
                 Lib.graph.exp_grp[group][group].setPen(Lib.graph.pen_esp[group], width=2)
                 self.leg_grp[group].addItem(Lib.graph.exp_grp[group][group], 'G' + str(group + 1))
                 Lib.control.plot_group_grps[group][group] = True
@@ -2025,7 +2132,8 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
                         return
                 Lib.control.plot_group_grps[group][i] = True
                 Lib.graph.exp_grp[group][i] = getattr(self.ui, 'graphic_group_' + str(group + 1)).plotItem.plot(name='G' + str(i + 1))
-                Lib.graph.exp_grp[group][i].setData(Lib.config.times[g][chn], Lib.config.temp[g][chn])
+                _time = [Lib.vars.start_time[g][chn] + t for t in Lib.config.times[g][chn]]
+                Lib.graph.exp_grp[group][i].setData(_time, Lib.config.temp[g][chn])
                 Lib.graph.exp_grp[group][i].setPen(Lib.graph.pen_esp[i], width=2)
                 self.leg_grp[group].addItem(Lib.graph.exp_grp[group][i], 'G' + str(i + 1))
         except Exception:
@@ -2111,7 +2219,15 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
         getattr(self.ui, 'lineed_time' + str(group + 1)).setText('{:02d}'.format(Lib.vars.hours[group]) + ':' + '{:02d}'.format(Lib.vars.mins[group]) + ':' + '{:02d}'.format(Lib.vars.secs[group]))
         for g in Lib.control.GAVETAS:
             getattr(self.ui, 'O_lineed_time' + str(group + 1) + '_' + str(g + 1)).setText('{:02d}'.format(Lib.vars.hours[group]) + ':' + '{:02d}'.format(Lib.vars.mins[group]) + ':' + '{:02d}'.format(Lib.vars.secs[group]))
-
+    
+    def closeEvent(self, event):
+        ret = QtGui.QMessageBox.question(None, 'Sair', 'Você deseja fechar o programa?',
+                                         QtGui.QMessageBox.Yes | QtGui.QMessageBox.No,
+                                         QtGui.QMessageBox.Yes)
+        if ret == QtGui.QMessageBox.Yes:
+            QtGui.QMainWindow.closeEvent(self, event)
+        else:
+            event.ignore()
 
 Lib = Library.Lib()
 

@@ -50,7 +50,7 @@ class Lib(object):
                     self.measurements['Tensão'][g][chn] = np.append(self.measurements['Tensão'][g][chn], float(self.vars.voltages[g][index]))
                     self.measurements['Potência'][g][chn] = np.append(self.measurements['Potência'][g][chn], float(self.vars.powers[g][index]))
                     self.measurements['Corrente'][g][chn] = np.append(self.measurements['Corrente'][g][chn], float(self.vars.currents[g][index]))
-                    self.measurements['Tempo'][g][chn] = np.append(self.measurements['Tempo'][g][chn], self.vars.time_now[g][chn])
+                    self.measurements['Tempo'][g][chn] = np.append(self.measurements['Tempo'][g][chn], time.time())
                     
                 tmp = time.localtime()
                 datetime = time.strftime('%d/%m/%Y %H:%M:%S', tmp)
@@ -82,14 +82,16 @@ class Lib(object):
                 self.vars.file[g].write(datetime + '\t' + _temps + '\t' + _temps_res + '\t' + _temps_pt + '\t' + _crnts + '\t' + _volts + '\t' + _pwrs)
                 self.vars.file[g].write('\n')
                 self.vars.file[g].flush()
+                self.control.connection_err[g] = False
             except:
-                pass
+                self.control.connection_err[g] = True
             
     class Control_Variables(object):
 
         def __init__(self):
             self.GAVETAS = []
             self.GAVETAS_ON = []
+            self.connection_err = [False] * 12
             self.group = defaultdict(list)
             self.channels_on = defaultdict(list)
             self.channels_off = defaultdict(list)
