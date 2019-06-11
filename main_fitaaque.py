@@ -49,22 +49,26 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
         self.ui.actionGaveta_10o.triggered.connect(lambda: self.set_index(15))
         self.ui.actionGaveta_11o.triggered.connect(lambda: self.set_index(16))
         self.ui.actionGaveta_12o.triggered.connect(lambda: self.set_index(17))
-        self.ui.actionGaveta_1g.triggered.connect(lambda: self.set_index(18))
-        self.ui.actionGaveta_2g.triggered.connect(lambda: self.set_index(19))
-        self.ui.actionGaveta_3g.triggered.connect(lambda: self.set_index(20))
-        self.ui.actionGaveta_4g.triggered.connect(lambda: self.set_index(21))
-        self.ui.actionGaveta_5g.triggered.connect(lambda: self.set_index(22))
-        self.ui.actionGaveta_6g.triggered.connect(lambda: self.set_index(23))
-        self.ui.actionGaveta_7g.triggered.connect(lambda: self.set_index(24))
-        self.ui.actionGaveta_8g.triggered.connect(lambda: self.set_index(25))
-        self.ui.actionGaveta_9g.triggered.connect(lambda: self.set_index(26))
-        self.ui.actionGaveta_10g.triggered.connect(lambda: self.set_index(27))
-        self.ui.actionGaveta_11g.triggered.connect(lambda: self.set_index(28))
-        self.ui.actionGaveta_12g.triggered.connect(lambda: self.set_index(29))
-        self.ui.actionGrupo_1.triggered.connect(lambda: self.set_index(30))
-        self.ui.actionGrupo_2.triggered.connect(lambda: self.set_index(31))
-        self.ui.actionGrupo_3.triggered.connect(lambda: self.set_index(32))
-        self.ui.actionGrupo_4.triggered.connect(lambda: self.set_index(33))
+        self.ui.actionGaveta_13o.triggered.connect(lambda: self.set_index(18))
+        self.ui.actionGaveta_14o.triggered.connect(lambda: self.set_index(19))
+        self.ui.actionGaveta_1g.triggered.connect(lambda: self.set_index(20))
+        self.ui.actionGaveta_2g.triggered.connect(lambda: self.set_index(21))
+        self.ui.actionGaveta_3g.triggered.connect(lambda: self.set_index(22))
+        self.ui.actionGaveta_4g.triggered.connect(lambda: self.set_index(23))
+        self.ui.actionGaveta_5g.triggered.connect(lambda: self.set_index(24))
+        self.ui.actionGaveta_6g.triggered.connect(lambda: self.set_index(25))
+        self.ui.actionGaveta_7g.triggered.connect(lambda: self.set_index(26))
+        self.ui.actionGaveta_8g.triggered.connect(lambda: self.set_index(27))
+        self.ui.actionGaveta_9g.triggered.connect(lambda: self.set_index(28))
+        self.ui.actionGaveta_10g.triggered.connect(lambda: self.set_index(29))
+        self.ui.actionGaveta_11g.triggered.connect(lambda: self.set_index(30))
+        self.ui.actionGaveta_12g.triggered.connect(lambda: self.set_index(31))
+        self.ui.actionGaveta_13g.triggered.connect(lambda: self.set_index(32))
+        self.ui.actionGaveta_14g.triggered.connect(lambda: self.set_index(33))
+        self.ui.actionGrupo_1.triggered.connect(lambda: self.set_index(34))
+        self.ui.actionGrupo_2.triggered.connect(lambda: self.set_index(35))
+        self.ui.actionGrupo_3.triggered.connect(lambda: self.set_index(36))
+        self.ui.actionGrupo_4.triggered.connect(lambda: self.set_index(37))
 
         self.ui.pB_Connect.clicked.connect(self.connect)
         self.ui.pB_Disconnect.clicked.connect(self.disconnect)
@@ -179,6 +183,24 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
         self.ui.O_on6_12.clicked.connect(lambda: self.on_individual(5, 11))
         self.ui.O_on7_12.clicked.connect(lambda: self.on_individual(6, 11))
         self.ui.O_on8_12.clicked.connect(lambda: self.on_individual(7, 11))
+        
+        self.ui.O_on1_13.clicked.connect(lambda: self.on_individual(0, 12))
+        self.ui.O_on2_13.clicked.connect(lambda: self.on_individual(1, 12))
+        self.ui.O_on3_13.clicked.connect(lambda: self.on_individual(2, 12))
+        self.ui.O_on4_13.clicked.connect(lambda: self.on_individual(3, 12))
+        self.ui.O_on5_13.clicked.connect(lambda: self.on_individual(4, 12))
+        self.ui.O_on6_13.clicked.connect(lambda: self.on_individual(5, 12))
+        self.ui.O_on7_13.clicked.connect(lambda: self.on_individual(6, 12))
+        self.ui.O_on8_13.clicked.connect(lambda: self.on_individual(7, 12))
+        
+        self.ui.O_on1_14.clicked.connect(lambda: self.on_individual(0, 13))
+        self.ui.O_on2_14.clicked.connect(lambda: self.on_individual(1, 13))
+        self.ui.O_on3_14.clicked.connect(lambda: self.on_individual(2, 13))
+        self.ui.O_on4_14.clicked.connect(lambda: self.on_individual(3, 13))
+        self.ui.O_on5_14.clicked.connect(lambda: self.on_individual(4, 13))
+        self.ui.O_on6_14.clicked.connect(lambda: self.on_individual(5, 13))
+        self.ui.O_on7_14.clicked.connect(lambda: self.on_individual(6, 13))
+        self.ui.O_on8_14.clicked.connect(lambda: self.on_individual(7, 13))
 
         self.ui.O_off1_1.clicked.connect(lambda: self.off_individual(0, 0))
         self.ui.O_off2_1.clicked.connect(lambda: self.off_individual(1, 0))
@@ -287,6 +309,24 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
         self.ui.O_off6_12.clicked.connect(lambda: self.off_individual(5, 11))
         self.ui.O_off7_12.clicked.connect(lambda: self.off_individual(6, 11))
         self.ui.O_off8_12.clicked.connect(lambda: self.off_individual(7, 11))
+        
+        self.ui.O_off1_13.clicked.connect(lambda: self.off_individual(0, 12))
+        self.ui.O_off2_13.clicked.connect(lambda: self.off_individual(1, 12))
+        self.ui.O_off3_13.clicked.connect(lambda: self.off_individual(2, 12))
+        self.ui.O_off4_13.clicked.connect(lambda: self.off_individual(3, 12))
+        self.ui.O_off5_13.clicked.connect(lambda: self.off_individual(4, 12))
+        self.ui.O_off6_13.clicked.connect(lambda: self.off_individual(5, 12))
+        self.ui.O_off7_13.clicked.connect(lambda: self.off_individual(6, 12))
+        self.ui.O_off8_13.clicked.connect(lambda: self.off_individual(7, 12))
+        
+        self.ui.O_off1_14.clicked.connect(lambda: self.off_individual(0, 13))
+        self.ui.O_off2_14.clicked.connect(lambda: self.off_individual(1, 13))
+        self.ui.O_off3_14.clicked.connect(lambda: self.off_individual(2, 13))
+        self.ui.O_off4_14.clicked.connect(lambda: self.off_individual(3, 13))
+        self.ui.O_off5_14.clicked.connect(lambda: self.off_individual(4, 13))
+        self.ui.O_off6_14.clicked.connect(lambda: self.off_individual(5, 13))
+        self.ui.O_off7_14.clicked.connect(lambda: self.off_individual(6, 13))
+        self.ui.O_off8_14.clicked.connect(lambda: self.off_individual(7, 13))
 
         self.ui.O_hold1_1.clicked.connect(lambda: self.hold_individual(0, 0))
         self.ui.O_hold2_1.clicked.connect(lambda: self.hold_individual(1, 0))
@@ -396,6 +436,24 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
         self.ui.O_hold7_12.clicked.connect(lambda: self.hold_individual(6, 11))
         self.ui.O_hold8_12.clicked.connect(lambda: self.hold_individual(7, 11))
         
+        self.ui.O_hold1_13.clicked.connect(lambda: self.hold_individual(0, 12))
+        self.ui.O_hold2_13.clicked.connect(lambda: self.hold_individual(1, 12))
+        self.ui.O_hold3_13.clicked.connect(lambda: self.hold_individual(2, 12))
+        self.ui.O_hold4_13.clicked.connect(lambda: self.hold_individual(3, 12))
+        self.ui.O_hold5_13.clicked.connect(lambda: self.hold_individual(4, 12))
+        self.ui.O_hold6_13.clicked.connect(lambda: self.hold_individual(5, 12))
+        self.ui.O_hold7_13.clicked.connect(lambda: self.hold_individual(6, 12))
+        self.ui.O_hold8_13.clicked.connect(lambda: self.hold_individual(7, 12))
+        
+        self.ui.O_hold1_14.clicked.connect(lambda: self.hold_individual(0, 13))
+        self.ui.O_hold2_14.clicked.connect(lambda: self.hold_individual(1, 13))
+        self.ui.O_hold3_14.clicked.connect(lambda: self.hold_individual(2, 13))
+        self.ui.O_hold4_14.clicked.connect(lambda: self.hold_individual(3, 13))
+        self.ui.O_hold5_14.clicked.connect(lambda: self.hold_individual(4, 13))
+        self.ui.O_hold6_14.clicked.connect(lambda: self.hold_individual(5, 13))
+        self.ui.O_hold7_14.clicked.connect(lambda: self.hold_individual(6, 13))
+        self.ui.O_hold8_14.clicked.connect(lambda: self.hold_individual(7, 13))
+        
         self.ui.checkBox_limit1_1.clicked.connect(lambda: self.set_current_limit(0, 0))
         self.ui.checkBox_limit2_1.clicked.connect(lambda: self.set_current_limit(1, 0))
         self.ui.checkBox_limit3_1.clicked.connect(lambda: self.set_current_limit(2, 0))
@@ -504,6 +562,24 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
         self.ui.checkBox_limit7_12.clicked.connect(lambda: self.set_current_limit(6, 11))
         self.ui.checkBox_limit8_12.clicked.connect(lambda: self.set_current_limit(7, 11))
         
+        self.ui.checkBox_limit1_13.clicked.connect(lambda: self.set_current_limit(0, 12))
+        self.ui.checkBox_limit2_13.clicked.connect(lambda: self.set_current_limit(1, 12))
+        self.ui.checkBox_limit3_13.clicked.connect(lambda: self.set_current_limit(2, 12))
+        self.ui.checkBox_limit4_13.clicked.connect(lambda: self.set_current_limit(3, 12))
+        self.ui.checkBox_limit5_13.clicked.connect(lambda: self.set_current_limit(4, 12))
+        self.ui.checkBox_limit6_13.clicked.connect(lambda: self.set_current_limit(5, 12))
+        self.ui.checkBox_limit7_13.clicked.connect(lambda: self.set_current_limit(6, 12))
+        self.ui.checkBox_limit8_13.clicked.connect(lambda: self.set_current_limit(7, 12))
+        
+        self.ui.checkBox_limit1_14.clicked.connect(lambda: self.set_current_limit(0, 13))
+        self.ui.checkBox_limit2_14.clicked.connect(lambda: self.set_current_limit(1, 13))
+        self.ui.checkBox_limit3_14.clicked.connect(lambda: self.set_current_limit(2, 13))
+        self.ui.checkBox_limit4_14.clicked.connect(lambda: self.set_current_limit(3, 13))
+        self.ui.checkBox_limit5_14.clicked.connect(lambda: self.set_current_limit(4, 13))
+        self.ui.checkBox_limit6_14.clicked.connect(lambda: self.set_current_limit(5, 13))
+        self.ui.checkBox_limit7_14.clicked.connect(lambda: self.set_current_limit(6, 13))
+        self.ui.checkBox_limit8_14.clicked.connect(lambda: self.set_current_limit(7, 13))
+        
         self.ui.pB_on1.clicked.connect(lambda: self.on_group(0))
         self.ui.pB_on2.clicked.connect(lambda: self.on_group(1))
         self.ui.pB_on3.clicked.connect(lambda: self.on_group(2))
@@ -582,6 +658,8 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
         self.ui.comboBox_live_10.currentIndexChanged.connect(lambda: self.refresh_axis_live_gvts(9))
         self.ui.comboBox_live_11.currentIndexChanged.connect(lambda: self.refresh_axis_live_gvts(10))
         self.ui.comboBox_live_12.currentIndexChanged.connect(lambda: self.refresh_axis_live_gvts(11))
+        self.ui.comboBox_live_13.currentIndexChanged.connect(lambda: self.refresh_axis_live_gvts(12))
+        self.ui.comboBox_live_14.currentIndexChanged.connect(lambda: self.refresh_axis_live_gvts(13))
         self.ui.comboBox_live2_1.currentIndexChanged.connect(lambda: self.refresh_axis_live_grps(0))
         self.ui.comboBox_live2_2.currentIndexChanged.connect(lambda: self.refresh_axis_live_grps(1))
         self.ui.comboBox_live2_3.currentIndexChanged.connect(lambda: self.refresh_axis_live_grps(2))
@@ -597,14 +675,14 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
         #self.setStatusBar(QStatusBar())
 
         self.SOCKET_GVT = {0: Lib.fitaaque1, 1: Lib.fitaaque2, 2: Lib.fitaaque3, 3: Lib.fitaaque4, 4: Lib.fitaaque5, 5: Lib.fitaaque6, 6: Lib.fitaaque7, 7: Lib.fitaaque8, 8: Lib.fitaaque9, 9: Lib.fitaaque10, 
-                           10: Lib.fitaaque11, 11: Lib.fitaaque12}
+                           10: Lib.fitaaque11, 11: Lib.fitaaque12, 12: Lib.fitaaque13, 13: Lib.fitaaque14}
         self.reading_thread = defaultdict()
         
     def config_graph(self):
         self.leg_gvt = []
         self.leg_grp = []
 
-        for g in range(12):
+        for g in range(14):
             getattr(self.ui, 'graphic_gaveta_' + str(g + 1)).setLabel('left', text='Temperatura', units='°C', color='k')
             getattr(self.ui, 'graphic_gaveta_' + str(g + 1)).showGrid(True, True)
             self.leg_gvt.append(pg.LegendItem((40, 40), offset=(10, 10)))
@@ -622,8 +700,8 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
         Lib.graph.curves_grp = defaultdict(list)
         Lib.graph.curves_gvt = defaultdict(list)
 
-        for g in range(12):
-            for i in range(12):
+        for g in range(14):
+            for i in range(14):
                 Lib.graph.curves_gvt[g].append(np.array([]))
                 for j in range(8):
                     Lib.graph.curves_gvt[g][i] = np.append(Lib.graph.curves_gvt[g][i], getattr(self.ui, 'graphic_gaveta_' + str(g + 1)).plotItem.plot(np.array([]), np.array([])))
@@ -631,7 +709,7 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
                     #Lib.graph.curves_gvt[g][i][j].setDownsampling(ds=10, method='subsample')
 
         for a in range(4):
-            for i in range(12):
+            for i in range(14):
                 Lib.graph.curves_grp[a].append(np.array([]))
                 for j in range(8):
                     Lib.graph.curves_grp[a][i] = np.append(Lib.graph.curves_grp[a][i],
@@ -651,7 +729,7 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
         file_name = QtGui.QFileDialog.getSaveFileName(w, 'Save File', '/', '.dat')
         file = open(file_name, 'w') 
         file.writelines('\tSaida1\tSaida2\tSaida3\tSaida4\tSaida5\tSaida6\tSaida7\tSaida8\n')
-        for g in range(12):
+        for g in range(14):
             file.writelines('Gaveta ' + str(g + 1) + '\t')
             for chn in range(8):
                 if self.ui.table_dados.item(g, chn) is None or self.ui.table_dados.item(g, chn).text() == '':
@@ -668,7 +746,7 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
         file = open(file_name, 'r')
         file.readline()
         try:
-            for g in range(12):
+            for g in range(14):
                 Lib.vars.t0[g] = [0] * len(Lib.vars.channels[g])
                 Lib.vars.r0[g] = [0] * len(Lib.vars.channels[g])
                 row = file.readline()
@@ -777,7 +855,7 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
     def connect(self):
         try:
             gvs_to_connect = []
-            for i in range(12):
+            for i in range(14):
                 if getattr(self.ui, 'connect_' + str(i + 1)).isChecked():
                     gvs_to_connect.append(i)
 
@@ -804,7 +882,7 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
     def disconnect(self):
         try:
             gvs_to_disconnect = []
-            for i in range(12):
+            for i in range(14):
                 if getattr(self.ui, 'connect_' + str(i + 1)).isChecked():
                     gvs_to_disconnect.append(i)
 
@@ -1069,7 +1147,7 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
                 #getattr(self.ui, 'trecho_impar_G' + str(g + 1) + 'S' + str(chn + 1)).setText('')
                 self.ui.table_dados.setItem(g, chn, QtGui.QTableWidgetItem(''))
 
-        for g in range(12):
+        for g in range(14):
             getattr(self.ui, 'checkBox_todas_' + str(g + 1)).setChecked(False)
             getattr(self.ui, 'checkBox_gvt' + str(g + 1) + '_1').setChecked(False)
             getattr(self.ui, 'checkBox_gvt' + str(g + 1) + '_2').setChecked(False)
@@ -1313,7 +1391,6 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
                 for chn in Lib.control.group[_group][g]:
                     Lib.vars.channels[g].append(chn)
                     Lib.vars.channels[g].sort()
-                    #self.SOCKET_GVT[g].get_initial_parameters(chn)
                     getattr(self.ui, 'checkBox_saida' + str(chn + 1) + '_' + str(g + 1)).setEnabled(True)
                     getattr(self.ui, 'groupBox_saida' + str(chn + 1) + '_' + str(g + 1)).setEnabled(True)
                     getattr(self.ui, 'label_s' + str(chn + 1) + '_' + str(g + 1)).setText(Lib.vars.name[g][chn])
@@ -1324,8 +1401,6 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
                 self.SOCKET_GVT[g].set_active_channels(Lib.vars.channels[g])
                 self.SOCKET_GVT[g].set_enabled_channels(Lib.vars.channels[g])
                 self.SOCKET_GVT[g].set_PT100(Lib.control.PT100_channels[g])
-                #Lib.vars.t0[g] = self.SOCKET_GVT[g].read('O')
-                #Lib.vars.r0[g] = self.SOCKET_GVT[g].read('r')
                 Lib.vars.a[g] = self.SOCKET_GVT[g].read('A')
     
             QtGui.QApplication.restoreOverrideCursor()
@@ -1358,25 +1433,6 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
                 self.ui.label_group.setText('Grupo 3')
                 self.ui.pB_edit.setEnabled(True)
             else:
-                '''for g in Lib.control.GAVETAS:
-                    if Lib.vars.channels[g] != []:
-                        if Lib.control.PT100_channels[g] != []:
-                            tmp = 0
-                            for chn in Lib.control.PT100_channels[g]:
-                                idx = Lib.vars.channels[g].index(chn)
-                                tmp += Lib.vars.t0[g][idx]
-                            t0_med = tmp / len(Lib.control.PT100_channels[g])
-    
-                            for chn in Lib.vars.channels[g]:
-                                if chn not in Lib.control.PT100_channels[g]:
-                                    idx = Lib.vars.channels[g].index(chn)
-                                    Lib.vars.t0[g][idx] = t0_med
-                        else:
-                            QtGui.QMessageBox.information(self, 'Atenção', 'Não existe nenhum canal Pt100 na gaveta %s! As temperaturas iniciais deverão ser configuradas manualmente!' % (g + 1), QtGui.QMessageBox.Ok)
-                            continue'''
-    
-                        #self.SOCKET_GVT[g].set_parameters(Lib.vars.r0[g], Lib.vars.t0[g], Lib.vars.a[g])
-    
                 QtGui.QApplication.restoreOverrideCursor()
                 self.ui.label_group.setText('Grupo 1')
                 self.ui.lineed_n_est_aq.setText('')
@@ -1517,6 +1573,11 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
                 return
         
         for g in Lib.control.group[group]:
+            if not(Lib.control.run_control_on[g]):
+                Lib.control.run_control_on[g] = self.SOCKET_GVT[g].run_control()
+                Lib.vars.file[g] = self.open_file(g)
+            
+            temp_init = self.SOCKET_GVT[g].read('p')
             for chn in Lib.control.group[group][g]:
                 getattr(self.ui, 'O_off' + str(chn + 1) + '_' + str(g + 1)).setEnabled(True)
                 Lib.control.channels_on[g].append(chn)
@@ -1527,14 +1588,11 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
                 Lib.measurements['Tensão'][g][chn] = np.append(Lib.measurements['Tensão'][g][chn], 0)
                 Lib.measurements['Corrente'][g][chn] = np.append(Lib.measurements['Corrente'][g][chn], 0)
                 Lib.measurements['Potência'][g][chn] = np.append(Lib.measurements['Potência'][g][chn], 0)
-                Lib.measurements['Temperatura'][g][chn] = np.append(Lib.measurements['Temperatura'][g][chn], Lib.vars.t0[g][index])
-                Lib.config.temp[g][chn].insert(0, Lib.vars.t0[g][index])
+                Lib.measurements['Temperatura'][g][chn] = np.append(Lib.measurements['Temperatura'][g][chn], temp_init[index])
+                Lib.config.temp[g][chn].insert(0, temp_init[index])
 
                 self.calculate_send_points(chn, g, group)
 
-            if not(Lib.control.run_control_on[g]):
-                Lib.control.run_control_on[g] = self.SOCKET_GVT[g].run_control()
-                Lib.vars.file[g] = self.open_file(g)
             if not(Lib.control.curves_on[g]):
                 Lib.control.curves_on[g] = self.SOCKET_GVT[g].turn_on()
                 Lib.control.GAVETAS_ON.append(g)
@@ -1548,6 +1606,7 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
         if not(Lib.control.measurements_ON):
             self.refresh_timer.start(500)
             Lib.control.measurements_ON = True
+            self.ui.GroupBox_Estagios.setEnabled(False)
 
     def off_group(self, group):
         getattr(self.ui, 'groupBox_' + str(group + 1)).setEnabled(False)
@@ -1580,7 +1639,7 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
         getattr(self.ui, 'pB_off' + str(group + 1)).setEnabled(False)
         getattr(self.ui, 'lineed_time' + str(group + 1)).setText('')
 
-        for g in range(12):
+        for g in range(14):
             getattr(self.ui, 'O_lineed_time' + str(group + 1) + '_' + str(g + 1)).setText('')
 
     def hold_group(self, group):
@@ -1728,9 +1787,11 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
             
     def turn_all_on(self):
         if Lib.control.config_ok:
+            QtGui.QApplication.setOverrideCursor(Qt.WaitCursor)
             for group in Lib.control.group:
                 if getattr(self.ui, 'groupBox_' + str(group + 1)).isEnabled() and getattr(self.ui, 'lineed_time' + str(group + 1)).text() == '':
                     self.on_group(group)
+            QtGui.QApplication.restoreOverrideCursor()
         else:
             QtGui.QMessageBox.critical(self, 'Erro', 'Existe um grupo sem Estágios de Aquecimento configurado. Volte à tela de Configuração Inicial.', QtGui.QMessageBox.Ok)
 
@@ -1768,6 +1829,7 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
         Lib.control.measurements_ON = False
         self.refresh_timer.stop()
         self.escape_stages(None)
+        self.ui.GroupBox_Estagios.setEnabled(True)
 
     def turn_off(self, g, chn):
         if chn in Lib.control.channels_off[g]:
@@ -1894,7 +1956,7 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
                     self.leg_grp[group].removeItem(Lib.graph.exp_grp[group][group].name())
                     Lib.control.plot_group_grps[group][group] = False
                     points = []
-                    for i in range(12):
+                    for i in range(14):
                         points.append(defaultdict(list))
                     for g in Lib.control.group[group]:
                         if Lib.graph.exp_gvt[g][group] is None:
