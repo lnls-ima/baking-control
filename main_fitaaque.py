@@ -32,49 +32,50 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
 
         self.ui.actionConexoes.triggered.connect(lambda: self.set_index(0))
         self.ui.actionIniciais.triggered.connect(lambda: self.set_index(1))
-        self.ui.actionEm_aquecimento.triggered.connect(lambda: self.set_index(2))
-        self.ui.actionDados_salvos.triggered.connect(lambda: self.set_index(3))
-        self.ui.actionGeral.triggered.connect(lambda: self.set_index(4))
-        self.ui.actionTrecho_impar.triggered.connect(lambda: self.set_index(5))
+        self.ui.actionEstagios.triggered.connect(lambda: self.set_index(2))
+        self.ui.actionLocal_Grupo.triggered.connect(lambda: self.set_index(3))
+        self.ui.actionDados_salvos.triggered.connect(lambda: self.set_index(4))
+        self.ui.actionGeral.triggered.connect(lambda: self.set_index(5))
+        #self.ui.actionTrecho_impar.triggered.connect(lambda: self.set_index(6))
         #self.ui.actionTrecho_par.triggered.connect(lambda: self.set_index(6))
-        self.ui.actionGaveta_1o.triggered.connect(lambda: self.set_index(6))
-        self.ui.actionGaveta_2o.triggered.connect(lambda: self.set_index(7))
-        self.ui.actionGaveta_3o.triggered.connect(lambda: self.set_index(8))
-        self.ui.actionGaveta_4o.triggered.connect(lambda: self.set_index(9))
-        self.ui.actionGaveta_5o.triggered.connect(lambda: self.set_index(10))
-        self.ui.actionGaveta_6o.triggered.connect(lambda: self.set_index(11))
-        self.ui.actionGaveta_7o.triggered.connect(lambda: self.set_index(12))
-        self.ui.actionGaveta_8o.triggered.connect(lambda: self.set_index(13))
-        self.ui.actionGaveta_9o.triggered.connect(lambda: self.set_index(14))
-        self.ui.actionGaveta_10o.triggered.connect(lambda: self.set_index(15))
-        self.ui.actionGaveta_11o.triggered.connect(lambda: self.set_index(16))
-        self.ui.actionGaveta_12o.triggered.connect(lambda: self.set_index(17))
-        self.ui.actionGaveta_13o.triggered.connect(lambda: self.set_index(18))
-        self.ui.actionGaveta_14o.triggered.connect(lambda: self.set_index(19))
-        self.ui.actionGaveta_1g.triggered.connect(lambda: self.set_index(20))
-        self.ui.actionGaveta_2g.triggered.connect(lambda: self.set_index(21))
-        self.ui.actionGaveta_3g.triggered.connect(lambda: self.set_index(22))
-        self.ui.actionGaveta_4g.triggered.connect(lambda: self.set_index(23))
-        self.ui.actionGaveta_5g.triggered.connect(lambda: self.set_index(24))
-        self.ui.actionGaveta_6g.triggered.connect(lambda: self.set_index(25))
-        self.ui.actionGaveta_7g.triggered.connect(lambda: self.set_index(26))
-        self.ui.actionGaveta_8g.triggered.connect(lambda: self.set_index(27))
-        self.ui.actionGaveta_9g.triggered.connect(lambda: self.set_index(28))
-        self.ui.actionGaveta_10g.triggered.connect(lambda: self.set_index(29))
-        self.ui.actionGaveta_11g.triggered.connect(lambda: self.set_index(30))
-        self.ui.actionGaveta_12g.triggered.connect(lambda: self.set_index(31))
-        self.ui.actionGaveta_13g.triggered.connect(lambda: self.set_index(32))
-        self.ui.actionGaveta_14g.triggered.connect(lambda: self.set_index(33))
-        self.ui.actionGrupo_1.triggered.connect(lambda: self.set_index(34))
-        self.ui.actionGrupo_2.triggered.connect(lambda: self.set_index(35))
-        self.ui.actionGrupo_3.triggered.connect(lambda: self.set_index(36))
-        self.ui.actionGrupo_4.triggered.connect(lambda: self.set_index(37))
+        self.ui.actionGaveta_1o.triggered.connect(lambda: self.set_index(7))
+        self.ui.actionGaveta_2o.triggered.connect(lambda: self.set_index(8))
+        self.ui.actionGaveta_3o.triggered.connect(lambda: self.set_index(9))
+        self.ui.actionGaveta_4o.triggered.connect(lambda: self.set_index(10))
+        self.ui.actionGaveta_5o.triggered.connect(lambda: self.set_index(11))
+        self.ui.actionGaveta_6o.triggered.connect(lambda: self.set_index(12))
+        self.ui.actionGaveta_7o.triggered.connect(lambda: self.set_index(13))
+        self.ui.actionGaveta_8o.triggered.connect(lambda: self.set_index(14))
+        self.ui.actionGaveta_9o.triggered.connect(lambda: self.set_index(15))
+        self.ui.actionGaveta_10o.triggered.connect(lambda: self.set_index(16))
+        self.ui.actionGaveta_11o.triggered.connect(lambda: self.set_index(17))
+        self.ui.actionGaveta_12o.triggered.connect(lambda: self.set_index(18))
+        self.ui.actionGaveta_13o.triggered.connect(lambda: self.set_index(19))
+        self.ui.actionGaveta_14o.triggered.connect(lambda: self.set_index(20))
+        self.ui.actionGaveta_1g.triggered.connect(lambda: self.set_index(21))
+        self.ui.actionGaveta_2g.triggered.connect(lambda: self.set_index(22))
+        self.ui.actionGaveta_3g.triggered.connect(lambda: self.set_index(23))
+        self.ui.actionGaveta_4g.triggered.connect(lambda: self.set_index(24))
+        self.ui.actionGaveta_5g.triggered.connect(lambda: self.set_index(25))
+        self.ui.actionGaveta_6g.triggered.connect(lambda: self.set_index(26))
+        self.ui.actionGaveta_7g.triggered.connect(lambda: self.set_index(27))
+        self.ui.actionGaveta_8g.triggered.connect(lambda: self.set_index(28))
+        self.ui.actionGaveta_9g.triggered.connect(lambda: self.set_index(29))
+        self.ui.actionGaveta_10g.triggered.connect(lambda: self.set_index(30))
+        self.ui.actionGaveta_11g.triggered.connect(lambda: self.set_index(31))
+        self.ui.actionGaveta_12g.triggered.connect(lambda: self.set_index(32))
+        self.ui.actionGaveta_13g.triggered.connect(lambda: self.set_index(33))
+        self.ui.actionGaveta_14g.triggered.connect(lambda: self.set_index(34))
+        self.ui.actionGrupo_1.triggered.connect(lambda: self.set_index(35))
+        self.ui.actionGrupo_2.triggered.connect(lambda: self.set_index(36))
+        self.ui.actionGrupo_3.triggered.connect(lambda: self.set_index(37))
+        self.ui.actionGrupo_4.triggered.connect(lambda: self.set_index(38))
 
         self.ui.pB_Connect.clicked.connect(self.connect)
         self.ui.pB_Disconnect.clicked.connect(self.disconnect)
         
-        #self.ui.pB_setTrecho.clicked.connect(self.set_trecho)
-        #self.ui.pB_resetTrecho.clicked.connect(self.reset_trecho)
+        self.ui.pB_setTrecho.clicked.connect(self.set_trecho)
+        self.ui.pB_resetTrecho.clicked.connect(self.reset_trecho)
 
         self.ui.O_on1_1.clicked.connect(lambda: self.on_individual(0, 0))
         self.ui.O_on2_1.clicked.connect(lambda: self.on_individual(1, 0))
@@ -605,18 +606,30 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
         self.ui.pB_save_em_aq_2.clicked.connect(lambda: self.save(1))
         self.ui.pB_save_em_aq_3.clicked.connect(lambda: self.save(2))
         
-        self.ui.pB_Quad.clicked.connect(lambda: self.config_local('Q'))
-        self.ui.pB_Sext.clicked.connect(lambda: self.config_local('S'))
-        self.ui.pB_Dip.clicked.connect(lambda: self.config_local('D'))
-        self.ui.pB_Jaq.clicked.connect(lambda: self.config_local('J'))
-        self.ui.pB_Est_bomb.clicked.connect(lambda: self.config_local('E'))
-        self.ui.pB_Vazio.clicked.connect(lambda: self.config_local('V'))
-        self.ui.pB_G1.clicked.connect(lambda: self.config_group('1'))
-        self.ui.pB_G2.clicked.connect(lambda: self.config_group('2'))
-        self.ui.pB_G3.clicked.connect(lambda: self.config_group('3'))
-        self.ui.pB_set_config.clicked.connect(self.set_configuration)
+        self.ui.pB_Quad.clicked.connect(lambda: self.config_local('Q', False))
+        self.ui.pB_Sext.clicked.connect(lambda: self.config_local('S', False))
+        self.ui.pB_Dip.clicked.connect(lambda: self.config_local('D', False))
+        self.ui.pB_Jaq.clicked.connect(lambda: self.config_local('J', False))
+        self.ui.pB_Est_bomb.clicked.connect(lambda: self.config_local('E', False))
+        self.ui.pB_Vazio.clicked.connect(lambda: self.config_local('V', False))
+        self.ui.pB_G1.clicked.connect(lambda: self.config_group('1', False))
+        self.ui.pB_G2.clicked.connect(lambda: self.config_group('2', False))
+        self.ui.pB_G3.clicked.connect(lambda: self.config_group('3', False))
+        self.ui.pB_set_config.clicked.connect(lambda: self.set_configuration(False))
         self.ui.pB_escape_config.clicked.connect(self.escape_configuration)
-        self.ui.pB_reset_chn.clicked.connect(self.reset_chn)
+        self.ui.pB_reset_chn.clicked.connect(lambda: self.reset_chn(False))
+
+        self.ui.pB_Quad_2.clicked.connect(lambda: self.config_local('Q', True))
+        self.ui.pB_Sext_2.clicked.connect(lambda: self.config_local('S', True))
+        self.ui.pB_Dip_2.clicked.connect(lambda: self.config_local('D', True))
+        self.ui.pB_Jaq_2.clicked.connect(lambda: self.config_local('J', True))
+        self.ui.pB_Est_bomb_2.clicked.connect(lambda: self.config_local('E', True))
+        self.ui.pB_Vazio_2.clicked.connect(lambda: self.config_local('V', True))
+        self.ui.pB_G1_2.clicked.connect(lambda: self.config_group('1', True))
+        self.ui.pB_G2_2.clicked.connect(lambda: self.config_group('2', True))
+        self.ui.pB_G3_2.clicked.connect(lambda: self.config_group('3', True))
+        self.ui.pB_set_config_2.clicked.connect(lambda: self.set_configuration(True))
+        self.ui.pB_reset_chn_2.clicked.connect(lambda: self.reset_chn(True))
 
         self.ui.pB_n_est_aq.clicked.connect(lambda: self.enable_edit_stages(None))
         self.ui.pB_temp.clicked.connect(lambda: self.edit('temp', None))
@@ -718,7 +731,7 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
                     #Lib.graph.curves_grp[a][i][j].setClipToView(True)
 
     def set_index(self, index):
-        if index == 3:
+        if index == 4:
             self.show_stages_table()
         self.ui.stackedWidget.setCurrentIndex(index)
     
@@ -740,11 +753,20 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
         file.close()
     
     def load_data_table(self):
+        for g in Lib.control.GAVETAS:
+            if Lib.vars.channels[g] == []:
+                QtGui.QMessageBox.critical(self, 'Erro', 'Por favor configure todas as saídas e os estágios de cada grupo para evitar erro ao carregar um arquivo.', QtGui.QMessageBox.Ok)
+                return
+        
         w = QtGui.QWidget()
         w.resize(320, 240)
-        file_name = QtGui.QFileDialog.getOpenFileName(w, 'Open File', '/')
-        file = open(file_name, 'r')
-        file.readline()
+        try:
+            file_name = QtGui.QFileDialog.getOpenFileName(w, 'Open File', '/')
+            file = open(file_name, 'r')
+            file.readline()
+        except:
+            traceback.print_exc(file=sys.stdout)
+            return
         try:
             for g in range(14):
                 Lib.vars.t0[g] = [0] * len(Lib.vars.channels[g])
@@ -767,7 +789,7 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
                         Lib.vars.r0[g][index] = float(dados[1])
             self.show_data_table()
         except:
-            QtGui.QMessageBox.critical(self, 'Erro', 'O arquivo não é compatível ou contém alguma alteração incorreta!', QtGui.QMessageBox.Ok)
+            QtGui.QMessageBox.critical(self, 'Erro', 'O arquivo não é compatível com os canais configurados\nou contem alguma alteração incorreta!', QtGui.QMessageBox.Ok)
             
     def send_initial_data(self):
         try:
@@ -782,8 +804,8 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
         for g in Lib.control.GAVETAS:
             for chn in Lib.vars.channels[g]:
                 self.SOCKET_GVT[g].get_initial_parameters(chn)
-            Lib.vars.t0[g] = self.SOCKET_GVT[g].read('O')
-            Lib.vars.r0[g] = self.SOCKET_GVT[g].read('r')
+            Lib.vars.t0[g] = list(self.SOCKET_GVT[g].read('O'))
+            Lib.vars.r0[g] = list(self.SOCKET_GVT[g].read('r'))
             
         for g in Lib.control.GAVETAS:
             if Lib.vars.channels[g] != []:
@@ -865,6 +887,7 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
                     getattr(self.ui, 'actionGaveta_' + str(g + 1) + 'o').setVisible(True)
                     getattr(self.ui, 'actionGaveta_' + str(g + 1) + 'g').setVisible(True)
                     getattr(self.ui, 'label_config' + str(g + 1)).setEnabled(True)
+                    getattr(self.ui, 'label_config' + str(g + 1) + '_2').setEnabled(True)
                     getattr(self.ui, 'checkBox_gvt' + str(g + 1) + '_1').setEnabled(True)
                     getattr(self.ui, 'checkBox_gvt' + str(g + 1) + '_2').setEnabled(True)
                     getattr(self.ui, 'checkBox_gvt' + str(g + 1) + '_3').setEnabled(True)
@@ -873,6 +896,7 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
                     Lib.control.connection_err[g] = False
                     for chn in range(8):
                         getattr(self.ui, 'pB_config_G' + str(g + 1) + 'S' + str(chn + 1)).setEnabled(True)
+                        getattr(self.ui, 'pB_config_G' + str(g + 1) + 'S' + str(chn + 1) + '_2').setEnabled(True)
                     Lib.control.GAVETAS.append(g)
                     Lib.control.GAVETAS.sort()
         except Exception:
@@ -892,6 +916,7 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
                     getattr(self.ui, 'actionGaveta_' + str(g + 1) + 'o').setVisible(False)
                     getattr(self.ui, 'actionGaveta_' + str(g + 1) + 'g').setVisible(False)
                     getattr(self.ui, 'label_config' + str(g + 1)).setEnabled(False)
+                    getattr(self.ui, 'label_config' + str(g + 1) + '_2').setEnabled(False)
                     getattr(self.ui, 'checkBox_gvt' + str(g + 1) + '_1').setEnabled(False)
                     getattr(self.ui, 'checkBox_gvt' + str(g + 1) + '_2').setEnabled(False)
                     getattr(self.ui, 'checkBox_gvt' + str(g + 1) + '_3').setEnabled(False)
@@ -899,7 +924,9 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
                     getattr(self.ui, 'groupBox_op' + str(g + 1)).setEnabled(False)
                     for chn in range(8):
                         getattr(self.ui, 'pB_config_G' + str(g + 1) + 'S' + str(chn + 1)).setEnabled(False)
+                        getattr(self.ui, 'pB_config_G' + str(g + 1) + 'S' + str(chn + 1) + '_2').setEnabled(False)
                         getattr(self.ui, 'pB_config_G' + str(g + 1) + 'S' + str(chn + 1)).setText('S' + str(chn + 1))
+                        getattr(self.ui, 'pB_config_G' + str(g + 1) + 'S' + str(chn + 1) + '_2').setText('S' + str(chn + 1))
                     Lib.control.GAVETAS.remove(g)
         except Exception:
             traceback.print_exc(file=sys.stdout)
@@ -907,47 +934,133 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
     
     def set_trecho(self):
         if self.ui.rB_trecho_impar.isChecked():
-            self.ui.actionTrecho_impar.setVisible(True)
+            #self.ui.actionTrecho_impar.setVisible(True)
+            for g in Lib.control.GAVETAS:
+                # VG grupo 3
+                # vermelho grupo 2
+                # grupo 1
+                for chn in range(8):
+                    _config = False
+                    if ((g == 0 and (chn == 0)) or (g == 1 and (chn == 4)) or (g == 2 and (chn == 0 or chn == 7)) or (g == 3 and (chn == 4)) or (g == 4 and (chn == 6)) or (g == 5 and (chn == 5)) or (g == 6 and (chn == 0)) or  (g == 7 and (chn == 0 or chn == 4)) or (g == 8 and (chn == 2 or chn == 5)) or (g == 9 and (chn == 6)) or (g == 11 and (chn == 1))):
+                        _config = True
+                        getattr(self.ui, 'pB_config_G' + str(g + 1) + 'S' + str(chn + 1)).setStyleSheet('background-color: rgb(255, 74, 77)')
+                        _local = 'J'
+                        if ((g == 3 and chn == 4) or (g == 6 and chn == 0) or (g == 8 and chn == 5)):
+                            _group = '3'
+                        else:
+                            _group = '2'
+                        
+                    elif ((g == 0 and (chn == 2 or chn == 4)) or (g == 1 and (chn == 3 or chn == 6)) or (g == 2 and (chn == 5)) or (g == 3 and (chn == 0)) or (g == 4 and (chn == 2 or chn == 3)) or (g == 5 and (chn == 1 or chn == 3)) or (g == 6 and (chn == 7)) or (g == 7 and (chn == 2 or chn == 6)) or (g == 8 and (chn == 0)) or (g == 9 and (chn == 4 or chn == 7)) or (g == 10 and (chn == 4 or chn == 6)) or (g == 11 and (chn == 0))):
+                        _config = True
+                        getattr(self.ui, 'pB_config_G' + str(g + 1) + 'S' + str(chn + 1)).setStyleSheet('background-color: rgb(255, 183, 94)')
+                        _local = 'Q'
+                        _group = '1'
+                        
+                    elif ((g == 0 and (chn == 1 or chn == 3)) or (g == 1 and (chn == 2 or chn == 5 or chn == 7)) or (g == 2 and (chn == 4 or chn == 6)) or (g == 3 and (chn == 1)) or (g == 4 and (chn == 1)) or (g == 5 and (chn == 0 or chn == 2)) or (g == 7 and (chn == 1 or chn == 3 or chn == 7)) or (g == 8 and (chn == 1)) or (g == 9 and (chn == 3 or chn == 5)) or (g == 10 and (chn == 0 or chn == 5 or chn == 7))):
+                        _config = True
+                        getattr(self.ui, 'pB_config_G' + str(g + 1) + 'S' + str(chn + 1)).setStyleSheet('background-color: rgb(143, 206, 133)')
+                        _local = 'S'
+                        _group = '1'
+                        
+                    elif ((g == 0 and (chn == 5)) or (g == 2 and (chn == 1 or chn == 2 or chn == 3)) or (g == 4 and (chn == 4 or chn == 5 or chn == 7)) or (g == 5 and (chn == 4)) or (g == 6 and (chn == 6)) or (g == 7 and (chn == 5)) or (g == 9 and (chn == 2)) or (g == 10 and (chn == 3))):
+                        _config = True
+                        getattr(self.ui, 'pB_config_G' + str(g + 1) + 'S' + str(chn + 1)).setStyleSheet('color: rgb(255, 255, 255); background-color: rgb(84, 84, 84)')
+                        _local = 'V'
+                        _group = '1'
+                        
+                    elif ((g == 0 and (chn == 6 or chn == 7)) or (g == 3 and (chn == 5 or chn == 6 or chn == 7)) or (g == 6 and (chn == 1 or chn == 2 or chn == 3)) or (g == 8 and (chn == 6 or chn == 7)) or (g == 9 and (chn == 0)) or (g == 10 and (chn == 1))):
+                        _config = True
+                        getattr(self.ui, 'pB_config_G' + str(g + 1) + 'S' + str(chn + 1)).setStyleSheet('background-color: rgb(130, 202, 232)')
+                        _local = 'D'    
+                        _group = '1'
+                        
+                    elif ((g == 1 and (chn == 0 or chn == 1)) or (g == 3 and (chn == 2 or chn == 3)) or (g == 4 and (chn == 0)) or (g == 5 and (chn == 6 or chn == 7)) or (g == 6 and (chn == 4 or chn == 5)) or (g == 8 and (chn == 3 or chn == 4)) or (g == 9 and (chn == 1)) or (g == 10 and (chn == 2))):
+                        _config = True
+                        getattr(self.ui, 'pB_config_G' + str(g + 1) + 'S' + str(chn + 1)).setStyleSheet('background-color: rgb(172, 110, 221)')
+                        _local = 'E'
+                        _group = '1'
+                    
+                    else:
+                        pass
+                    
+                    if _config:
+                        s = list(Lib.vars.name[g][chn])
+                        if (g + 1) > 9:
+                            s[5] = _local
+                            s[6] = _group
+                        else:
+                            s[4] = _local
+                            s[5] = _group
+                            
+                        Lib.vars.name[g][chn] = ''.join(s)
+                        getattr(self.ui, 'pB_config_G' + str(g + 1) + 'S' + str(chn + 1)).setText(Lib.vars.name[g][chn])
+                        getattr(self.ui, 'pB_config_G' + str(g + 1) + 'S' + str(chn + 1)).setChecked(False)
+                    
+        elif self.ui.rB_trecho_par.isChecked():
+            #self.ui.actionTrecho_par.setVisible(True)
             for g in Lib.control.GAVETAS:
                 for chn in range(8):
-                    if ((g == 0 and (chn == 0)) or (g == 1 and (chn == 0 or chn == 3 or chn == 7)) or (g == 2 and (chn == 6)) or (g == 3 and (chn == 1 or chn == 2 or chn == 3 or chn == 7)) or (g == 4 and (chn == 5 or chn == 6)) or (g == 5 and (chn == 5 or chn == 6 or chn == 7)) or (g == 6 and (chn == 0 or chn == 3 or chn == 6)) or  (g == 7 and (chn == 2)) or (g == 8 and (chn == 0 or chn == 1 or chn == 2 or chn == 3 or chn == 7)) or (g == 9 and (chn == 4)) or (g == 10 and (chn == 0 or chn == 7))):
+                    _config = False
+                    if ((g == 0 and (chn == 0)) or (g == 1 and (chn == 4)) or (g == 2 and (chn == 0 or chn == 6)) or (g == 3 and (chn == 3)) or (g == 4 and (chn == 5)) or (g == 5 and (chn == 5)) or (g == 6 and (chn == 1 or chn == 7)) or (g == 7 and (chn == 2)) or (g == 8 and (chn == 2)) or (g == 9 and (chn == 6))):
+                        _config = True
                         getattr(self.ui, 'pB_config_G' + str(g + 1) + 'S' + str(chn + 1)).setStyleSheet('background-color: rgb(255, 74, 77)')
-                        local = 'J'
-                    elif ((g == 0 and (chn == 1 or chn == 3 or chn == 4)) or (g == 1 and (chn == 2 or chn == 5)) or (g == 2 and (chn == 4 or chn == 7)) or (g == 4 and (chn == 1 or chn == 2)) or (g == 5 and (chn == 1 or chn == 3)) or (g == 6 and (chn == 5)) or (g == 7 and (chn == 0 or chn == 4 or chn == 6)) or (g == 9 and (chn == 2 or chn == 5)) or (g == 10 and (chn == 2 or chn == 4 or chn == 6))):
+                        _local = 'J'
+                        if ((g == 3 and chn == 3) or (g == 7 and chn == 2)):
+                            _group = '3'
+                        else:
+                            _group = '2'
+                            
+                    elif ((g == 0 and (chn == 1 or chn == 3 or chn == 4)) or (g == 1 and (chn == 3 or chn == 6)) or (g == 2 and (chn == 5 or chn == 7)) or (g == 4 and (chn == 1 or chn == 2)) or (g == 5 and (chn == 4 or chn == 7)) or (g == 6 and (chn == 3 or chn == 5)) or (g == 8 and (chn == 0 or chn == 3)) or (g == 9 and (chn == 1 or chn == 3 or chn == 5))):
+                        _config = True
                         getattr(self.ui, 'pB_config_G' + str(g + 1) + 'S' + str(chn + 1)).setStyleSheet('background-color: rgb(255, 183, 94)')
-                        local = 'Q'
+                        _local = 'Q'
+                        _group = '1'
                         
-                    elif ((g == 0 and (chn == 2)) or (g == 1 and (chn == 1 or chn == 4 or chn == 6)) or (g == 2 and (chn == 3 or chn == 5)) or (g == 3 and (chn == 0)) or (g == 4 and (chn == 0)) or (g == 5 and (chn == 0 or chn == 2)) or (g == 6 and (chn == 7)) or (g == 7 and (chn == 1 or chn == 5 or chn == 7)) or (g == 9 and (chn == 1 or chn == 3 or chn == 6)) or (g == 10 and (chn == 3 or chn == 5))):
+                    elif ((g == 0 and (chn == 2)) or (g == 1 and (chn == 2 or chn == 5 or chn == 7)) or (g == 2 and (chn == 4)) or (g == 3 and (chn == 0)) or (g == 4 and (chn == 0)) or (g == 5 and (chn == 6)) or (g == 6 and (chn == 0 or chn == 4 or chn == 6)) or (g == 7 and (chn == 7)) or (g == 8 and (chn == 1 or chn == 4)) or (g == 9 and (chn == 2 or chn == 4))):
+                        _config = True
                         getattr(self.ui, 'pB_config_G' + str(g + 1) + 'S' + str(chn + 1)).setStyleSheet('background-color: rgb(143, 206, 133)')
-                        local = 'S'
+                        _local = 'S'
+                        _group = '1'
                         
-                    elif ((g == 0 and (chn == 5)) or (g == 2 and (chn == 0 or chn == 1 or chn == 2)) or (g == 4 and (chn == 3 or chn == 4 or chn == 7)) or (g == 5 and (chn == 4)) or (g == 6 and (chn == 4)) or (g == 7 and (chn == 3)) or (g == 9 and (chn == 0)) or (g == 10 and (chn == 1))):
+                    elif ((g == 0 and (chn == 5)) or (g == 2 and (chn == 1 or chn == 2 or chn == 3)) or (g == 4 and (chn == 3 or chn == 4)) or (g == 5 and (chn == 3)) or (g == 6 and (chn == 2)) or (g == 7 and (chn == 6)) or (g == 9 and (chn == 0))):
+                        _config = True
                         getattr(self.ui, 'pB_config_G' + str(g + 1) + 'S' + str(chn + 1)).setStyleSheet('color: rgb(255, 255, 255); background-color: rgb(84, 84, 84)')
-                        local = 'V'
-                        
-                    elif ((g == 0 and (chn == 6 or chn == 7)) or (g == 3 and (chn == 4 or chn == 5 or chn == 6)) or (g == 6 and (chn == 1 or chn == 2)) or (g == 8 and (chn == 4 or chn == 5 or chn == 6)) or (g == 9 and (chn == 7))):
+                        _local = 'V'
+                        _group = '1'
+                    
+                    elif ((g == 0 and (chn == 6 or chn == 7)) or (g == 3 and (chn == 4 or chn == 5 or chn == 6)) or (g == 4 and (chn == 6 or chn == 7)) or (g == 5 and (chn == 0)) or (g == 7 and (chn == 3 or chn == 4)) or (g == 8 and (chn == 5 or chn == 6))):
+                        _config = True
                         getattr(self.ui, 'pB_config_G' + str(g + 1) + 'S' + str(chn + 1)).setStyleSheet('background-color: rgb(130, 202, 232)')
-                        local = 'D'    
+                        _local = 'D'    
+                        _group = '1'
                         
-                    s = list(Lib.vars.name[g][chn])
-                    if (g + 1) > 9:
-                        s[5] = local
-                        #s[6] = group
+                    elif ((g == 1 and (chn == 0 or chn == 1)) or (g == 3 and (chn == 1 or chn == 2 or chn == 7)) or (g == 5 and (chn == 1 or chn == 2)) or (g == 7 and (chn == 0 or chn == 1 or chn == 5)) or (g == 8 and (chn == 7))):
+                        _config = True
+                        getattr(self.ui, 'pB_config_G' + str(g + 1) + 'S' + str(chn + 1)).setStyleSheet('background-color: rgb(172, 110, 221)')
+                        _local = 'E'
+                        _group = '1'
+                    
                     else:
-                        s[4] = local
-                        #s[5] = group
-                        
-                    Lib.vars.name[g][chn] = ''.join(s)
-                    getattr(self.ui, 'pB_config_G' + str(g + 1) + 'S' + str(chn + 1)).setText(Lib.vars.name[g][chn])
-                    getattr(self.ui, 'pB_config_G' + str(g + 1) + 'S' + str(chn + 1)).setChecked(False)
-        #elif self.ui.rB_trecho_par.isChecked():
-            #self.ui.actionTrecho_par.setVisible(True)
+                        pass
+                    
+                    if _config:
+                        s = list(Lib.vars.name[g][chn])
+                        if (g + 1) > 9:
+                            s[5] = _local
+                            s[6] = _group
+                        else:
+                            s[4] = _local
+                            s[5] = _group
+                            
+                        Lib.vars.name[g][chn] = ''.join(s)
+                        getattr(self.ui, 'pB_config_G' + str(g + 1) + 'S' + str(chn + 1)).setText(Lib.vars.name[g][chn])
+                        getattr(self.ui, 'pB_config_G' + str(g + 1) + 'S' + str(chn + 1)).setChecked(False) 
         else:
             QtGui.QMessageBox.critical(self, 'Erro', 'Nenhum trecho selecionado!', QtGui.QMessageBox.Ok)
             return
         self.ui.rB_trecho_impar.setEnabled(False)
         self.ui.rB_trecho_par.setEnabled(False)
-        self.ui.pB_setTrecho.setEnabled(False)        
+        self.ui.pB_setTrecho.setEnabled(False)
         
     def reset_trecho(self):
         self.ui.actionTrecho_impar.setVisible(False)
@@ -978,10 +1091,33 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
             QtGui.QMessageBox.critical(self, 'Erro', 'Insira um tempo válido!', QtGui.QMessageBox.Ok)
             return
 
-    def config_local(self, local):
+    def config_local(self, local, em_aq):
         for g in Lib.control.GAVETAS:
             for chn in range(8):
-                if getattr(self.ui, 'pB_config_G' + str(g + 1) + 'S' + str(chn + 1)).isChecked():
+                if (em_aq and getattr(self.ui, 'pB_config_G' + str(g + 1) + 'S' + str(chn + 1) + '_2').isChecked()):
+                    s = list(Lib.vars.name[g][chn])
+                    if (g + 1) > 9:
+                        s[5] = local
+                    else:
+                        s[4] = local
+                    Lib.vars.name[g][chn] = ''.join(s)
+                    getattr(self.ui, 'pB_config_G' + str(g + 1) + 'S' + str(chn + 1) + '_2').setText(Lib.vars.name[g][chn])
+                    getattr(self.ui, 'pB_config_G' + str(g + 1) + 'S' + str(chn + 1) + '_2').setChecked(False)
+
+                    if local == 'S':
+                        getattr(self.ui, 'pB_config_G' + str(g + 1) + 'S' + str(chn + 1) + '_2').setStyleSheet('background-color: rgb(143, 206, 133)')
+                    elif local == 'Q':
+                        getattr(self.ui, 'pB_config_G' + str(g + 1) + 'S' + str(chn + 1) + '_2').setStyleSheet('background-color: rgb(255, 183, 94)')
+                    elif local == 'D':
+                        getattr(self.ui, 'pB_config_G' + str(g + 1) + 'S' + str(chn + 1) + '_2').setStyleSheet('background-color: rgb(130, 202, 232)')
+                    elif local == 'J':
+                        getattr(self.ui, 'pB_config_G' + str(g + 1) + 'S' + str(chn + 1) + '_2').setStyleSheet('background-color: rgb(255, 74, 77)')
+                    elif local == 'E':
+                        getattr(self.ui, 'pB_config_G' + str(g + 1) + 'S' + str(chn + 1) + '_2').setStyleSheet('background-color: rgb(172, 110, 221)')
+                    elif local == 'V':
+                        getattr(self.ui, 'pB_config_G' + str(g + 1) + 'S' + str(chn + 1) + '_2').setStyleSheet('color: rgb(255, 255, 255); background-color: rgb(84, 84, 84)')
+                        
+                if (not(em_aq) and getattr(self.ui, 'pB_config_G' + str(g + 1) + 'S' + str(chn + 1)).isChecked()):
                     s = list(Lib.vars.name[g][chn])
                     if (g + 1) > 9:
                         s[5] = local
@@ -990,7 +1126,7 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
                     Lib.vars.name[g][chn] = ''.join(s)
                     getattr(self.ui, 'pB_config_G' + str(g + 1) + 'S' + str(chn + 1)).setText(Lib.vars.name[g][chn])
                     getattr(self.ui, 'pB_config_G' + str(g + 1) + 'S' + str(chn + 1)).setChecked(False)
-
+                    
                     if local == 'S':
                         getattr(self.ui, 'pB_config_G' + str(g + 1) + 'S' + str(chn + 1)).setStyleSheet('background-color: rgb(143, 206, 133)')
                     elif local == 'Q':
@@ -1004,10 +1140,23 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
                     elif local == 'V':
                         getattr(self.ui, 'pB_config_G' + str(g + 1) + 'S' + str(chn + 1)).setStyleSheet('color: rgb(255, 255, 255); background-color: rgb(84, 84, 84)')
 
-    def config_group(self, group):
+    def config_group(self, group, em_aq):
         for g in Lib.control.GAVETAS:
             for chn in range(8):
-                if getattr(self.ui, 'pB_config_G' + str(g + 1) + 'S' + str(chn + 1)).isChecked():
+                if (em_aq and getattr(self.ui, 'pB_config_G' + str(g + 1) + 'S' + str(chn + 1) + '_2').isChecked()):
+                    if chn not in Lib.control.channels_on[g]:
+                        QtGui.QMessageBox.critical(self, 'Erro', 'A saída %s da Gaveta %s n�o está em aquecimento!' %((chn + 1), (g + 1)), QtGui.QMessageBox.Ok)
+                    else:
+                        s = list(Lib.vars.name[g][chn])
+                        if (g + 1) > 9:
+                            s[6] = group
+                        else:
+                            s[5] = group
+                        Lib.vars.name[g][chn] = ''.join(s)
+                        getattr(self.ui, 'pB_config_G' + str(g + 1) + 'S' + str(chn + 1) + '_2').setText(Lib.vars.name[g][chn])
+                        getattr(self.ui, 'pB_config_G' + str(g + 1) + 'S' + str(chn + 1) + '_2').setChecked(False)
+                    
+                if (not(em_aq) and getattr(self.ui, 'pB_config_G' + str(g + 1) + 'S' + str(chn + 1)).isChecked()):
                     s = list(Lib.vars.name[g][chn])
                     if (g + 1) > 9:
                         s[6] = group
@@ -1016,89 +1165,211 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
                     Lib.vars.name[g][chn] = ''.join(s)
                     getattr(self.ui, 'pB_config_G' + str(g + 1) + 'S' + str(chn + 1)).setText(Lib.vars.name[g][chn])
                     getattr(self.ui, 'pB_config_G' + str(g + 1) + 'S' + str(chn + 1)).setChecked(False)
-
-    def set_configuration(self):
-        #Check Configuration
-        for g in Lib.control.GAVETAS:
-            for chn in range(8):
-                if (g + 1) > 9:
-                    _local = Lib.vars.name[g][chn][5]
-                    _group = Lib.vars.name[g][chn][6]
-                else:
-                    _local = Lib.vars.name[g][chn][4]
-                    _group = Lib.vars.name[g][chn][5]
-                if (_local == 'a' and _group != 'b') or (_local != 'a' and _group == 'b'):
-                    QtGui.QMessageBox.critical(self, 'Erro', 'A saída %s da Gaveta %s está com a configuração incompleta!' %((chn + 1), (g + 1)), QtGui.QMessageBox.Ok)
-                    return
-                
-        self.ui.pB_Sext.setEnabled(False)
-        self.ui.pB_Quad.setEnabled(False)
-        self.ui.pB_Dip.setEnabled(False)
-        self.ui.pB_Jaq.setEnabled(False)
-        self.ui.pB_Vazio.setEnabled(False)
-        self.ui.pB_Est_bomb.setEnabled(False)
-        self.ui.pB_G1.setEnabled(False)
-        self.ui.pB_G2.setEnabled(False)
-        self.ui.pB_G3.setEnabled(False)
-        self.ui.pB_set_config.setEnabled(False)
-
-        for g in Lib.control.GAVETAS:
-            for chn in range(8):
-                getattr(self.ui, 'pB_config_G' + str(g + 1) + 'S' + str(chn + 1)).setChecked(False)
-                getattr(self.ui, 'pB_config_G' + str(g + 1) + 'S' + str(chn + 1)).setEnabled(False)
-                if Lib.vars.name[g][chn] != 'G' + str(g + 1) + 'S' + str(chn + 1) + 'ab':
+                    
+    def set_configuration(self, em_aq):
+        if em_aq:
+            for g in Lib.control.GAVETAS:
+                for chn in Lib.control.channels_on[g]:
+                    change_local = False
+                    change_group = False
+                    getattr(self.ui, 'pB_config_G' + str(g + 1) + 'S' + str(chn + 1) + '_2').setChecked(False)
+                    if (g + 1) > 9:
+                        if Lib.vars.name[g][chn][5] == getattr(self.ui, 'pB_config_G' + str(g + 1) + 'S' + str(chn + 1)).text()[5]:
+                           pass
+                        else:
+                            change_local = True
+                            new_local = Lib.vars.name[g][chn][5]
+                        if Lib.vars.name[g][chn][6] == getattr(self.ui, 'pB_config_G' + str(g + 1) + 'S' + str(chn + 1)).text()[6]:
+                            pass
+                        else:
+                            change_group = True
+                            new_group = int(Lib.vars.name[g][chn][6]) - 1
+                            old_group = int(getattr(self.ui, 'pB_config_G' + str(g + 1) + 'S' + str(chn + 1)).text()[6])-1
+                    else:
+                        if Lib.vars.name[g][chn][4] == getattr(self.ui, 'pB_config_G' + str(g + 1) + 'S' + str(chn + 1)).text()[4]:
+                           pass
+                        else:
+                            change_local = True
+                            new_local = Lib.vars.name[g][chn][4]
+                        if Lib.vars.name[g][chn][5] == getattr(self.ui, 'pB_config_G' + str(g + 1) + 'S' + str(chn + 1)).text()[5]:
+                            pass
+                        else:
+                            change_group = True
+                            new_group = int(Lib.vars.name[g][chn][5]) - 1
+                            old_group = int(getattr(self.ui, 'pB_config_G' + str(g + 1) + 'S' + str(chn + 1)).text()[5])-1
+                    
+                    if change_local:
+                        if new_local == 'J':
+                            if chn not in Lib.control.PT100_channels[g]:
+                                Lib.control.PT100_channels[g].append(chn)
+                                Lib.control.PT100_channels[g].sort()
+                                self.SOCKET_GVT[g].set_PT100(Lib.control.PT100_channels[g])
+                            getattr(self.ui, 'pB_config_G' + str(g + 1) + 'S' + str(chn + 1)).setStyleSheet('background-color: rgb(255, 74, 77)')
+                            getattr(self.ui, 'O_nome' + str(chn + 1) + '_' + str(g + 1)).setStyleSheet('background-color: rgb(255, 74, 77)')
+                            getattr(self.ui, 'label_G' + str(g + 1) + 'S' + str(chn + 1) + '_op').setStyleSheet('background-color: rgb(255, 74, 77)')
+                            getattr(self.ui, 'label_s' + str(chn + 1) + '_' + str(g + 1)).setStyleSheet('background-color: rgb(255, 74, 77)')
+                            #getattr(self.ui, 'trecho_impar_G' + str(g + 1) + 'S' + str(chn + 1)).setStyleSheet('background-color: rgb(255, 74, 77)')
+                        elif new_local == 'Q':
+                            if chn in Lib.control.PT100_channels[g]:
+                                Lib.control.PT100_channels[g].remove(chn)
+                                self.SOCKET_GVT[g].set_PT100(Lib.control.PT100_channels[g])
+                            getattr(self.ui, 'pB_config_G' + str(g + 1) + 'S' + str(chn + 1)).setStyleSheet('background-color: rgb(255, 183, 94)')
+                            getattr(self.ui, 'O_nome' + str(chn + 1) + '_' + str(g + 1)).setStyleSheet('background-color: rgb(255, 183, 94)')
+                            getattr(self.ui, 'label_G' + str(g + 1) + 'S' + str(chn + 1) + '_op').setStyleSheet('background-color: rgb(255, 183, 94)')
+                            getattr(self.ui, 'label_s' + str(chn + 1) + '_' + str(g + 1)).setStyleSheet('background-color: rgb(255, 183, 94)')
+                            #getattr(self.ui, 'trecho_impar_G' + str(g + 1) + 'S' + str(chn + 1)).setStyleSheet('background-color: rgb(255, 183, 94)')
+                        elif new_local == 'D':
+                            if chn in Lib.control.PT100_channels[g]:
+                                Lib.control.PT100_channels[g].remove(chn)
+                                self.SOCKET_GVT[g].set_PT100(Lib.control.PT100_channels[g])
+                            getattr(self.ui, 'pB_config_G' + str(g + 1) + 'S' + str(chn + 1)).setStyleSheet('background-color: rgb(130, 202, 232)')
+                            getattr(self.ui, 'O_nome' + str(chn + 1) + '_' + str(g + 1)).setStyleSheet('background-color: rgb(130, 202, 232)')
+                            getattr(self.ui, 'label_G' + str(g + 1) + 'S' + str(chn + 1) + '_op').setStyleSheet('background-color: rgb(130, 202, 232)')
+                            getattr(self.ui, 'label_s' + str(chn + 1) + '_' + str(g + 1)).setStyleSheet('background-color: rgb(130, 202, 232)')
+                            #getattr(self.ui, 'trecho_impar_G' + str(g + 1) + 'S' + str(chn + 1)).setStyleSheet('background-color: rgb(130, 202, 232)')
+                        elif new_local == 'S':
+                            if chn in Lib.control.PT100_channels[g]:
+                                Lib.control.PT100_channels[g].remove(chn)
+                                self.SOCKET_GVT[g].set_PT100(Lib.control.PT100_channels[g])
+                            getattr(self.ui, 'pB_config_G' + str(g + 1) + 'S' + str(chn + 1)).setStyleSheet('background-color: rgb(143, 206, 133)')
+                            getattr(self.ui, 'O_nome' + str(chn + 1) + '_' + str(g + 1)).setStyleSheet('background-color: rgb(143, 206, 133)')
+                            getattr(self.ui, 'label_G' + str(g + 1) + 'S' + str(chn + 1) + '_op').setStyleSheet('background-color: rgb(143, 206, 133)')
+                            getattr(self.ui, 'label_s' + str(chn + 1) + '_' + str(g + 1)).setStyleSheet('background-color: rgb(143, 206, 133)')
+                            #getattr(self.ui, 'trecho_impar_G' + str(g + 1) + 'S' + str(chn + 1)).setStyleSheet('background-color: rgb(143, 206, 133)')
+                        elif new_local == 'V':
+                            if chn in Lib.control.PT100_channels[g]:
+                                Lib.control.PT100_channels[g].remove(chn)
+                                self.SOCKET_GVT[g].set_PT100(Lib.control.PT100_channels[g])
+                            getattr(self.ui, 'pB_config_G' + str(g + 1) + 'S' + str(chn + 1)).setStyleSheet('color: rgb(255, 255, 255); background-color: rgb(84, 84, 84)')
+                            getattr(self.ui, 'O_nome' + str(chn + 1) + '_' + str(g + 1)).setStyleSheet('color: rgb(255, 255, 255); background-color: rgb(84, 84, 84)')
+                            getattr(self.ui, 'label_G' + str(g + 1) + 'S' + str(chn + 1) + '_op').setStyleSheet('color: rgb(255, 255, 255); background-color: rgb(84, 84, 84)')
+                            getattr(self.ui, 'label_s' + str(chn + 1) + '_' + str(g + 1)).setStyleSheet('color: rgb(255, 255, 255); background-color: rgb(84, 84, 84)')
+                            #getattr(self.ui, 'trecho_impar_G' + str(g + 1) + 'S' + str(chn + 1)).setStyleSheet('color: rgb(255, 255, 255); background-color: rgb(84, 84, 84)')
+                        elif new_local == 'E':
+                            if chn not in Lib.control.PT100_channels[g]:
+                                Lib.control.PT100_channels[g].append(chn)
+                                Lib.control.PT100_channels[g].sort()
+                                self.SOCKET_GVT[g].set_PT100(Lib.control.PT100_channels[g])
+                            getattr(self.ui, 'pB_config_G' + str(g + 1) + 'S' + str(chn + 1)).setStyleSheet('background-color: rgb(172, 110, 221)')
+                            getattr(self.ui, 'O_nome' + str(chn + 1) + '_' + str(g + 1)).setStyleSheet('background-color: rgb(172, 110, 221)')
+                            getattr(self.ui, 'label_G' + str(g + 1) + 'S' + str(chn + 1) + '_op').setStyleSheet('background-color: rgb(172, 110, 221)')
+                            getattr(self.ui, 'label_s' + str(chn + 1) + '_' + str(g + 1)).setStyleSheet('background-color: rgb(172, 110, 221)')
+                            #getattr(self.ui, 'trecho_impar_G' + str(g + 1) + 'S' + str(chn + 1)).setStyleSheet('background-color: rgb(172, 110, 221)')
+                    
+                    if change_group:
+                        try:
+                            for gvt in Lib.control.group[new_group]:
+                                for channel in Lib.control.group[new_group][gvt]:
+                                    new_curve = Lib.vars.interpolation_points[gvt][channel]
+                                    break
+                        except:
+                            QtGui.QMessageBox.critical(self, 'Erro', 'Erro na mudança de grupo', QtGui.QMessageBox.Ok)
+                            return
+                        try:
+                            Lib.control.group[old_group][g].remove(chn)
+                            Lib.control.group[new_group][g].append(chn)
+                            Lib.control.group[new_group][g].sort()
+                            Lib.vars.interpolation_points[g][chn] = new_curve
+                            self.SOCKET_GVT[g].interpolation_points(chn, Lib.vars.interpolation_points[g][chn])
+                        except:
+                            QtGui.QMessageBox.critical(self, 'Erro', 'Erro na mudança de grupo', QtGui.QMessageBox.Ok)
+                            return
+                    getattr(self.ui, 'pB_config_G' + str(g + 1) + 'S' + str(chn + 1)).setText(Lib.vars.name[g][chn])
+                    getattr(self.ui, 'O_nome' + str(chn + 1) + '_' + str(g + 1)).setText(Lib.vars.name[g][chn])
                     getattr(self.ui, 'label_G' + str(g + 1) + 'S' + str(chn + 1) + '_op').setText(Lib.vars.name[g][chn] + ':')
+                    getattr(self.ui, 'label_s' + str(chn + 1) + '_' + str(g + 1)).setText(Lib.vars.name[g][chn])
+            QtGui.QMessageBox.information(self, 'Mensagem', 'Configurações atualizadas!', QtGui.QMessageBox.Ok)
+
+        else:       
+            #Check Configuration
+            for g in Lib.control.GAVETAS:
+                for chn in range(8):
                     if (g + 1) > 9:
-                        local = Lib.vars.name[g][chn][5]
+                        _local = Lib.vars.name[g][chn][5]
+                        _group = Lib.vars.name[g][chn][6]
                     else:
-                        local = Lib.vars.name[g][chn][4]
-                    if local == 'J':
-                        Lib.control.PT100_channels[g].append(chn)
-                        getattr(self.ui, 'O_nome' + str(chn + 1) + '_' + str(g + 1)).setStyleSheet('background-color: rgb(255, 74, 77)')
-                        getattr(self.ui, 'label_G' + str(g + 1) + 'S' + str(chn + 1) + '_op').setStyleSheet('background-color: rgb(255, 74, 77)')
-                        getattr(self.ui, 'label_s' + str(chn + 1) + '_' + str(g + 1)).setStyleSheet('background-color: rgb(255, 74, 77)')
-                        #getattr(self.ui, 'trecho_impar_G' + str(g + 1) + 'S' + str(chn + 1)).setStyleSheet('background-color: rgb(255, 74, 77)')
-                    elif local == 'Q':
-                        getattr(self.ui, 'O_nome' + str(chn + 1) + '_' + str(g + 1)).setStyleSheet('background-color: rgb(255, 183, 94)')
-                        getattr(self.ui, 'label_G' + str(g + 1) + 'S' + str(chn + 1) + '_op').setStyleSheet('background-color: rgb(255, 183, 94)')
-                        getattr(self.ui, 'label_s' + str(chn + 1) + '_' + str(g + 1)).setStyleSheet('background-color: rgb(255, 183, 94)')
-                        #getattr(self.ui, 'trecho_impar_G' + str(g + 1) + 'S' + str(chn + 1)).setStyleSheet('background-color: rgb(255, 183, 94)')
-                    elif local == 'D':
-                        getattr(self.ui, 'O_nome' + str(chn + 1) + '_' + str(g + 1)).setStyleSheet('background-color: rgb(130, 202, 232)')
-                        getattr(self.ui, 'label_G' + str(g + 1) + 'S' + str(chn + 1) + '_op').setStyleSheet('background-color: rgb(130, 202, 232)')
-                        getattr(self.ui, 'label_s' + str(chn + 1) + '_' + str(g + 1)).setStyleSheet('background-color: rgb(130, 202, 232)')
-                        #getattr(self.ui, 'trecho_impar_G' + str(g + 1) + 'S' + str(chn + 1)).setStyleSheet('background-color: rgb(130, 202, 232)')
-                    elif local == 'S':
-                        getattr(self.ui, 'O_nome' + str(chn + 1) + '_' + str(g + 1)).setStyleSheet('background-color: rgb(143, 206, 133)')
-                        getattr(self.ui, 'label_G' + str(g + 1) + 'S' + str(chn + 1) + '_op').setStyleSheet('background-color: rgb(143, 206, 133)')
-                        getattr(self.ui, 'label_s' + str(chn + 1) + '_' + str(g + 1)).setStyleSheet('background-color: rgb(143, 206, 133)')
-                        #getattr(self.ui, 'trecho_impar_G' + str(g + 1) + 'S' + str(chn + 1)).setStyleSheet('background-color: rgb(143, 206, 133)')
-                    elif local == 'V':
-                        getattr(self.ui, 'O_nome' + str(chn + 1) + '_' + str(g + 1)).setStyleSheet('color: rgb(255, 255, 255); background-color: rgb(84, 84, 84)')
-                        getattr(self.ui, 'label_G' + str(g + 1) + 'S' + str(chn + 1) + '_op').setStyleSheet('color: rgb(255, 255, 255); background-color: rgb(84, 84, 84)')
-                        getattr(self.ui, 'label_s' + str(chn + 1) + '_' + str(g + 1)).setStyleSheet('color: rgb(255, 255, 255); background-color: rgb(84, 84, 84)')
-                        #getattr(self.ui, 'trecho_impar_G' + str(g + 1) + 'S' + str(chn + 1)).setStyleSheet('color: rgb(255, 255, 255); background-color: rgb(84, 84, 84)')
-                    elif local == 'E':
-                        Lib.control.PT100_channels[g].append(chn)
-                        getattr(self.ui, 'O_nome' + str(chn + 1) + '_' + str(g + 1)).setStyleSheet('background-color: rgb(172, 110, 221)')
-                        getattr(self.ui, 'label_G' + str(g + 1) + 'S' + str(chn + 1) + '_op').setStyleSheet('background-color: rgb(172, 110, 221)')
-                        getattr(self.ui, 'label_s' + str(chn + 1) + '_' + str(g + 1)).setStyleSheet('background-color: rgb(172, 110, 221)')
-                        #getattr(self.ui, 'trecho_impar_G' + str(g + 1) + 'S' + str(chn + 1)).setStyleSheet('background-color: rgb(172, 110, 221)')
-                try:
-                    if (g + 1) > 9:
-                        group = int(getattr(self.ui, 'pB_config_G' + str(g + 1) + 'S' + str(chn + 1)).text()[6]) - 1
-                    else:
-                        group = int(getattr(self.ui, 'pB_config_G' + str(g + 1) + 'S' + str(chn + 1)).text()[5]) - 1
-                    if g not in Lib.control.group[group]:
-                        Lib.control.group[group][g] = []
-                    if chn not in Lib.control.group[group][g]:
-                        Lib.control.group[group][g].append(chn)
-                except ValueError:
-                    traceback.print_exc(file=sys.stdout)
-                    QtGui.QMessageBox.critical(self, 'Erro', 'Existe algum canal configurado sem grupo! Reinicie a configuração', QtGui.QMessageBox.Ok)
-                    return
-                except IndexError:
-                    pass
+                        _local = Lib.vars.name[g][chn][4]
+                        _group = Lib.vars.name[g][chn][5]
+                    if (_local == 'a' and _group != 'b') or (_local != 'a' and _group == 'b'):
+                        QtGui.QMessageBox.critical(self, 'Erro', 'A saída %s da Gaveta %s está com a configuração incompleta!' %((chn + 1), (g + 1)), QtGui.QMessageBox.Ok)
+                        return
+
+            self.ui.pB_Sext.setEnabled(False)
+            self.ui.pB_Quad.setEnabled(False)
+            self.ui.pB_Dip.setEnabled(False)
+            self.ui.pB_Jaq.setEnabled(False)
+            self.ui.pB_Vazio.setEnabled(False)
+            self.ui.pB_Est_bomb.setEnabled(False)
+            self.ui.pB_G1.setEnabled(False)
+            self.ui.pB_G2.setEnabled(False)
+            self.ui.pB_G3.setEnabled(False)
+            self.ui.pB_set_config.setEnabled(False)
+    
+            for g in Lib.control.GAVETAS:
+                for chn in range(8):
+                    getattr(self.ui, 'pB_config_G' + str(g + 1) + 'S' + str(chn + 1)).setChecked(False)
+                    getattr(self.ui, 'pB_config_G' + str(g + 1) + 'S' + str(chn + 1)).setEnabled(False)
+                    if Lib.vars.name[g][chn] != 'G' + str(g + 1) + 'S' + str(chn + 1) + 'ab':
+                        getattr(self.ui, 'label_G' + str(g + 1) + 'S' + str(chn + 1) + '_op').setText(Lib.vars.name[g][chn] + ':')
+                        if (g + 1) > 9:
+                            local = Lib.vars.name[g][chn][5]
+                        else:
+                            local = Lib.vars.name[g][chn][4]
+                        if local == 'J':
+                            Lib.control.PT100_channels[g].append(chn)
+                            getattr(self.ui, 'pB_config_G' + str(g + 1) + 'S' + str(chn + 1) + '_2').setStyleSheet('background-color: rgb(255, 74, 77)')
+                            getattr(self.ui, 'O_nome' + str(chn + 1) + '_' + str(g + 1)).setStyleSheet('background-color: rgb(255, 74, 77)')
+                            getattr(self.ui, 'label_G' + str(g + 1) + 'S' + str(chn + 1) + '_op').setStyleSheet('background-color: rgb(255, 74, 77)')
+                            getattr(self.ui, 'label_s' + str(chn + 1) + '_' + str(g + 1)).setStyleSheet('background-color: rgb(255, 74, 77)')
+                            #getattr(self.ui, 'trecho_impar_G' + str(g + 1) + 'S' + str(chn + 1)).setStyleSheet('background-color: rgb(255, 74, 77)')
+                        elif local == 'Q':
+                            getattr(self.ui, 'pB_config_G' + str(g + 1) + 'S' + str(chn + 1) + '_2').setStyleSheet('background-color: rgb(255, 183, 94)')
+                            getattr(self.ui, 'O_nome' + str(chn + 1) + '_' + str(g + 1)).setStyleSheet('background-color: rgb(255, 183, 94)')
+                            getattr(self.ui, 'label_G' + str(g + 1) + 'S' + str(chn + 1) + '_op').setStyleSheet('background-color: rgb(255, 183, 94)')
+                            getattr(self.ui, 'label_s' + str(chn + 1) + '_' + str(g + 1)).setStyleSheet('background-color: rgb(255, 183, 94)')
+                            #getattr(self.ui, 'trecho_impar_G' + str(g + 1) + 'S' + str(chn + 1)).setStyleSheet('background-color: rgb(255, 183, 94)')
+                        elif local == 'D':
+                            getattr(self.ui, 'pB_config_G' + str(g + 1) + 'S' + str(chn + 1) + '_2').setStyleSheet('background-color: rgb(130, 202, 232)')
+                            getattr(self.ui, 'O_nome' + str(chn + 1) + '_' + str(g + 1)).setStyleSheet('background-color: rgb(130, 202, 232)')
+                            getattr(self.ui, 'label_G' + str(g + 1) + 'S' + str(chn + 1) + '_op').setStyleSheet('background-color: rgb(130, 202, 232)')
+                            getattr(self.ui, 'label_s' + str(chn + 1) + '_' + str(g + 1)).setStyleSheet('background-color: rgb(130, 202, 232)')
+                            #getattr(self.ui, 'trecho_impar_G' + str(g + 1) + 'S' + str(chn + 1)).setStyleSheet('background-color: rgb(130, 202, 232)')
+                        elif local == 'S':
+                            getattr(self.ui, 'pB_config_G' + str(g + 1) + 'S' + str(chn + 1) + '_2').setStyleSheet('background-color: rgb(143, 206, 133)')
+                            getattr(self.ui, 'O_nome' + str(chn + 1) + '_' + str(g + 1)).setStyleSheet('background-color: rgb(143, 206, 133)')
+                            getattr(self.ui, 'label_G' + str(g + 1) + 'S' + str(chn + 1) + '_op').setStyleSheet('background-color: rgb(143, 206, 133)')
+                            getattr(self.ui, 'label_s' + str(chn + 1) + '_' + str(g + 1)).setStyleSheet('background-color: rgb(143, 206, 133)')
+                            #getattr(self.ui, 'trecho_impar_G' + str(g + 1) + 'S' + str(chn + 1)).setStyleSheet('background-color: rgb(143, 206, 133)')
+                        elif local == 'V':
+                            getattr(self.ui, 'pB_config_G' + str(g + 1) + 'S' + str(chn + 1) + '_2').setStyleSheet('color: rgb(255, 255, 255); background-color: rgb(84, 84, 84)')
+                            getattr(self.ui, 'O_nome' + str(chn + 1) + '_' + str(g + 1)).setStyleSheet('color: rgb(255, 255, 255); background-color: rgb(84, 84, 84)')
+                            getattr(self.ui, 'label_G' + str(g + 1) + 'S' + str(chn + 1) + '_op').setStyleSheet('color: rgb(255, 255, 255); background-color: rgb(84, 84, 84)')
+                            getattr(self.ui, 'label_s' + str(chn + 1) + '_' + str(g + 1)).setStyleSheet('color: rgb(255, 255, 255); background-color: rgb(84, 84, 84)')
+                            #getattr(self.ui, 'trecho_impar_G' + str(g + 1) + 'S' + str(chn + 1)).setStyleSheet('color: rgb(255, 255, 255); background-color: rgb(84, 84, 84)')
+                        elif local == 'E':
+                            Lib.control.PT100_channels[g].append(chn)
+                            getattr(self.ui, 'pB_config_G' + str(g + 1) + 'S' + str(chn + 1) + '_2').setStyleSheet('background-color: rgb(172, 110, 221)')
+                            getattr(self.ui, 'O_nome' + str(chn + 1) + '_' + str(g + 1)).setStyleSheet('background-color: rgb(172, 110, 221)')
+                            getattr(self.ui, 'label_G' + str(g + 1) + 'S' + str(chn + 1) + '_op').setStyleSheet('background-color: rgb(172, 110, 221)')
+                            getattr(self.ui, 'label_s' + str(chn + 1) + '_' + str(g + 1)).setStyleSheet('background-color: rgb(172, 110, 221)')
+                            #getattr(self.ui, 'trecho_impar_G' + str(g + 1) + 'S' + str(chn + 1)).setStyleSheet('background-color: rgb(172, 110, 221)')
+                        getattr(self.ui, 'pB_config_G' + str(g + 1) + 'S' + str(chn + 1) + '_2').setText(Lib.vars.name[g][chn])
+                    try:
+                        if (g + 1) > 9:
+                            group = int(getattr(self.ui, 'pB_config_G' + str(g + 1) + 'S' + str(chn + 1)).text()[6]) - 1
+                        else:
+                            group = int(getattr(self.ui, 'pB_config_G' + str(g + 1) + 'S' + str(chn + 1)).text()[5]) - 1
+                        if g not in Lib.control.group[group]:
+                            Lib.control.group[group][g] = []
+                        if chn not in Lib.control.group[group][g]:
+                            Lib.control.group[group][g].append(chn)
+                    except ValueError:
+                        traceback.print_exc(file=sys.stdout)
+                        QtGui.QMessageBox.critical(self, 'Erro', 'Existe algum canal configurado sem grupo! Reinicie a configuração', QtGui.QMessageBox.Ok)
+                        return
+                    except IndexError:
+                        pass
+                    
 
     def escape_configuration(self):
         self.ui.pB_Sext.setEnabled(True)
@@ -1131,7 +1402,11 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
                 getattr(self.ui, 'pB_config_G' + str(g + 1) + 'S' + str(chn + 1)).setStyleSheet('')
                 getattr(self.ui, 'pB_config_G' + str(g + 1) + 'S' + str(chn + 1)).setEnabled(True)
                 getattr(self.ui, 'pB_config_G' + str(g + 1) + 'S' + str(chn + 1)).setChecked(False)
+                getattr(self.ui, 'pB_config_G' + str(g + 1) + 'S' + str(chn + 1) + '_2').setStyleSheet('')
+                getattr(self.ui, 'pB_config_G' + str(g + 1) + 'S' + str(chn + 1) + '_2').setEnabled(True)
+                getattr(self.ui, 'pB_config_G' + str(g + 1) + 'S' + str(chn + 1) + '_2').setChecked(False)
                 getattr(self.ui, 'pB_config_G' + str(g + 1) + 'S' + str(chn + 1)).setText('S' + str(chn + 1))
+                getattr(self.ui, 'pB_config_G' + str(g + 1) + 'S' + str(chn + 1) + '_2').setText('S' + str(chn + 1))
                 getattr(self.ui, 'checkBox_saida' + str(chn + 1) + '_' + str(g + 1)).setChecked(False)
                 getattr(self.ui, 'checkBox_saida' + str(chn + 1) + '_' + str(g + 1)).setEnabled(False)
                 getattr(self.ui, 'groupBox_saida' + str(chn + 1) + '_' + str(g + 1)).setEnabled(False)
@@ -1154,14 +1429,18 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
             getattr(self.ui, 'checkBox_gvt' + str(g + 1) + '_3').setChecked(False)
             getattr(self.ui, 'checkBox_gvt' + str(g + 1) + '_4').setChecked(False)
             
-    def reset_chn(self):
+    def reset_chn(self, em_aq):
         for g in Lib.control.GAVETAS:
             for chn in range(8):
-                if getattr(self.ui, 'pB_config_G' + str(g + 1) + 'S' + str(chn + 1)).isChecked():
+                if (em_aq and getattr(self.ui, 'pB_config_G' + str(g + 1) + 'S' + str(chn + 1) + '_2').isChecked()) or (not(em_aq) and getattr(self.ui, 'pB_config_G' + str(g + 1) + 'S' + str(chn + 1)).isChecked()):
                     getattr(self.ui, 'pB_config_G' + str(g + 1) + 'S' + str(chn + 1)).setStyleSheet('')
                     getattr(self.ui, 'pB_config_G' + str(g + 1) + 'S' + str(chn + 1)).setEnabled(True)
                     getattr(self.ui, 'pB_config_G' + str(g + 1) + 'S' + str(chn + 1)).setChecked(False)
                     getattr(self.ui, 'pB_config_G' + str(g + 1) + 'S' + str(chn + 1)).setText('S' + str(chn + 1))
+                    getattr(self.ui, 'pB_config_G' + str(g + 1) + 'S' + str(chn + 1) + '_2').setStyleSheet('')
+                    getattr(self.ui, 'pB_config_G' + str(g + 1) + 'S' + str(chn + 1) + '_2').setEnabled(True)
+                    getattr(self.ui, 'pB_config_G' + str(g + 1) + 'S' + str(chn + 1) + '_2').setChecked(False)
+                    getattr(self.ui, 'pB_config_G' + str(g + 1) + 'S' + str(chn + 1) + '_2').setText('S' + str(chn + 1))
                     Lib.vars.name[g][chn] = 'G' + str(g + 1) + 'S' + str(chn + 1) + 'ab'              
 
     def read_r0(self):
@@ -1198,7 +1477,7 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
         else:
             chn = int(self.ui.comboBox_chn.currentText()) - 1
             if chn not in Lib.vars.channels[g]:
-                QtGui.QMessageBox.critical(self, 'Erro', 'Temperatura inicial do canal não configurada!', QtGui.QMessageBox.Ok)
+                QtGui.QMessageBox.critical(self, 'Erro', 'Temperatura inicial do canal n�o configurada!', QtGui.QMessageBox.Ok)
                 return
             t0 = self.SOCKET_GVT[g].read('O')
             index = Lib.vars.channels[g].index(chn)
@@ -1286,9 +1565,9 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
                 
     def edit(self, var, group):
         if var == 'temp':
-            text = 'Temp%s(°C):'
+            text = 'Temp%s(�C):'
         elif var == 'taxa':
-            text = 'Taxa%s(°C/min):'
+            text = 'Taxa%s(�C/min):'
         elif var == 'patamar':
             text = 'Patamar%s(min):'
         
@@ -1445,7 +1724,7 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
                 Lib.control.config_ok = True
         else:
             if getattr(self.ui, 'lineed_temp_em_aq_' + str(group + 1)).isEnabled() or getattr(self.ui, 'lineed_taxa_em_aq_' + str(group + 1)).isEnabled() or getattr(self.ui, 'lineed_patamar_em_aq_' + str(group + 1)).isEnabled():
-                QtGui.QMessageBox.critical(self, 'Erro', 'Finalize a configuração antes de prossegir!' , QtGui.QMessageBox.Ok)
+                QtGui.QMessageBox.critical(self, 'Erro', 'Finalize a configura��o antes de prossegir!' , QtGui.QMessageBox.Ok)
                 return
             
             getattr(self.ui, 'lineed_n_est_aq_em_aq_' + str(group + 1)).setEnabled(False)
@@ -1577,7 +1856,8 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
                 Lib.control.run_control_on[g] = self.SOCKET_GVT[g].run_control()
                 Lib.vars.file[g] = self.open_file(g)
             
-            temp_init = self.SOCKET_GVT[g].read('p')
+            time.sleep(0.5)
+            temp_init = list(self.SOCKET_GVT[g].read('p'))
             for chn in Lib.control.group[group][g]:
                 getattr(self.ui, 'O_off' + str(chn + 1) + '_' + str(g + 1)).setEnabled(True)
                 Lib.control.channels_on[g].append(chn)
@@ -1704,7 +1984,7 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
             getattr(self.ui, 'O_off' + str(chn + 1) + '_' + str(g + 1)).setEnabled(True)
         except Exception:
             traceback.print_exc(file=sys.stdout)
-            QtGui.QMessageBox.critical(self, 'Erro', 'O canal não foi ligado corretamente', QtGui.QMessageBox.Ok)
+            QtGui.QMessageBox.critical(self, 'Erro', 'O canal n�o foi ligado corretamente', QtGui.QMessageBox.Ok)
             getattr(self.ui, 'O_on' + str(chn + 1) + '_' + str(g + 1)).setEnabled(True)
             getattr(self.ui, 'O_off' + str(chn + 1) + '_' + str(g + 1)).setEnabled(False)
             return
@@ -1737,7 +2017,7 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
             getattr(self.ui, 'O_off' + str(chn + 1) + '_' + str(g + 1)).setEnabled(False)
         except Exception:
             traceback.print_exc(file=sys.stdout)
-            QtGui.QMessageBox.critical(self, 'Erro', 'O canal não foi desligado corretamente', QtGui.QMessageBox.Ok)
+            QtGui.QMessageBox.critical(self, 'Erro', 'O canal n�o foi desligado corretamente', QtGui.QMessageBox.Ok)
             getattr(self.ui, 'O_on' + str(chn + 1) + '_' + str(g + 1)).setEnabled(False)
             getattr(self.ui, 'O_off' + str(chn + 1) + '_' + str(g + 1)).setEnabled(True)
             return
