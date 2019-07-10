@@ -581,9 +581,9 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
         self.ui.checkBox_limit7_14.clicked.connect(lambda: self.set_current_limit(6, 13))
         self.ui.checkBox_limit8_14.clicked.connect(lambda: self.set_current_limit(7, 13))
         
-        self.ui.pB_on1.clicked.connect(lambda: self.on_group(0))
-        self.ui.pB_on2.clicked.connect(lambda: self.on_group(1))
-        self.ui.pB_on3.clicked.connect(lambda: self.on_group(2))
+        #self.ui.pB_on1.clicked.connect(lambda: self.on_group(0))
+        #self.ui.pB_on2.clicked.connect(lambda: self.on_group(1))
+        #self.ui.pB_on3.clicked.connect(lambda: self.on_group(2))
         self.ui.pB_hold1.clicked.connect(lambda: self.hold_group(0))
         self.ui.pB_hold2.clicked.connect(lambda: self.hold_group(1))
         self.ui.pB_hold3.clicked.connect(lambda: self.hold_group(2))
@@ -1855,9 +1855,10 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
             if not(Lib.control.run_control_on[g]):
                 Lib.control.run_control_on[g] = self.SOCKET_GVT[g].run_control()
                 Lib.vars.file[g] = self.open_file(g)
+                Lib.control.GAVETAS_ON.append(g)
+                time.sleep(0.5)
+                Lib.vars.temp_init[g] = list(self.SOCKET_GVT[g].read('p'))
             
-            time.sleep(0.5)
-            temp_init = list(self.SOCKET_GVT[g].read('p'))
             for chn in Lib.control.group[group][g]:
                 getattr(self.ui, 'O_off' + str(chn + 1) + '_' + str(g + 1)).setEnabled(True)
                 Lib.control.channels_on[g].append(chn)
@@ -1868,23 +1869,15 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
                 Lib.measurements['Tensão'][g][chn] = np.append(Lib.measurements['Tensão'][g][chn], 0)
                 Lib.measurements['Corrente'][g][chn] = np.append(Lib.measurements['Corrente'][g][chn], 0)
                 Lib.measurements['Potência'][g][chn] = np.append(Lib.measurements['Potência'][g][chn], 0)
-                Lib.measurements['Temperatura'][g][chn] = np.append(Lib.measurements['Temperatura'][g][chn], temp_init[index])
-                Lib.config.temp[g][chn].insert(0, temp_init[index])
+                Lib.measurements['Temperatura'][g][chn] = np.append(Lib.measurements['Temperatura'][g][chn], Lib.vars.temp_init[g][index])
+                Lib.config.temp[g][chn].insert(0, Lib.vars.temp_init[g][index])
 
                 self.calculate_send_points(chn, g, group)
 
-            if not(Lib.control.curves_on[g]):
-                Lib.control.curves_on[g] = self.SOCKET_GVT[g].turn_on()
-                Lib.control.GAVETAS_ON.append(g)
-                self.reading_thread[g] = threading.Thread(target=Lib.reading_th, args=(g,))
-                self.reading_thread[g].setDaemon(True)
-                self.reading_thread[g].start()
-
         self.timer[group].start(1000)
-        getattr(self.ui, 'pB_on' + str(group + 1)).setEnabled(False)
+        #getattr(self.ui, 'pB_on' + str(group + 1)).setEnabled(False)
         getattr(self.ui, 'pB_off' + str(group + 1)).setEnabled(True)
         if not(Lib.control.measurements_ON):
-            self.refresh_timer.start(500)
             Lib.control.measurements_ON = True
             self.ui.GroupBox_Estagios.setEnabled(False)
 
@@ -1915,7 +1908,7 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
                             self.turn_off(g, chn)
 
         self.timer[group].stop()
-        getattr(self.ui, 'pB_on' + str(group + 1)).setEnabled(True)
+        #getattr(self.ui, 'pB_on' + str(group + 1)).setEnabled(True)
         getattr(self.ui, 'pB_off' + str(group + 1)).setEnabled(False)
         getattr(self.ui, 'lineed_time' + str(group + 1)).setText('')
 
@@ -2071,7 +2064,15 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
             for group in Lib.control.group:
                 if getattr(self.ui, 'groupBox_' + str(group + 1)).isEnabled() and getattr(self.ui, 'lineed_time' + str(group + 1)).text() == '':
                     self.on_group(group)
+            
+            for g in Lib.control.GAVETAS_ON:
+                Lib.control.curves_on[g] = self.SOCKET_GVT[g].turn_on()
+                self.reading_thread[g] = threading.Thread(target=Lib.reading_th, args=(g,))
+                self.reading_thread[g].setDaemon(True)
+                self.reading_thread[g].start()
+            
             QtGui.QApplication.restoreOverrideCursor()
+            self.refresh_timer.start(500)
         else:
             QtGui.QMessageBox.critical(self, 'Erro', 'Existe um grupo sem Estágios de Aquecimento configurado. Volte à tela de Configuração Inicial.', QtGui.QMessageBox.Ok)
 
@@ -2089,7 +2090,7 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
             self.timer[group].stop()
             #getattr(self.ui, 'actionGrupo_' + str(group + 1)).setVisible(False)
             #getattr(self.ui, 'actionGrupo_4').setVisible(False)
-            getattr(self.ui, 'pB_on' + str(group + 1)).setEnabled(True)
+            #getattr(self.ui, 'pB_on' + str(group + 1)).setEnabled(True)
             getattr(self.ui, 'pB_off' + str(group + 1)).setEnabled(False)
             getattr(self.ui, 'lineed_time' + str(group + 1)).setText('')
             getattr(self.ui, 'groupBox_' + str(group + 1)).setEnabled(False)

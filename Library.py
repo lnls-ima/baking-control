@@ -190,10 +190,12 @@ class Lib(object):
             self.powers = []
             self.times = []
             
+            self.temp_init = dict()
             self.channels = dict()
             
             for i in range(14):
                 self.channels[i] = []
+                self.temp_init = []
                 self.temperatures.append(np.array([]))
                 self.temp_res.append(np.array([]))
                 self.temp_pt100.append(np.array([]))
