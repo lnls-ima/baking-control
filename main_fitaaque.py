@@ -1856,7 +1856,7 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
                 Lib.control.run_control_on[g] = self.SOCKET_GVT[g].run_control()
                 Lib.vars.file[g] = self.open_file(g)
                 Lib.control.GAVETAS_ON.append(g)
-                time.sleep(0.5)
+                self.SOCKET_GVT[g].set_DAC(Lib.vars.channels[g])
                 Lib.vars.temp_init[g] = list(self.SOCKET_GVT[g].read('p'))
             
             for chn in Lib.control.group[group][g]:

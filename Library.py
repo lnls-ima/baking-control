@@ -195,7 +195,7 @@ class Lib(object):
             
             for i in range(14):
                 self.channels[i] = []
-                self.temp_init = []
+                self.temp_init[i] = []
                 self.temperatures.append(np.array([]))
                 self.temp_res.append(np.array([]))
                 self.temp_pt100.append(np.array([]))

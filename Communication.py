@@ -48,11 +48,17 @@ class Gaveta(object):
     def reset_run_control(self):
         self.socket.send('WFR1'.encode('utf-8'))
         self.socket.recv(1024).decode('utf-8') 
+        time.sleep(0.1)
         
     def run_control(self):
         self.socket.send('WFS1'.encode('utf-8'))
         self.socket.recv(1024).decode('utf-8')
         return True
+    
+    def set_DAC(self, chns):
+        _dac = [1000] * len(chns)
+        self.socket.send(('WP' + ';'.join(map(str, _dac))).encode('utf-8'))
+        self.socket.recv(1024).decode('utf-8')
         
     def set_active_channels(self, chns):
         self.socket.send(('WH' + ';'.join(map(str, chns))).encode('utf-8'))
